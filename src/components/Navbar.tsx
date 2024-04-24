@@ -16,17 +16,9 @@ const Navbar = () => {
             <nav className='bg-gray-100'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='flex h-16 items-center justify-between'>
-                        <div className='flex items-center'>
-                            <div className='flex-shrink-0'>
-                                <a href='/' className='text-4xl '>
-                                    {/* <Image
-                                        src={logo}
-                                        alt='IVE logo'
-                                    /> */}
-                                    IVE
-                                </a>
-                            </div>
-                        </div>
+                        <a href='/'>
+                            <Image src={logo} alt='IVE logo' height={45} />
+                        </a>
                         <div className='hidden md:block'>
                             <div className='ml-4 flex items-center space-x-4 text-black'>
                                 <a
