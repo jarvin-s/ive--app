@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.yujin {
+    background-image: url('/public/images/yujin.jpg');
+}

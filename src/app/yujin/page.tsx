@@ -8,7 +8,7 @@ const Yujin = () => {
                 <Image
                     src='/images/yujin.jpg'
                     alt='Boat'
-                    className='w-full rounded-lg md:w-1/6'
+                    className='w-full rounded-l-lg md:w-1/6'
                     width={300}
                     height={200}
                 />
