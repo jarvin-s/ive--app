@@ -13,21 +13,21 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className='bg-transparent'>
+            <nav className='absolute bg-transparent w-full'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='flex h-16 items-center justify-between'>
                         <a href='/'>
                             <Image src={logo} alt='IVE logo' height={45} />
                         </a>
                         <div className='hidden md:block'>
-                            <div className='ml-4 flex items-center space-x-4 text-black'>
-                                <a
+                            <div className='ml-4 flex items-center space-x-4 text-white uppercase font-bold text-xl tracking-wide'>
+                                {/* <a
                                     href='/'
                                     className='relative block cursor-pointer rounded-lg 
                                     p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
                                 >
-                                    Home
-                                </a>
+                                    IVE
+                                </a> */}
                                 <a
                                     href='/yujin'
                                     className='relative block cursor-pointer rounded-lg 
@@ -119,7 +119,7 @@ const Navbar = () => {
                 </div>
                 {isClicked && (
                     <div className='md:hidden'>
-                        <div className='space-y-1 px-2 pb-4 pt-3'>
+                        <div className='space-y-1 px-2 pb-4 pt-3 text-white uppercase font-bold'>
                             <a
                                 href='/'
                                 className='relative block w-16 cursor-pointer rounded-lg

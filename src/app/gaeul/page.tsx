@@ -8,7 +8,7 @@ const Gaeul = () => {
                 <Image
                     src='/images/gaeul.jpg'
                     alt='Boat'
-                    className='w-full rounded-l-lg md:w-1/6'
+                    className='w-full md:rounded-l-lg rounded-t-lg md:w-1/6'
                     width={300}
                     height={200}
                 />
