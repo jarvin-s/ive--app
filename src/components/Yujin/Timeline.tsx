@@ -28,7 +28,25 @@ const Timeline = () => {
                 </div>
             </div>
             <div className='z-10'>
-                <h1 className='text-4xl'>Test</h1>
+                <h1 className='text-4xl font-black uppercase text-white'>
+                    Line distribution
+                </h1>
+                <h1 className='text-6xl font-black text-white'>263.04 s</h1>
+                <h1 className='text-2xl font-black uppercase tracking-wide text-white'>
+                    Song writing credits
+                </h1>
+                <h1 className='text-4xl font-black uppercase tracking-wide text-white'>
+                    Heroine
+                </h1>
+                <h1 className='text-xl font-black uppercase tracking-wide text-white'>
+                    Misc
+                </h1>
+                <p className='max-w-[500px] font-extralight tracking-wide text-white'>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Suscipit quisquam illo minima perferendis quae error est,
+                    tempore at eius neque ex officia earum doloremque dolorem
+                    laboriosam dolorum asperiores, eveniet dignissimos!
+                </p>
             </div>
             <div className='dotted absolute left-0 top-0 h-[100%] w-[100%] opacity-40'></div>
         </div>

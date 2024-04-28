@@ -7,8 +7,11 @@ const Timeline = () => {
             className='relative flex h-[80vh] items-center justify-end  bg-cover'
             style={{ backgroundImage: "url('/images/wonyoung-timeline.jpg')" }}
         >
-            <div className='z-10'>
-                <h1 className='text-4xl'>Test</h1>
+            <div className='z-10 flex flex-col'>
+                <h1 className='text-4xl font-black uppercase text-white'>
+                    Line distribution
+                </h1>
+                <h1 className='text-6xl font-black text-white'>263.04 s</h1>
             </div>
             <div className='z-10 ml-[10vw] flex flex-col'>
                 <h1 className='mb-[2vw] text-center text-6xl font-black uppercase tracking-wide text-white'>
