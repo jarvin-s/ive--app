@@ -1,19 +1,13 @@
-import Image from 'next/image'
+import Hero from '@/components/Yujin/Hero'
+import Timeline from '@/components/Yujin/Timeline'
 import React from 'react'
 
 const Yujin = () => {
     return (
-        <div
-            className='flex justify-center items-center yujin h-[60vh] bg-pink-600 bg-cover bg-center bg-no-repeat'
-            style={{ backgroundImage: "url('/images/yujin2.jpg')" }}
-        >
-            <div className='w-[1216px]'>
-                <h1 className='text-8xl uppercase font-black text-white'>
-                    Yujin
-                </h1>
-                <h2 className='text-6xl text-white'> 유진</h2>
-            </div>
-        </div>
+        <>
+            <Hero />
+            <Timeline />
+        </>
         // <div className='bg-pink-600 p-20'>
         //     <div className='rounded-lg bg-white shadow-2xl md:flex'>
         //         <Image

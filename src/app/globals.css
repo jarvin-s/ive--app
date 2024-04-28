@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-.yujin {
-    background-image: url('/public/images/yujin.jpg');
+.dotted {
+    background-image: radial-gradient(#939393 2px, transparent 2px);
+    background-size: 15px 15px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* .i-am-gradient {
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 0, 0, 0),
+        rgba(255, 0, 0, 1)
+    );
+} */
+
+.yujin-hero {
+    @media (max-width: 768px) {
+        background-position: 75%;
+    }
+}
+
+.wonyoung-hero {
+    @media (max-width: 768px) {
+        background-position: 75%;
+    }
 }
