@@ -5,7 +5,7 @@ const Hero = () => {
         <div
             className='yujin-hero flex h-[60vh] items-center justify-center bg-cover bg-no-repeat md:bg-center '
             style={{
-                backgroundImage: `url('/images/yujin2.jpg')`,
+                backgroundImage: `url('/images/yujin/yujin-wave.jpg')`,
             }}
         >
             <div className='flex w-[1216px] flex-col items-end p-[24px] text-pink-500 md:pr-[30%]'>

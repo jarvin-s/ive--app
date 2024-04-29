@@ -4,10 +4,10 @@ import React from 'react'
 const Timeline = () => {
     return (
         <div
-            className='relative flex h-[80vh] flex-col items-center justify-start bg-cover  bg-center bg-no-repeat md:flex-row'
-            style={{ backgroundImage: "url('/images/yujin-timeline.jpg')" }}
+            className='relative flex h-[100vh] flex-col items-center justify-start bg-cover  bg-center bg-no-repeat md:flex-row'
+            style={{ backgroundImage: "url('/images/yujin/yujin-timeline.jpg')" }}
         >
-            <div className='z-10 ml-[10vw] flex flex-col'>
+            <div className='z-10 ml-[10vw]'>
                 <h1 className='mb-[2vw] text-center text-6xl font-black uppercase tracking-wide text-white'>
                     <span className='text-pink-500'>Time</span>line
                 </h1>
@@ -19,7 +19,7 @@ const Timeline = () => {
                         height={45}
                         alt='Yujin I AM'
                     />
-                    <div className=''>
+                    <div className='test'>
                         <h1 className='absolute bottom-0 right-[75px] text-4xl font-black text-white'>
                             I&apos;ve IVE
                         </h1>
@@ -31,7 +31,7 @@ const Timeline = () => {
             </div>
             <div className='z-10 ml-20 text-center md:text-left'>
                 <div className='mb-4'>
-                    <h1 className='text-4xl font-black uppercase text-white'>
+                    <h1 className='text-2xl font-black uppercase text-white'>
                         Line distribution
                     </h1>
                     <h1 className='text-6xl font-black text-white'>263.04 s</h1>
