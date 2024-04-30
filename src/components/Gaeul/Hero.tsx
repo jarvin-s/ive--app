@@ -3,7 +3,7 @@ import React from 'react'
 const Hero = () => {
     return (
         <div
-            className='wonyoung-hero flex h-[70vh] justify-end bg-cover bg-no-repeat md:bg-center'
+            className='gaeul-hero flex h-[70vh] justify-end bg-cover bg-no-repeat md:bg-center'
             style={{ backgroundImage: "url('/images/gaeul/gaeul-wave.jpg')" }}
         >
             <div className='mt-[4rem] flex flex-col items-end p-[24px] text-end text-blue-800 md:pr-[30%]'>

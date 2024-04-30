@@ -28,3 +28,9 @@
     }
 }
 
+.gaeul-hero {
+    @media (max-width: 768px) {
+        background-position: 35%;
+    }
+}
+

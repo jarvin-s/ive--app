@@ -4,8 +4,8 @@ import React from 'react'
 const Timeline = () => {
     return (
         <div
-            className='relative flex h-[80vh] items-center justify-end  bg-cover'
-            style={{ backgroundImage: "url('/images/gaeul/wonyoung-timeline.jpg')" }}
+            className='relative flex h-[90vh] items-center justify-end  bg-cover'
+            style={{ backgroundImage: "url('/images/gaeul/gaeul-timeline.jpg')" }}
         >
             <div className='z-10 flex flex-col'>
                 <h1 className='text-4xl font-black uppercase text-white'>

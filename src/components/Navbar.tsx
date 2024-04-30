@@ -118,15 +118,15 @@ const Navbar = () => {
                     </div>
                 </div>
                 {isClicked && (
-                    <div className='md:hidden'>
+                    <div className='md:hidden bg-black'>
                         <div className='space-y-1 px-2 pb-4 pt-3 text-white uppercase font-bold'>
-                            <a
+                            {/* <a
                                 href='/'
                                 className='relative block w-16 cursor-pointer rounded-lg
                                     p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
                             >
                                 Home
-                            </a>
+                            </a> */}
                             <a
                                 href='/yujin'
                                 className='relative block w-14 cursor-pointer rounded-lg

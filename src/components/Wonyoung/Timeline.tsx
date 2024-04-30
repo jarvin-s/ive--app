@@ -20,7 +20,7 @@ const Timeline = () => {
                 <div className='i-am-gradient relative'>
                     <Image
                         className='rounded-lg'
-                        src='/images/yujin-i-am.jpg'
+                        src='/images/wonyoung/wonyoung-i-am.jpg'
                         width={300}
                         height={45}
                         alt='Yujin I AM'
