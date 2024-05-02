@@ -13,7 +13,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className='absolute bg-transparent w-full'>
+            <nav className={`absolute ${isClicked ? 'bg-pink-200' : 'bg-transparent'} w-full`}>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='flex h-16 items-center justify-between'>
                         <a href='/'>
@@ -74,8 +74,8 @@ const Navbar = () => {
                         </div>
                         <div className='flex items-center md:hidden'>
                             <button
-                                className='inline-flex items-center justify-center rounded-md border border-white p-2  transition duration-300 hover:bg-black  hover:text-white
-                            focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+                                className={`inline-flex items-center justify-center rounded-md p-2 ${isClicked ? 'text-white' : ''} transition duration-300 hover:bg-black  hover:text-white
+                            focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}
                                 onClick={toggleNavbar}
                             >
                                 {isClicked ? (
@@ -118,7 +118,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 {isClicked && (
-                    <div className='md:hidden bg-black'>
+                    <div className='md:hidden bg-pink-200'>
                         <div className='space-y-1 px-2 pb-4 pt-3 text-white uppercase font-bold'>
                             {/* <a
                                 href='/'

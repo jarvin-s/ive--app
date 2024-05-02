@@ -5,7 +5,7 @@ const Timeline = () => {
     return (
         <div
             className='relative flex h-[90vh] items-center justify-end  bg-cover'
-            style={{ backgroundImage: "url('/images/gaeul/gaeul-timeline.jpg')" }}
+            style={{ backgroundImage: "url('/images/gaeul/gaeul-after-like.jpg')" }}
         >
             <div className='z-10 flex flex-col'>
                 <h1 className='text-4xl font-black uppercase text-white'>

@@ -8,13 +8,12 @@
     background-color: rgba(255, 255, 255, 0);
 }
 
-/* .i-am-gradient {
-    background-image: linear-gradient(
-        to right,
-        rgba(255, 0, 0, 0),
-        rgba(255, 0, 0, 1)
-    );
-} */
+.i-am-gradient {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%), url('/images/yujin/yujin-i-am.jpg');
+    background-size: cover;
+    height: 400px;
+    border-radius: 0.5rem;
+}
 
 .yujin-hero {
     @media (max-width: 768px) {
@@ -24,7 +23,7 @@
 
 .wonyoung-hero {
     @media (max-width: 768px) {
-        background-position: 75%;
+        background-position: 27%;
     }
 }
 

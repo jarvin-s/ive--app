@@ -7,7 +7,8 @@ const Hero = () => {
             style={{ backgroundImage: "url('/images/wonyoung/wonyoung-wave.jpg')" }}
         >
             <div className='flex mt-[4rem] flex-col items-end text-end p-[24px] text-red-500 md:pr-[20%]'>
-                <h1 className='text-8xl font-black uppercase'>Wonyoung</h1>
+                <h1 className='text-8xl font-black uppercase sm:hidden'>Wony</h1>
+                <h1 className='text-8xl font-black uppercase hidden sm:block'>Wonyoung</h1>
                 <h2 className='text-6xl'> 원영</h2>
                 <p className=' w-full rounded-lg border-4 border-white bg-red-500 p-4 text-right text-white lg:max-w-[500px]'>
                     Jang Won-young, also known mononymously as Wonyoung, is a

@@ -11,19 +11,12 @@ const Timeline = () => {
                 <h1 className='mb-[2vw] text-center text-6xl font-black uppercase tracking-wide text-white'>
                     <span className='text-pink-500'>Time</span>line
                 </h1>
-                <div className='i-am-gradient relative'>
-                    <Image
-                        className='rounded-lg'
-                        src='/images/yujin-i-am.jpg'
-                        width={300}
-                        height={45}
-                        alt='Yujin I AM'
-                    />
-                    <div className='test'>
-                        <h1 className='absolute bottom-0 right-[75px] text-4xl font-black text-white'>
+                <div className=' flex items-end justify-center pb-4 i-am-gradient relative'>
+                    <div className='flex flex-col items-center'>
+                        <h1 className='text-4xl font-black text-white'>
                             I&apos;ve IVE
                         </h1>
-                        <h3 className='absolute bottom-0 right-[75px] text-4xl font-black text-white'>
+                        <h3 className='text-4xl font-black text-white'>
                             10.04.2023
                         </h3>
                     </div>
@@ -44,7 +37,7 @@ const Timeline = () => {
                         Heroine
                     </h1>
                 </div>
-                <div className=''>
+                <div>
                     <h1 className='text-xl font-black uppercase tracking-wide text-white'>
                         Misc
                     </h1>
