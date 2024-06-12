@@ -23,7 +23,7 @@ const Timeline = () => {
                         src='/images/gaeul/gaeul-i-am.jpg'
                         width={300}
                         height={45}
-                        alt='Yujin I AM'
+                        alt='Gaeul I AM'
                     />
                 </div>
             </div>

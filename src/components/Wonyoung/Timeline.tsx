@@ -5,7 +5,10 @@ const Timeline = () => {
     return (
         <div
             className='relative flex h-[80vh] items-center justify-end  bg-cover'
-            style={{ backgroundImage: "url('/images/wonyoung/wonyoung-timeline.jpg')" }}
+            style={{
+                backgroundImage:
+                    "url('/images/wonyoung/wonyoung-timeline.jpg')",
+            }}
         >
             <div className='z-10 flex flex-col'>
                 <h1 className='text-4xl font-black uppercase text-white'>
@@ -14,7 +17,7 @@ const Timeline = () => {
                 <h1 className='text-6xl font-black text-white'>263.04 s</h1>
             </div>
             <div className='z-10 ml-[10vw] flex flex-col'>
-                <h1 className='mb-[2vw] text-center text-6xl font-black uppercase tracking-wide text-white'>
+                <h1 className='text-center text-6xl font-black uppercase tracking-wide text-white'>
                     <span className='text-red-500'>Time</span>line
                 </h1>
                 <div className='i-am-gradient relative'>
@@ -23,7 +26,7 @@ const Timeline = () => {
                         src='/images/wonyoung/wonyoung-i-am.jpg'
                         width={300}
                         height={45}
-                        alt='Yujin I AM'
+                        alt='Wonyoung I AM'
                     />
                 </div>
             </div>
