@@ -4,9 +4,9 @@ import React from 'react'
 const Timeline = () => {
     return (
         <div
-            className='relative flex h-[80vh] items-center justify-end  bg-cover'
+            className='relative flex h-[90vh] items-center justify-end  bg-cover'
             style={{
-                backgroundImage: "url('/images/rei/rei-timeline.jpg')",
+                backgroundImage: "url('/images/liz/liz-timeline.jpg')",
             }}
         >
             <div className='z-10 flex flex-col'>
@@ -15,17 +15,17 @@ const Timeline = () => {
                 </h1>
                 <h1 className='text-6xl font-black text-white'>263.04 s</h1>
             </div>
-            <div className='z-10 ml-10 flex flex-col'>
+            <div className='z-10 ml-[10vw] flex flex-col'>
                 <h1 className='mb-[2vw] text-center text-6xl font-black uppercase tracking-wide text-white'>
-                    <span className='text-green-500'>Time</span>line
+                    <span className='text-cyan-400'>Time</span>line
                 </h1>
-                <div className='i-am-gradient relative'>
+                <div className=' relative'>
                     <Image
                         className='rounded-lg'
-                        src='/images/rei/rei-i-am.jpg'
+                        src='/images/liz/liz-i-am.jpg'
                         width={300}
                         height={45}
-                        alt='Leeseo I AM'
+                        alt='Liz I AM'
                     />
                 </div>
             </div>
