@@ -6,8 +6,7 @@ const Timeline = () => {
         <div
             className='relative flex h-[80vh] items-center justify-end  bg-cover'
             style={{
-                backgroundImage:
-                    "url('/images/wonyoung/wonyoung-timeline.jpg')",
+                backgroundImage: "url('/images/leeseo/leeseo-timeline.jpg')",
             }}
         >
             <div className='z-10 flex flex-col'>
@@ -23,7 +22,7 @@ const Timeline = () => {
                 <div className='i-am-gradient relative'>
                     <Image
                         className='rounded-lg'
-                        src='/images/wonyoung/wonyoung-i-am.jpg'
+                        src='/images/leeseo/leeseo-i-am.jpg'
                         width={300}
                         height={45}
                         alt='Leeseo I AM'
