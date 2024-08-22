@@ -23,7 +23,7 @@ const HomeNavbar = () => {
                                 <a
                                     href='/yujin'
                                     className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full'
                                 >
                                     Go to site
                                 </a>
