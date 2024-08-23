@@ -21,16 +21,23 @@ const Home = () => {
                     lg:px-16 xl:w-1/3 xl:px-12'
                 >
                     <div className='h-100 w-full text-white'>
-                        <h1 className='text-4xl font-bold'>IVE 아이브</h1>
+                        <h1 className='text-6xl font-bold'>IVE 아이브</h1>
                         <h4 className='text-l'>
-                            <span className='font-bold'>DIVE INTO IVE</span>: A
+                            <span className='font-bold text-blue-600'>DIVE INTO IVE</span>: A
                             collection of data, stats and info about IVE!
                         </h4>
-                        <motion.div
-                            className='h-[200px] w-[200px] rounded bg-blue-700'
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                        />
+                        <div className='relative'>
+                            <motion.img
+                                className='absolute h-[300px] w-[23vh] rounded'
+                                whileHover={{ scale: 1.2, rotate: 4 }}
+                                src='/images/wonyoung/wonyoung.jpg'
+                            />
+                            <motion.img
+                                className='absolute h-[300px] w-[23vh] rounded pl-2'
+                                whileHover={{ scale: 1.2, rotate: 12 }}
+                                src='/images/wonyoung/wonyoung.jpg'
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
