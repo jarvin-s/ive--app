@@ -17,25 +17,34 @@ const Home = () => {
                     />
                 </div>
                 <div
-                    className='pt-20 flex h-screen w-full bg-pink-950 px-6 md:mx-auto md:w-1/2 md:max-w-md lg:max-w-full
+                    className='flex h-screen w-full bg-pink-950 px-6 pt-20 md:mx-auto md:w-1/2 md:max-w-md lg:max-w-full
                     lg:px-16 xl:w-1/3 xl:px-12'
                 >
                     <div className='h-100 w-full text-white'>
                         <h1 className='text-6xl font-bold'>IVE 아이브</h1>
                         <h4 className='text-l'>
-                            <span className='font-bold text-blue-600'>DIVE INTO IVE</span>: A
-                            collection of data, stats and info about IVE!
+                            <span className='font-bold text-blue-600'>
+                                DIVE INTO IVE
+                            </span>
+                            : A collection of data, stats and info about IVE!
                         </h4>
-                        <div className='relative'>
+                        <div className='flex flex-row'>
                             <motion.img
-                                className='absolute h-[300px] w-[23vh] rounded'
-                                whileHover={{ scale: 1.2, rotate: 4 }}
+                                className='big-card h-[300px] w-[23vh] origin-bottom'
+                                whileHover={{ scale: 1.2 }}
                                 src='/images/wonyoung/wonyoung.jpg'
                             />
                             <motion.img
-                                className='absolute h-[300px] w-[23vh] rounded pl-2'
-                                whileHover={{ scale: 1.2, rotate: 12 }}
-                                src='/images/wonyoung/wonyoung.jpg'
+                                className='big-card h-[300px] w-[23vh] origin-bottom'
+                                whileHover={{ scale: 1.2 }}
+                                src='/images/rei/rei.png'
+                            />
+                        </div>
+                        <div className='flex flex-row'>
+                            <motion.img
+                                className='big-card h-[300px] w-[23vh] opacity-95'
+                                whileHover={{ scale: 1.2 }}
+                                src='/images/leeseo/leeseo.png'
                             />
                         </div>
                     </div>
