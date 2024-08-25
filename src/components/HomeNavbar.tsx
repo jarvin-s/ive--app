@@ -18,17 +18,6 @@ const HomeNavbar = () => {
             >
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='flex h-16 items-center justify-between'>
-                        <div className='hidden md:block'>
-                            <div className='ml-4 flex items-center space-x-4 text-xl font-bold uppercase tracking-wide text-black'>
-                                <a
-                                    href='/yujin'
-                                    className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full'
-                                >
-                                    Go to site
-                                </a>
-                            </div>
-                        </div>
                         <div className='flex items-center md:hidden'>
                             <button
                                 className={`inline-flex items-center justify-center rounded-md p-2 ${isClicked ? 'text-white' : ''} transition duration-300 hover:bg-black  hover:text-white
