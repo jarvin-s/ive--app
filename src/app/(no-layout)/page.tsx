@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import React from 'react'
-import logo from '../../../public/images/ive-main.jpg'
+import main from '../../../public/images/ive-main.png'
 import { motion } from 'framer-motion'
 
 const Home = () => {
@@ -11,9 +11,9 @@ const Home = () => {
             <section className='flex h-screen flex-col items-center md:flex-row'>
                 <div className='hidden h-screen w-full md:w-1/2 lg:block xl:w-2/3'>
                     <Image
-                        className='h-full w-full object-cover'
+                        className='h-full w-full'
                         alt={'IVE main'}
-                        src={logo}
+                        src={main}
                     />
                 </div>
                 <div
