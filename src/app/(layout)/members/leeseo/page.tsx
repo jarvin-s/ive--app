@@ -1,5 +1,5 @@
-import Hero from '@/components/Leeseo/Hero'
-import Timeline from '@/components/Leeseo/Timeline'
+import Hero from '@/components/Members/Leeseo/Hero'
+import Timeline from '@/components/Members/Leeseo/Timeline'
 import React from 'react'
 
 const Leeseo = () => {

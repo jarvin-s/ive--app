@@ -1,5 +1,5 @@
-import Hero from '@/components/Yujin/Hero'
-import Timeline from '@/components/Yujin/Timeline'
+import Hero from '@/components/Members/Yujin/Hero'
+import Timeline from '@/components/Members/Yujin/Timeline'
 import React from 'react'
 
 const Yujin = () => {

@@ -1,5 +1,5 @@
-import Hero from '@/components/Rei/Hero'
-import Timeline from '@/components/Rei/Timeline'
+import Hero from '@/components/Members/Rei/Hero'
+import Timeline from '@/components/Members/Rei/Timeline'
 import React from 'react'
 
 const Rei = () => {

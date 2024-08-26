@@ -1,5 +1,5 @@
-import Hero from '@/components/Wonyoung/Hero'
-import Timeline from '@/components/Wonyoung/Timeline'
+import Hero from '@/components/Members/Wonyoung/Hero'
+import Timeline from '@/components/Members/Wonyoung/Timeline'
 import React from 'react'
 
 const Wonyoung = () => {
