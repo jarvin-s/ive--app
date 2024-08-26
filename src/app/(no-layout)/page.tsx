@@ -31,7 +31,7 @@ const Home = () => {
                                 A collection of data, stats and info about IVE.
                             </span>
                         </h4>
-                        <a href='/yujin'>
+                        <a href='/home'>
                             <button
                                 type='button'
                                 className='my-2 inline-flex w-full items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
@@ -55,32 +55,50 @@ const Home = () => {
                                 </svg>
                             </button>
                         </a>
-                        <div className='flex flex-row gap-2 p-2'>
+                        <div className='relative gap-2 p-2 sm:static sm:flex sm:flex-row'>
                             <motion.img
-                                className='big-card h-[300px] w-[23vh] origin-bottom opacity-95'
+                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
                                 src='/images/wonyoung/wonyoung.jpg'
+                                whileHover={{
+                                    scale: 1.1,
+                                }}
                             />
                             <motion.img
-                                className='big-card h-[300px] w-[23vh] opacity-95'
+                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
                                 src='/images/rei/rei.png'
+                                whileHover={{
+                                    scale: 1.1,
+                                }}
                             />
                             <motion.img
-                                className='big-card w-[23vh]opacity-95 h-[300px]'
+                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
                                 src='/images/leeseo/leeseo.png'
+                                whileHover={{
+                                    scale: 1.1,
+                                }}
                             />
                         </div>
-                        <div className='flex flex-row gap-2 p-2'>
+                        <div className='relative gap-2 p-2 sm:static sm:flex sm:flex-row'>
                             <motion.img
-                                className='big-card h-[300px] w-[23vh] opacity-95'
+                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
                                 src='/images/liz/liz.png'
+                                whileHover={{
+                                    scale: 1.1,
+                                }}
                             />
                             <motion.img
-                                className='big-card h-[300px] w-[23vh] opacity-95'
+                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
                                 src='/images/yujin/yujin.jpg'
+                                whileHover={{
+                                    scale: 1.1,
+                                }}
                             />
                             <motion.img
-                                className='big-card h-[300px] w-[23vh] opacity-95 duration-[225ms] ease-linear hover:scale-50'
+                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
                                 src='/images/gaeul/gaeul.jpg'
+                                whileHover={{
+                                    scale: 1.1,
+                                }}
                             />
                         </div>
                     </div>

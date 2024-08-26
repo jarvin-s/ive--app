@@ -14,7 +14,7 @@ const Navbar = () => {
     return (
         <>
             <nav className={`absolute ${isClicked ? 'bg-pink-200' : 'bg-transparent'} w-full`}>
-                <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+                <div className='bg-pink-200'>
                     <div className='flex h-16 items-center justify-between'>
                         <a href='/'>
                             <Image src={logo} alt='IVE logo' height={45} />
