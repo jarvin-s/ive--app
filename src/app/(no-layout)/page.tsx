@@ -55,43 +55,34 @@ const Home = () => {
                                 </svg>
                             </button>
                         </a>
-                        <div className='group relative gap-2 p-2'>
+                        <div className='group relative ml-[5rem] w-3/12 gap-2 pt-4 md:ml-[2rem] md:w-4/12 xl:ml-[6rem]'>
                             <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] rotate-[14deg] opacity-95 duration-300 ease-in-out group-hover:translate-x-12'
+                                className='big-card absolute z-10  rotate-[5deg] opacity-95 duration-[400ms] ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[15deg] md:group-hover:translate-x-[10rem] md:group-hover:translate-y-12'
                                 src='/images/wonyoung/wonyoung.jpg'
                             />
                             <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] rotate-[-5deg] opacity-95 duration-300 ease-in-out group-hover:-translate-x-20 group-hover:rotate-[-18deg]'
-                                src='/images/rei/rei.png'
-                            />
-                            <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] opacity-95 duration-300 ease-in-out group-hover:translate-x-10'
+                                className='big-card absolute z-[11] opacity-95 duration-[400ms] ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-7'
                                 src='/images/leeseo/leeseo.png'
                             />
+                            <motion.img
+                                className='big-card absolute z-[12] rotate-[-5deg] opacity-95 duration-[400ms] ease-in-out group-hover:-translate-x-[4rem] group-hover:translate-y-2 group-hover:rotate-[-18deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-[3.5rem]'
+                                src='/images/rei/rei.png'
+                            />
                         </div>
-                        {/* <div className='relative gap-2 p-2 sm:static sm:flex sm:flex-row'>
+                        <div className='group relative ml-[12rem] w-3/12 gap-2 md:ml-[13rem] md:w-4/12 xl:ml-[23rem]'>
                             <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
+                                className='big-card absolute rotate-[8deg] opacity-95 duration-[400ms] ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[20deg] md:group-hover:translate-x-[7.6rem] md:group-hover:translate-y-10'
                                 src='/images/liz/liz.png'
-                                whileHover={{
-                                    scale: 1.1,
-                                }}
                             />
                             <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
+                                className='big-card absolute opacity-95 duration-[400ms] ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-5'
                                 src='/images/yujin/yujin.jpg'
-                                whileHover={{
-                                    scale: 1.1,
-                                }}
                             />
                             <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
+                                className='big-card absolute rotate-[-5deg] opacity-95 duration-[400ms] ease-in-out group-hover:z-[13] group-hover:-translate-x-[4rem] group-hover:rotate-[-12deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-10'
                                 src='/images/gaeul/gaeul.jpg'
-                                whileHover={{
-                                    scale: 1.1,
-                                }}
                             />
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </section>

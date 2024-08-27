@@ -12,7 +12,7 @@ const HomeNavbar = () => {
     return (
         <>
             <nav
-                className={`absolute ${isClicked ? 'bg-pink-200' : 'bg-transparent'} w-full`}
+                className={`absolute ${isClicked ? 'bg-pink-800' : 'bg-transparent'} w-full`}
             >
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='flex h-16 items-center justify-between'>
@@ -25,7 +25,7 @@ const HomeNavbar = () => {
                                 {isClicked ? (
                                     <div>
                                         <svg
-                                            className='h-6 w-6'
+                                            className='h-6 w-6  text-white'
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
                                             viewBox='0 0 24 24'
@@ -42,7 +42,7 @@ const HomeNavbar = () => {
                                 ) : (
                                     <div>
                                         <svg
-                                            className='h-6 w-6'
+                                            className='h-6 w-6 text-white'
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
                                             viewBox='0 0 24 24'
@@ -62,7 +62,7 @@ const HomeNavbar = () => {
                     </div>
                 </div>
                 {isClicked && (
-                    <div className='bg-pink-200 md:hidden'>
+                    <div className='bg-pink-800 md:hidden'>
                         <div className='space-y-1 px-2 pb-4 pt-3 font-bold uppercase text-white'>
                             {/* <a
                                 href='/'
