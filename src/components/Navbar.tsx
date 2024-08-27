@@ -13,62 +13,57 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`absolute ${isClicked ? 'bg-pink-200' : 'bg-transparent'} w-full`}>
-                <div className='bg-pink-200'>
-                    <div className='flex h-16 items-center justify-between'>
+            <nav
+                className={`absolute ${isClicked ? 'bg-pink-800' : 'bg-transparent'} w-full`}
+            >
+                <div className='bg-pink-800'>
+                    <div className='flex h-16 items-center justify-between ml-5'>
                         <a href='/'>
                             <Image src={logo} alt='IVE logo' height={45} />
                         </a>
                         <div className='hidden md:block'>
-                            <div className='ml-4 flex items-center space-x-4 text-white uppercase font-bold text-xl tracking-wide'>
-                                {/* <a
-                                    href='/'
-                                    className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
-                                >
-                                    IVE
-                                </a> */}
+                            <div className='flex flex-row mr-[28rem] space-x-4 font-bold tracking-wide text-white'>
                                 <a
-                                    href='/yujin'
+                                    href='/home'
                                     className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                                 >
-                                    Yujin
+                                    Home
                                 </a>
                                 <a
-                                    href='/wonyoung'
+                                    href='/albums'
                                     className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                                 >
-                                    Wonyoung
+                                    Albums
                                 </a>
                                 <a
-                                    href='/gaeul'
+                                    href='/postcards'
                                     className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                                 >
-                                    Gaeul
+                                    Postcards
                                 </a>
                                 <a
-                                    href='/rei'
+                                    href='/photocards'
                                     className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                                 >
-                                    Rei
+                                    Photocards
                                 </a>
                                 <a
-                                    href='/liz'
+                                    href='/merch'
                                     className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                                 >
-                                    Liz
+                                    Merch
                                 </a>
                                 <a
-                                    href='/leeseo'
+                                    href='/gallery'
                                     className='relative block cursor-pointer rounded-lg 
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                                 >
-                                    Leeseo
+                                    Gallery
                                 </a>
                             </div>
                         </div>
@@ -81,7 +76,7 @@ const Navbar = () => {
                                 {isClicked ? (
                                     <div>
                                         <svg
-                                            className='h-6 w-6'
+                                            className='h-6 w-6 text-white'
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
                                             viewBox='0 0 24 24'
@@ -98,7 +93,7 @@ const Navbar = () => {
                                 ) : (
                                     <div>
                                         <svg
-                                            className='h-6 w-6'
+                                            className='h-6 w-6 text-white'
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
                                             viewBox='0 0 24 24'
@@ -118,56 +113,49 @@ const Navbar = () => {
                     </div>
                 </div>
                 {isClicked && (
-                    <div className='md:hidden bg-pink-200'>
-                        <div className='space-y-1 px-2 pb-4 pt-3 text-white uppercase font-bold'>
-                            {/* <a
-                                href='/'
-                                className='relative block w-16 cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                    <div className='bg-pink-800 md:hidden'>
+                        <div className='space-y-1 px-2 pb-4 pt-3 font-bold text-white'>
+                            <a
+                                href='/home'
+                                className='relative block w-[4rem] cursor-pointer rounded-lg
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                             >
                                 Home
-                            </a> */}
-                            <a
-                                href='/yujin'
-                                className='relative block w-14 cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
-                            >
-                                Yujin
                             </a>
                             <a
-                                href='/wonyoung'
-                                className='relative block w-[6rem] cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                href='/albums'
+                                className='relative block w-[5rem] cursor-pointer rounded-lg
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                             >
-                                Wonyoung
+                                Albums
                             </a>
                             <a
-                                href='/gaeul'
-                                className='relative block w-16 cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                href='/postcards'
+                                className='relative block w-[6.2rem] cursor-pointer rounded-lg
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                             >
-                                Gaeul
+                                Postcards
                             </a>
                             <a
-                                href='/rei'
-                                className='relative block w-10 cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                href='/photocards'
+                                className='relative block w-[6.8rem] cursor-pointer rounded-lg
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                             >
-                                Rei
+                                Photocards
                             </a>
                             <a
-                                href='/liz'
-                                className='relative block w-10 cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                href='/merch'
+                                className='relative block w-[4.3rem] cursor-pointer rounded-lg
+                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                             >
-                                Liz
+                                Merch
                             </a>
                             <a
-                                href='/leeseo'
+                                href='/gallery'
                                 className='relative block w-[4.4rem] cursor-pointer rounded-lg
-                                p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-pink-500 after:transition-all after:duration-300 hover:after:w-full'
+                                p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
                             >
-                                Leeseo
+                                Gallery
                             </a>
                         </div>
                     </div>

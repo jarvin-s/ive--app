@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Home = () => {
+const Albums = () => {
     return (
         <div className='flex h-screen items-center justify-center text-8xl'>
-            Home
+            Albums
         </div>
     )
 }
 
-export default Home
+export default Albums

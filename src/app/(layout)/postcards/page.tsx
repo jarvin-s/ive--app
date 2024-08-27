@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Home = () => {
+const Postcards = () => {
     return (
         <div className='flex h-screen items-center justify-center text-8xl'>
-            Home
+            Postcards
         </div>
     )
 }
 
-export default Home
+export default Postcards
