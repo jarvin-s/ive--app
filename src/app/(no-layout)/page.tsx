@@ -55,30 +55,21 @@ const Home = () => {
                                 </svg>
                             </button>
                         </a>
-                        <div className='relative gap-2 p-2 sm:static sm:flex sm:flex-row'>
+                        <div className='group relative gap-2 p-2'>
                             <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
+                                className='big-card absolute h-[300px] w-[23vh] rotate-[14deg] opacity-95 duration-300 ease-in-out group-hover:translate-x-12'
                                 src='/images/wonyoung/wonyoung.jpg'
-                                whileHover={{
-                                    scale: 1.1,
-                                }}
                             />
                             <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
+                                className='big-card absolute h-[300px] w-[23vh] rotate-[-5deg] opacity-95 duration-300 ease-in-out group-hover:-translate-x-20 group-hover:rotate-[-18deg]'
                                 src='/images/rei/rei.png'
-                                whileHover={{
-                                    scale: 1.1,
-                                }}
                             />
                             <motion.img
-                                className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
+                                className='big-card absolute h-[300px] w-[23vh] opacity-95 duration-300 ease-in-out group-hover:translate-x-10'
                                 src='/images/leeseo/leeseo.png'
-                                whileHover={{
-                                    scale: 1.1,
-                                }}
                             />
                         </div>
-                        <div className='relative gap-2 p-2 sm:static sm:flex sm:flex-row'>
+                        {/* <div className='relative gap-2 p-2 sm:static sm:flex sm:flex-row'>
                             <motion.img
                                 className='big-card absolute h-[300px] w-[23vh] opacity-95 sm:static sm:block'
                                 src='/images/liz/liz.png'
@@ -100,7 +91,7 @@ const Home = () => {
                                     scale: 1.1,
                                 }}
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
