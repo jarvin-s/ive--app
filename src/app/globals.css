@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #939393;
+}
+
 .dotted {
     background-image: radial-gradient(#939393 2px, transparent 2px);
     background-size: 15px 15px;
@@ -36,4 +40,20 @@
 
 .big-card {
     border-radius: 2vmin;
+}
+
+.img-upload-btn {
+    border-radius: 8px;
+    padding: 8px 14px;
+    border: solid 3px transparent;
+    background-image: linear-gradient(to top right, #831843, #e0377a);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px #939393 inset;
+    transition: 300ms linear;
+    
+}
+
+.img-upload-btn:hover {
+    box-shadow: none;
+    color: white;
 }
