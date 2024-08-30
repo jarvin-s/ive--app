@@ -41,25 +41,22 @@ const Gallery = () => {
     }, [])
 
     return (
-        <div>
-            <h1 className='flex h-[10rem] items-center justify-center text-4xl font-bold text-black'>
+        <div className='flex flex-col items-center justify-center p-40'>
+            <h1 className='h-[10rem] text-4xl font-bold text-black'>
                 Image Gallery
             </h1>
             <ImageUpload />
-            <div>
-                {images.map((url, index) => (
-                    <Image
-                        key={index}
-                        src={url}
-                        alt={`Image ${index + 1}`}
-                        width={150}
-                        height={150}
-                        objectFit='cover'
-                        style={{ margin: '10px' }}
-                        loading='lazy'
-                    />
-                ))}
-            </div>
+            {images.map((url, index) => (
+                <Image
+                    key={index}
+                    src={url}
+                    alt={`Image ${index + 1}`}
+                    width={150}
+                    height={150}
+                    priority
+                    className=''
+                />
+            ))}
         </div>
     )
 }
