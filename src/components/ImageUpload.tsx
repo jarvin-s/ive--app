@@ -1,35 +1,41 @@
 import { useState, ChangeEvent } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import Image from 'next/image'
 
 const ImageUpload = () => {
     const [image, setImage] = useState<File | null>(null)
     const [previewImage, setPreviewImage] = useState<string | null>(null)
     const [fileName, setFileName] = useState<string | null>(null)
 
-    const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files?.[0]
+    const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0]
+
         if (file && file.type.startsWith('image/')) {
-            setFileName(file.name) // Set the file name state
+            setFileName(file.name)
+
             const reader = new FileReader()
             reader.onloadend = () => {
                 setPreviewImage(reader.result as string)
             }
             reader.readAsDataURL(file)
+
+            setImage(file)
         }
     }
 
     const handleImageUpload = async () => {
         if (!image) return
-
         const fileName = `${Date.now()}-${image.name}`
         const { data, error } = await supabase.storage
             .from('gallery')
             .upload(fileName, image)
 
         if (error) {
-            console.error('Error uploading image:', error.message)
+            // console.error('Error uploading image:', error.message)
+            return { message: 'Error uploading image' }
         } else {
-            console.log('Image uploaded successfully:', data)
+            // console.log('Image uploaded successfully:', data)
+            alert('SUCCESS')
         }
     }
 
@@ -71,10 +77,12 @@ const ImageUpload = () => {
                         </button>
                         {previewImage && (
                             <div style={{ marginTop: '20px' }}>
-                                <img
+                                <Image
                                     className='flex h-auto max-w-[75%] rounded-lg'
                                     src={previewImage}
                                     alt='Image preview'
+                                    width={150}
+                                    height={150}
                                 />
                                 {fileName && (
                                     <p className='mt-[10px] font-bold'>
