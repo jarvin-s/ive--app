@@ -48,16 +48,15 @@ const Gallery = () => {
             <ImageUpload />
             <div>
                 {images.map((url, index) => (
-                    <img
+                    <Image
                         key={index}
                         src={url}
                         alt={`Image ${index + 1}`}
-                        style={{
-                            width: '150px',
-                            height: '150px',
-                            objectFit: 'cover',
-                            margin: '10px',
-                        }}
+                        width={150}
+                        height={150}
+                        objectFit='cover'
+                        style={{ margin: '10px' }}
+                        loading='lazy'
                     />
                 ))}
             </div>
