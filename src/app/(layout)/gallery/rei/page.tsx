@@ -43,7 +43,7 @@ const Gallery = () => {
     return (
         <div className='flex flex-col items-center justify-center p-40'>
             <h1 className='h-[10rem] text-4xl font-bold text-black'>
-                Image Gallery
+                Image Gallery - Rei
             </h1>
             <ImageUpload />
             {images.map((url, index) => (

@@ -62,7 +62,7 @@ const Navbar = () => {
                                     Merch
                                 </a>
                                 <a
-                                    href='/gallery'
+                                    href='/gallery/rei'
                                     className='relative block cursor-pointer rounded-lg 
                                     p-2 duration-200 ease-in-out hover:text-black'
                                 >
