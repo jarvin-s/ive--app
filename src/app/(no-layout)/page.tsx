@@ -58,15 +58,15 @@ const Home = () => {
                         <div className='group relative ml-[5rem] w-3/12 gap-2 pt-4 md:ml-[2rem] md:w-4/12 xl:ml-[6rem]'>
                             <motion.img
                                 className='big-card absolute z-10  rotate-[5deg] opacity-95 duration-[400ms] ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[15deg] md:group-hover:translate-x-[10rem] md:group-hover:translate-y-12'
-                                src='/images/wonyoung/wonyoung.jpg'
-                            />
+                                src='/images/rei/rei.png'
+                                />
                             <motion.img
                                 className='big-card absolute z-[11] opacity-95 duration-[400ms] ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-7'
                                 src='/images/leeseo/leeseo.png'
-                            />
+                                />
                             <motion.img
                                 className='big-card absolute z-[12] rotate-[-5deg] opacity-95 duration-[400ms] ease-in-out group-hover:-translate-x-[4rem] group-hover:translate-y-2 group-hover:rotate-[-18deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-[3.5rem]'
-                                src='/images/rei/rei.png'
+                                src='/images/wonyoung/wonyoung.jpg'
                             />
                         </div>
                         <div className='group relative ml-[12rem] w-3/12 gap-2 md:ml-[13rem] md:w-4/12 xl:ml-[23rem]'>
