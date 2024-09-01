@@ -2,7 +2,11 @@ import { useState, ChangeEvent } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import Image from 'next/image'
 
-const ImageUpload = () => {
+interface ImageUploadProps {
+    bucketName: string
+}
+
+const ImageUpload = ({ bucketName }: ImageUploadProps) => {
     const [image, setImage] = useState<File | null>(null)
     const [previewImage, setPreviewImage] = useState<string | null>(null)
     const [fileName, setFileName] = useState<string | null>(null)
@@ -27,15 +31,13 @@ const ImageUpload = () => {
         if (!image) return
         const fileName = `${Date.now()}-${image.name}`
         const { data, error } = await supabase.storage
-            .from('gallery')
+            .from('gallery/' + bucketName)
             .upload(fileName, image)
 
         if (error) {
-            // console.error('Error uploading image:', error.message)
-            return { message: 'Error uploading image' }
+            console.error('Error uploading image:', error.message)
         } else {
-            // console.log('Image uploaded successfully:', data)
-            alert('SUCCESS')
+            console.log('Image uploaded successfully:', data)
         }
     }
 

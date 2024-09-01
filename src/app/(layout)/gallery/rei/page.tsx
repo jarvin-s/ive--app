@@ -12,25 +12,17 @@ const Gallery = () => {
         const fetchImages = async () => {
             const { data, error } = await supabase.storage
                 .from('gallery')
-                .list()
+                .list('rei/')
 
             if (error) {
                 console.error('Error fetching images:', error.message)
             } else if (data) {
                 const imageUrls = await Promise.all(
                     data.map(async (file) => {
-                        const { data: signedData, error: signedError } =
-                            await supabase.storage
-                                .from('gallery')
-                                .createSignedUrl(file.name, 60)
-
-                        if (signedError) {
-                            console.error(
-                                'Error creating signed URL:',
-                                signedError.message
-                            )
-                        }
-                        return signedData?.signedUrl || '' // Fallback to an empty string
+                        const { data: publicData } = supabase.storage
+                            .from('gallery/rei')
+                            .getPublicUrl(file.name)
+                        return publicData.publicUrl || '' // Fallback to an empty string if publicUrl is not available
                     })
                 )
                 setImages(imageUrls.filter(Boolean)) // Filter out any empty strings
@@ -45,18 +37,20 @@ const Gallery = () => {
             <h1 className='h-[10rem] text-4xl font-bold text-black'>
                 Image Gallery - Rei
             </h1>
-            <ImageUpload />
-            {images.map((url, index) => (
-                <Image
-                    key={index}
-                    src={url}
-                    alt={`Image ${index + 1}`}
-                    width={150}
-                    height={150}
-                    priority
-                    className=''
-                />
-            ))}
+            <ImageUpload bucketName='rei' />
+            <div>
+                {images.map((url, index) => (
+                    <Image
+                        key={index}
+                        src={url}
+                        alt={`Image ${index + 1}`}
+                        width={240}
+                        height={100}
+                        priority
+                        className='rounded-lg'
+                    />
+                ))}
+            </div>
         </div>
     )
 }
