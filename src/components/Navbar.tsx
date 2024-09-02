@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import logo from '../../public/images/logo.png'
+import Dropdown from './Dropdown'
 
 const Navbar = () => {
     const [isClicked, setisClicked] = useState(false)
@@ -25,7 +26,7 @@ const Navbar = () => {
                             DIVE INTO IVE
                         </a> */}
                         <div className='hidden md:block'>
-                            <div className='text-sm mr-[28rem] flex font-semibold flex-row space-x-4 tracking-wide text-white'>
+                            <div className='mr-[28rem] flex flex-row space-x-4 text-sm font-semibold tracking-wide text-white'>
                                 <a
                                     href='/home'
                                     className='relative block cursor-pointer rounded-lg 
@@ -61,13 +62,7 @@ const Navbar = () => {
                                 >
                                     Merch
                                 </a>
-                                <a
-                                    href='/gallery/rei'
-                                    className='relative block cursor-pointer rounded-lg 
-                                    p-2 duration-200 ease-in-out hover:text-black'
-                                >
-                                    Gallery
-                                </a>
+                                <Dropdown />
                             </div>
                         </div>
                         <div className='flex items-center md:hidden'>

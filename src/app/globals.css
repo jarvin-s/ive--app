@@ -50,7 +50,6 @@ body {
     background-origin: border-box;
     box-shadow: 2px 1000px 1px #939393 inset;
     transition: 300ms linear;
-    
 }
 
 .img-upload-btn:hover {
