@@ -11,10 +11,10 @@ const Dropdown = () => {
                     <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />{' '}
                 </svg>
             </button>
-            <ul className='dropdown-menu absolute hidden pt-1 text-gray-700'>
+            <ul className='dropdown-menu absolute hidden rounded-lg bg-pink-950 p-2 pt-1 text-white'>
                 <li>
                     <a
-                        className=' block rounded-t bg-gray-200 px-4 py-2 hover:bg-gray-400'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
                         href='/gallery/rei'
                     >
                         Rei
@@ -22,7 +22,7 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-t bg-gray-200 px-4 py-2 hover:bg-gray-400'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
                         href='/gallery/gaeul'
                     >
                         Gaeul
@@ -30,7 +30,7 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-t bg-gray-200 px-4 py-2 hover:bg-gray-400'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
                         href='/gallery/yujin'
                     >
                         Yujin
@@ -38,7 +38,7 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-t bg-gray-200 px-4 py-2 hover:bg-gray-400'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
                         href='/gallery/liz'
                     >
                         Liz
@@ -46,7 +46,7 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-t bg-gray-200 px-4 py-2 hover:bg-gray-400'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
                         href='/gallery/leeseo'
                     >
                         Leeseo
@@ -54,7 +54,7 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-t bg-gray-200 px-4 py-2 hover:bg-gray-400'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
                         href='/gallery/wonyoung'
                     >
                         Wonyoung
