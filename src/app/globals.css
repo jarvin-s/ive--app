@@ -56,3 +56,7 @@ body {
     box-shadow: none;
     color: white;
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
