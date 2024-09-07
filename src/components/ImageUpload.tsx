@@ -4,9 +4,10 @@ import Image from 'next/image'
 
 interface ImageUploadProps {
     bucketName: string
+    style?: string
 }
 
-const ImageUpload = ({ bucketName }: ImageUploadProps) => {
+const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
     const [image, setImage] = useState<File | null>(null)
     const [previewImage, setPreviewImage] = useState<string | null>(null)
     const [fileName, setFileName] = useState<string | null>(null)
@@ -41,13 +42,43 @@ const ImageUpload = ({ bucketName }: ImageUploadProps) => {
         }
     }
 
+    const upload_button =
+        style === 'gaeul'
+            ? 'upload-gaeul'
+            : style === 'wonyoung'
+              ? 'upload-wonyoung'
+              : style === 'yujin'
+                ? 'upload-yujin'
+                : style === 'liz'
+                  ? 'upload-liz'
+                  : style === 'leeseo'
+                    ? 'upload-leeseo'
+                    : ''
+
+    const upload_border_button =
+        style === 'rei'
+            ? 'border-lime-900 hover:border-lime-600'
+            : style === 'gaeul'
+              ? 'border-blue-800 hover:border-blue-700'
+              : style === 'yujin'
+                ? 'border-pink-800 hover:border-pink-700'
+                : style === 'wonyoung'
+                  ? 'border-red-800 hover:border-red-700'
+                  : style === 'liz'
+                    ? 'border-cyan-800 hover:border-cyan-700'
+                    : style === 'leeseo'
+                      ? 'border-yellow-300 hover:border-yellow-200'
+                      : ''
+
     return (
         <>
             <div className='container mx-auto flex h-full items-center justify-center p-4'>
                 <div className='w-full max-w-[350px]'>
                     <div className='flex w-full flex-col justify-center'>
                         <div className='upload-container relative flex w-full items-center justify-between'>
-                            <div className='w-full rounded-md border-2 border-dotted border-pink-900 text-center transition-all duration-300 hover:border-pink-600'>
+                            <div
+                                className={`w-full rounded-md border-2 border-dotted text-center transition-all duration-300 ${upload_border_button}`}
+                            >
                                 <label
                                     htmlFor='file-input'
                                     className='block h-full w-full cursor-pointer p-4 text-sm text-white'
@@ -65,20 +96,17 @@ const ImageUpload = ({ bucketName }: ImageUploadProps) => {
                                 <div className='preview-container hidden flex-col items-center justify-center'>
                                     <div className='preview-image h-36 w-36 rounded-md bg-cover bg-center'></div>
                                     <span className='file-name my-4 text-sm font-medium'></span>
-                                    <p className='close-button mb-4 cursor-pointer rounded-md border border-red-500 px-3 py-1 text-xs text-red-500 transition-all hover:bg-red-500 hover:text-white'>
-                                        Delete
-                                    </p>
                                 </div>
                             </div>
                         </div>
                         <button
-                            className='img-upload-btn mt-2'
+                            className={`upload mt-2 rounded-lg px-4 py-2 text-white transition-all duration-300 ${upload_button}`}
                             onClick={handleImageUpload}
                         >
                             Upload image
                         </button>
                         {previewImage && (
-                            <div style={{ marginTop: '20px' }}>
+                            <div className='mt-10 text-white'>
                                 <Image
                                     className='flex h-auto max-w-[75%] rounded-lg'
                                     src={previewImage}

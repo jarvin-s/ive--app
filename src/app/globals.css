@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    background-color: #939393;
+    background-color: #242424;
 }
 
 .dotted {
@@ -42,19 +42,65 @@ body {
     border-radius: 2vmin;
 }
 
-.img-upload-btn {
-    border-radius: 8px;
-    padding: 8px 14px;
-    border: solid 3px transparent;
-    background-image: linear-gradient(to top right, #831843, #e0377a);
-    background-origin: border-box;
-    box-shadow: 2px 1000px 1px #939393 inset;
-    transition: 300ms linear;
-}
+/* Upload button */
 
-.img-upload-btn:hover {
+.upload:hover {
     box-shadow: none;
     color: white;
+}
+
+.upload {
+    border: solid 3px transparent;
+    background-image: linear-gradient(to top right, #bff593, #95ec08);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px black inset;
+    transition: 300ms ease-in-out;
+    max-width: 100%;
+}
+
+.upload-gaeul {
+    border: solid 3px transparent;
+    background-image: linear-gradient(to top right, #3d69e4, #0b0ff3);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px black inset;
+    transition: 300ms ease-in-out;
+    max-width: 100%;
+}
+
+.upload-wonyoung {
+    border: solid 3px transparent;
+    background-image: linear-gradient(to top right, #f34848, #f30303);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px black inset;
+    transition: 300ms ease-in-out;
+    max-width: 100%;
+}
+
+.upload-liz {
+    border: solid 3px transparent;
+    background-image: linear-gradient(to top right, #a3f5f5, #1fc4ca);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px black inset;
+    transition: 300ms ease-in-out;
+    max-width: 100%;
+}
+
+.upload-yujin {
+    border: solid 3px transparent;
+    background-image: linear-gradient(to top right, #f08fca, #f3145e);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px black inset;
+    transition: 300ms ease-in-out;
+    max-width: 100%;
+}
+
+.upload-leeseo {
+    border: solid 3px transparent;
+    background-image: linear-gradient(to top right, #eaf17b, #faf61b);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px black inset;
+    transition: 300ms ease-in-out;
+    max-width: 100%;
 }
 
 .dropdown:hover .dropdown-menu {
