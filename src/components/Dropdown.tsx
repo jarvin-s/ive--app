@@ -1,63 +1,63 @@
 const Dropdown = () => {
     return (
         <div className='dropdown inline-block'>
-            <button className='inline-flex items-center rounded px-4 py-2'>
+            <button className='inline-flex items-center rounded py-2'>
                 <span className='mr-1'>Gallery</span>
                 <svg
-                    className='h-4 w-4 fill-current'
+                    className='h-4 w-4 fill-current opacity-50'
                     xmlns='http://www.w3.org/2000/svg'
                     viewBox='0 0 20 20'
                 >
                     <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />{' '}
                 </svg>
             </button>
-            <ul className='dropdown-menu absolute hidden rounded-lg bg-pink-950 p-2 pt-1 text-white'>
+            <ul className='dropdown-menu absolute hidden rounded-lg bg-pink-950 p-2 text-white'>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/rei'
                     >
-                        Rei
+                        🐥 Rei
                     </a>
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/gaeul'
                     >
-                        Gaeul
+                        🐿️ Gaeul
                     </a>
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/yujin'
                     >
-                        Yujin
+                        🐶 Yujin
                     </a>
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/liz'
                     >
-                        Liz
+                        🐶 Liz
                     </a>
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/leeseo'
                     >
-                        Leeseo
+                        🐯 Leeseo
                     </a>
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 hover:bg-pink-900'
+                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/wonyoung'
                     >
-                        Wonyoung
+                        🐰 Wonyoung
                     </a>
                 </li>
             </ul>

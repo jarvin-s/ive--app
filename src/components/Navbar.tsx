@@ -17,7 +17,7 @@ const Navbar = () => {
             <nav
                 className={`absolute ${isClicked ? 'bg-pink-900' : 'bg-transparent'} w-full`}
             >
-                <div className='border border-gray-500 bg-pink-900'>
+                <div className='bg-pink-900'>
                     <div className='flex h-16 items-center justify-between'>
                         <a className='mr-2 flex-shrink-0 object-cover' href='/'>
                             <Image src={logo} alt='IVE logo' height={45} />
@@ -67,14 +67,14 @@ const Navbar = () => {
                         </div>
                         <div className='flex items-center md:hidden'>
                             <button
-                                className={`mr-4 inline-flex items-center justify-center rounded-lg border-2 border-black p-2 ${isClicked ? 'text-white' : ''} transition duration-300 hover:bg-gray-200  hover:text-white
+                                className={`mr-4 inline-flex items-center justify-center rounded-lg border-2 border-black p-2 ${isClicked ? 'text-white' : ''} transition duration-300 hover:bg-gray-400  hover:text-white
                             focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}
                                 onClick={toggleNavbar}
                             >
                                 {isClicked ? (
                                     <div>
                                         <svg
-                                            className='h-6 w-6 text-gray-800'
+                                            className='h-6 w-6 text-black'
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
                                             viewBox='0 0 24 24'
@@ -91,7 +91,7 @@ const Navbar = () => {
                                 ) : (
                                     <div>
                                         <svg
-                                            className='h-6 w-6 text-gray-800'
+                                            className='h-6 w-6 text-black'
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
                                             viewBox='0 0 24 24'
@@ -112,49 +112,45 @@ const Navbar = () => {
                 </div>
                 {isClicked && (
                     <div className='bg-pink-900 md:hidden'>
-                        <div className='space-y-1 px-2 pb-4 pt-3 font-bold text-white'>
+                        <div className='space-y-1 px-2 pb-4 pt-3 font-semibold text-white'>
                             <a
                                 href='/home'
                                 className='relative block w-[4rem] cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  duration-200 ease-in-out hover:text-black'
                             >
                                 Home
                             </a>
                             <a
                                 href='/albums'
                                 className='relative block w-[5rem] cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  duration-200 ease-in-out hover:text-black'
                             >
                                 Albums
                             </a>
                             <a
                                 href='/postcards'
                                 className='relative block w-[6.2rem] cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  duration-200 ease-in-out hover:text-black'
                             >
                                 Postcards
                             </a>
                             <a
                                 href='/photocards'
                                 className='relative block w-[6.8rem] cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  duration-200 ease-in-out hover:text-black'
                             >
                                 Photocards
                             </a>
                             <a
                                 href='/merch'
                                 className='relative block w-[4.3rem] cursor-pointer rounded-lg
-                                    p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
+                                    p-2  duration-200 ease-in-out hover:text-black'
                             >
                                 Merch
                             </a>
-                            <a
-                                href='/gallery'
-                                className='relative block w-[4.4rem] cursor-pointer rounded-lg
-                                p-2  after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full'
-                            >
-                                Gallery
-                            </a>
+                            <div className='ml-2'>
+                                <Dropdown />
+                            </div>
                         </div>
                     </div>
                 )}
