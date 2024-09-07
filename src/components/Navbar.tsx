@@ -17,20 +17,21 @@ const Navbar = () => {
             <nav
                 className={`absolute ${isClicked ? 'bg-pink-900' : 'bg-transparent'} w-full`}
             >
-                <div className='bg-pink-900'>
+                <div className='border-b-[1px] border-gray-200 bg-pink-950'>
                     <div className='flex h-16 items-center justify-between'>
-                        <a className='mr-2 flex-shrink-0 object-cover' href='/'>
+                        <a className='flex md:ml-[20rem]' href='/'>
                             <Image src={logo} alt='IVE logo' height={45} />
+                            <span className='mt-2 pl-2 text-2xl font-bold text-white'>
+                                <span className='text-pink-600'>DIVE</span> INTO{' '}
+                                <span className='text-pink-600'>IVE</span>
+                            </span>
                         </a>
-                        {/* <a className='mr-[24rem] lg:text-2xl font-bold text-white flex-none text-sm' href='/'>
-                            DIVE INTO IVE
-                        </a> */}
                         <div className='hidden md:block'>
-                            <div className='mr-[28rem] flex flex-row space-x-4 text-sm font-semibold tracking-wide text-white'>
+                            <div className='mr-[44rem] flex flex-row space-x-2 text-sm font-semibold tracking-wide text-white'>
                                 <a
                                     href='/home'
-                                    className='relative block cursor-pointer rounded-lg 
-                                    p-2 duration-200 ease-in-out hover:text-black'
+                                    className='relative block cursor-pointer rounded-lg p-2 
+                                    duration-200 ease-in-out hover:underline'
                                 >
                                     Home
                                 </a>
@@ -148,9 +149,7 @@ const Navbar = () => {
                             >
                                 Merch
                             </a>
-                            <div className='ml-2'>
-                                <Dropdown />
-                            </div>
+                            <Dropdown />
                         </div>
                     </div>
                 )}
