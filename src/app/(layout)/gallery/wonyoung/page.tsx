@@ -42,7 +42,7 @@ const Gallery = () => {
                 </h1>
                 <p className='text mt-2 text-center text-red-500'>
                     Free, unlimited uploads of high-quality original photos
-                    featuring IVE's Wonyoung.
+                    featuring IVE&apos;s Wonyoung.
                 </p>
                 <ImageUpload bucketName='wonyoung' style='wonyoung' />
             </div>

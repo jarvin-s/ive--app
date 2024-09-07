@@ -14,7 +14,7 @@ const Hero = () => {
                 <p className='w-full rounded-lg border-4 border-white bg-cyan-400 p-2.5 text-center text-white md:text-right lg:max-w-[500px]'>
                     Liz is a singer and a dancer under Starship
                     Entertainment. She debuted as a member of the girl group IVE
-                    on December 1, 2021 with their single album "ELEVEN".
+                    on December 1, 2021 with their single album ELEVEN.
                 </p>    
             </div>
         </div>

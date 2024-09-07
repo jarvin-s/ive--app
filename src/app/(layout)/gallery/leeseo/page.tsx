@@ -48,7 +48,7 @@ const Gallery = () => {
                 </h1>
                 <p className='mt-2 text-center text-[#fff404]'>
                     Free, unlimited uploads of high-quality original photos
-                    featuring IVE's Leeseo.
+                    featuring IVE&apos;s Leeseo.
                 </p>
                 <ImageUpload bucketName='leeseo' style='leeseo' />
             </div>

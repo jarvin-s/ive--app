@@ -15,7 +15,7 @@ const Hero = () => {
                     Rei (레이) is a Japanese rapper, singer and songwriter under
                     Starship Entertainment. She debuted as a member of the girl
                     group IVE on December 1, 2021 with their single album
-                    "ELEVEN". Starship Entertainment: Jan 1, 2021-present.
+                    ELEVEN. Starship Entertainment: Jan 1, 2021-present.
                 </p>
             </div>
         </div>

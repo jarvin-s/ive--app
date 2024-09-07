@@ -42,7 +42,7 @@ const Gallery = () => {
                 </h1>
                 <p className='text mt-2 text-center text-pink-500'>
                     Free, unlimited uploads of high-quality original photos
-                    featuring IVE's Yujin.
+                    featuring IVE&apos;s Yujin.
                 </p>
                 <ImageUpload bucketName='yujin' style='yujin' />
             </div>

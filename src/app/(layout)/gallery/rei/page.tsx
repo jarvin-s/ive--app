@@ -42,7 +42,7 @@ const Gallery = () => {
                 </h1>
                 <p className='mt-2 text-center text-lime-500'>
                     Free, unlimited uploads of high-quality original photos
-                    featuring IVE's Rei.
+                    featuring IVE&apos;s Rei.
                 </p>
                 <ImageUpload bucketName='rei' style='rei' />
             </div>
