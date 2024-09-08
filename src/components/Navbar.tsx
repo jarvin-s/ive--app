@@ -27,7 +27,7 @@ const Navbar = () => {
                             </span>
                         </a>
                         <div className='hidden md:block'>
-                            <div className='mr-[44rem] flex flex-row space-x-2 text-sm font-semibold tracking-wide text-white'>
+                            <div className='mr-[30rem] flex flex-row space-x-2 text-sm font-semibold tracking-wide text-white'>
                                 <a
                                     href='/home'
                                     className='relative block cursor-pointer rounded-lg p-2 
