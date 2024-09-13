@@ -61,7 +61,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
             : style === 'gaeul'
               ? 'border-blue-800 hover:border-blue-700'
               : style === 'yujin'
-                ? 'border-pink-800 hover:border-pink-700'
+                ? 'border-pink-800 hover:border-pink-500'
                 : style === 'wonyoung'
                   ? 'border-red-800 hover:border-red-700'
                   : style === 'liz'
@@ -100,7 +100,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
                             </div>
                         </div>
                         <button
-                            className={`upload mt-2 rounded-lg px-4 py-2 text-white transition-all duration-300 ${upload_button}`}
+                            className={`upload mt-2 px-4 py-2 text-white transition-all duration-300 ${upload_button}`}
                             onClick={handleImageUpload}
                         >
                             Upload image

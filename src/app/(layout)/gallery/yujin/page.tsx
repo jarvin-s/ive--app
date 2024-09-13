@@ -34,7 +34,7 @@ const Gallery = () => {
 
     return (
         <div className='flex flex-col items-center justify-center'>
-            <div className='mx-2 mt-24 border-4 border-pink-600 bg-black p-4 sm:p-10'>
+            <div className='mx-2 mt-12 border-4 border-pink-600 bg-black p-4 sm:p-10'>
                 <h1 className='text-center text-4xl font-bold text-white'>
                     <span className='bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent'>
                         Yujin

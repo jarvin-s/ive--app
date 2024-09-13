@@ -3,7 +3,6 @@
 import ImageUpload from '@/components/ImageUpload'
 import { Skeleton } from '@/components/ui/skeleton'
 import { supabase } from '@/lib/supabaseClient'
-import { setLazyProp } from 'next/dist/server/api-utils'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
@@ -52,7 +51,7 @@ const Gallery = () => {
 
     return (
         <div className='flex flex-col items-center justify-center'>
-            <div className='mx-2 mt-24 border-4 border-lime-400 bg-zinc-950 p-4 sm:p-10'>
+            <div className='mx-2 mt-12 border-4 border-lime-400 bg-zinc-950 p-4 sm:p-10'>
                 <h1 className='text-center text-4xl font-bold text-white'>
                     <span className='bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent'>
                         Rei
@@ -67,26 +66,21 @@ const Gallery = () => {
             {isLoading ? (
                 <div className='container mx-auto p-4'>
                     <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
-                        {images && images.length > 0 ? (
-                            <>
-                                {images.map((_, index) => (
-                                    <div
-                                        key={index}
-                                        className='flex items-center space-x-4'
+                        <div className='flex items-center space-x-4'>
+                            <Skeleton className='h-[450px] w-[300px] gap-2 bg-zinc-700'>
+                                <div className='flex h-full w-full items-center justify-center'>
+                                    <svg
+                                        className='h-6 w-6 text-gray-200'
+                                        aria-hidden='true'
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        fill='currentColor'
+                                        viewBox='0 0 20 18'
                                     >
-                                        <Skeleton className='h-12 w-12 rounded-full' />
-                                        <div className='space-y-2'>
-                                            <Skeleton className='h-4 w-[250px]' />
-                                            <Skeleton className='h-4 w-[200px]' />
-                                        </div>
-                                    </div>
-                                ))}
-                            </>
-                        ) : (
-                            <p className='text-4xl text-red-500'>
-                                No images found. Total count: {itemCount}
-                            </p>
-                        )}
+                                        <path d='M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z' />
+                                    </svg>
+                                </div>
+                            </Skeleton>
+                        </div>
                     </div>
                 </div>
             ) : (
