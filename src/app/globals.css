@@ -4,6 +4,7 @@
 
 body {
     background-color: #500724;
+    overflow-x: hidden;
 }
 
 .dotted {

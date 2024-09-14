@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Bricolage_Grotesque } from 'next/font/google'
 import '../globals.css'
 import Navbar from '@/components/Navbar'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Bricolage_Grotesque({
     weight: ['200', '300', '400', '500', '600', '700', '800'],
@@ -23,7 +24,7 @@ export default function RootLayout({
             <body className={inter.className}>
                 <Navbar />
                 {children}
-                <script src='https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js'></script>
+                <Toaster />
             </body>
         </html>
     )

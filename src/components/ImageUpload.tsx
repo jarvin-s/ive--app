@@ -1,6 +1,7 @@
 import { useState, ChangeEvent } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import Image from 'next/image'
+import { useToast } from '@/hooks/use-toast'
 
 interface ImageUploadProps {
     bucketName: string
@@ -11,6 +12,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
     const [image, setImage] = useState<File | null>(null)
     const [previewImage, setPreviewImage] = useState<string | null>(null)
     const [fileName, setFileName] = useState<string | null>(null)
+    const { toast } = useToast()
 
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0]
@@ -36,9 +38,19 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
             .upload(fileName, image)
 
         if (error) {
-            console.error('Error uploading image:', error.message)
+            toast({
+                variant: 'destructive',
+                title: 'Upload failed',
+                description: 'There was a problem uploading your image.',
+                duration: 4000,
+            })
         } else {
-            console.log('Image uploaded successfully:', data)
+            toast({
+                variant: 'success',
+                title: 'Upload successful',
+                description: 'Your image has been uploaded successfully!',
+                duration: 4000,
+            })
         }
     }
 
