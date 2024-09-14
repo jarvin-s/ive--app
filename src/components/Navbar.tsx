@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`w-full bg-pink-950`}>
+            <nav className={`w-full`}>
                 <div className='mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4'>
                     <a href='/' className='flex items-center space-x-3'>
                         <Image src={logo} alt='IVE logo' height={45} />
@@ -26,7 +26,7 @@ const Navbar = () => {
                     <button
                         data-collapse-toggle='navbar-multi-level'
                         type='button'
-                        className={`inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-black hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 md:hidden ${isClicked ? 'text-black' : ''}`}
+                        className={`inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-black hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 lg:hidden ${isClicked ? 'text-black' : ''}`}
                         aria-controls='navbar-multi-level'
                         aria-expanded={isClicked}
                         onClick={toggleNavbar}
@@ -65,10 +65,10 @@ const Navbar = () => {
                         )}
                     </button>
                     <div
-                        className={`${isClicked ? 'block' : 'hidden'} w-full md:block md:w-auto`}
+                        className={`${isClicked ? 'block' : 'hidden'} w-full lg:block lg:w-auto`}
                         id='navbar-multi-level'
                     >
-                        <ul className='mt-4 flex flex-col bg-pink-800 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-none border-[1px] border-gray-200 md:bg-pink-950'>
+                        <ul className='mt-4 flex flex-col border-[1px] border-gray-200 p-4 font-medium lg:mt-0 lg:flex-row lg:space-x-8 lg:border-none'>
                             <li>
                                 <a
                                     href='/home'
