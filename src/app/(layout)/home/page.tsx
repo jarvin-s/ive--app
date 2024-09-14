@@ -1,10 +1,14 @@
+import Cards from '@/components/Home/Cards'
+import Link from 'next/link'
 import React from 'react'
 
 const Home = () => {
     return (
-        <div className='flex h-screen items-center justify-center text-8xl'>
-            Home
-        </div>
+        <>
+            {/* <div className='relative mt-4 flex flex-col items-center justify-center p-4 md:p-0'> */}
+            <Cards />
+            {/* </div> */}
+        </>
     )
 }
 

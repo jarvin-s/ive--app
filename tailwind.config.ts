@@ -13,12 +13,21 @@ const config: Config = {
       wide: '1px'
     },
     extend: {
-      colors: {}
+      animation: {
+        'small-bounce': 'small-bounce 2s linear infinite',
+      },
+      keyframes: {
+        'small-bounce': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-2%)' },
+        },
+        colors: {}
+      }
     }
   },
   plugins: [
     require("flowbite/plugin"),
-    require("tailwindcss-animate")
+    // require("tailwindcss-animate")
   ],
 };
 export default config;
