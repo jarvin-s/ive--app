@@ -113,6 +113,10 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
                                     alt='Image preview'
                                     width={150}
                                     height={150}
+                                    style={{
+                                        maxWidth: '100%',
+                                        height: 'auto',
+                                    }}
                                 />
                                 {fileName && (
                                     <p className='mt-[10px] font-bold'>

@@ -17,7 +17,15 @@ const Navbar = () => {
             <nav className={`w-full`}>
                 <div className='mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4'>
                     <a href='/' className='flex items-center space-x-3'>
-                        <Image src={logo} alt='IVE logo' height={45} />
+                        <Image
+                            src={logo}
+                            alt='IVE logo'
+                            height={45}
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                            }}
+                        />
                         <span className='self-center whitespace-nowrap text-2xl font-semibold text-white'>
                             <span className='text-pink-600'>DIVE</span> INTO{' '}
                             <span className='text-pink-600'>IVE</span>

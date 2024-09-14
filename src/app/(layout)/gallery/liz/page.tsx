@@ -55,9 +55,13 @@ const Gallery = () => {
                             alt={`Liz image ${index + 1}`}
                             width={300}
                             height={450}
-                            layout='responsive'
-                            objectFit='cover'
                             className='gap-2 rounded-lg border-2 border-cyan-400 transition duration-500 ease-in-out hover:scale-110'
+                            sizes='100vw'
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                objectFit: 'cover',
+                            }}
                         />
                     ))}
                 </div>

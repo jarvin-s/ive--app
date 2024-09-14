@@ -14,11 +14,15 @@ const Home = () => {
                         className='h-full w-full'
                         alt={'IVE main'}
                         src={main}
+                        style={{
+                            maxWidth: '100%',
+                            height: 'auto',
+                        }}
                     />
                 </div>
                 <div
                     className='flex h-screen w-full bg-pink-950 px-6 pt-20 md:mx-auto md:w-1/2 md:max-w-md lg:max-w-full
-                    lg:px-16 xl:w-1/2 xl:px-12'
+                lg:px-16 xl:w-1/2 xl:px-12'
                 >
                     <div className='h-100 w-full text-center text-white'>
                         <h1 className='text-4xl font-bold'>
@@ -35,7 +39,7 @@ const Home = () => {
                             <button
                                 type='button'
                                 className='my-2 inline-flex w-full items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
-                                text-white duration-300 ease-in-out hover:bg-pink-400 disabled:pointer-events-none disabled:opacity-50 md:w-2/3'
+                            text-white duration-300 ease-in-out hover:bg-pink-400 disabled:pointer-events-none disabled:opacity-50 md:w-2/3'
                             >
                                 Go to IVE collection
                                 <svg
@@ -59,11 +63,11 @@ const Home = () => {
                             <motion.img
                                 className='big-card absolute z-10  rotate-[5deg] opacity-95 duration-[400ms] ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[15deg] md:group-hover:translate-x-[10rem] md:group-hover:translate-y-12'
                                 src='/images/rei/rei.png'
-                                />
+                            />
                             <motion.img
                                 className='big-card absolute z-[11] opacity-95 duration-[400ms] ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-7'
                                 src='/images/leeseo/leeseo.png'
-                                />
+                            />
                             <motion.img
                                 className='big-card absolute z-[12] rotate-[-5deg] opacity-95 duration-[400ms] ease-in-out group-hover:-translate-x-[4rem] group-hover:translate-y-2 group-hover:rotate-[-18deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-[3.5rem]'
                                 src='/images/wonyoung/wonyoung.jpg'

@@ -59,14 +59,17 @@ const Gallery = () => {
                 </h1>
                 <p className='relative z-10 mt-2 pl-1 pr-2 text-center text-white'>
                     <span className='absolute -left-1 -right-1 z-[-1] h-full w-full bg-pink-800'></span>
-                    Free, unlimited uploads of high-quality original
-                    photos featuring IVE&apos;s Rei
+                    Free, unlimited uploads of high-quality original photos
+                    featuring IVE&apos;s Rei
                 </p>
                 <ImageUpload bucketName='rei' style='rei' />
                 <div className='absolute bottom-0 left-0 right-0 top-0 z-[-1]'>
-                    <img
+                    <Image
                         className='h-full w-full object-cover'
                         src='/images/haikei-lime.svg'
+                        alt='Rei lime background'
+                        width={0}
+                        height={0}
                     />
                 </div>
             </div>
@@ -100,9 +103,13 @@ const Gallery = () => {
                                 alt={`Rei image ${index + 1}`}
                                 width={300}
                                 height={450}
-                                layout='responsive'
-                                objectFit='cover'
                                 className='gap-2 rounded-lg border-2 border-lime-400 transition duration-500 ease-in-out hover:scale-110'
+                                sizes='100vw'
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    objectFit: 'cover',
+                                }}
                             />
                         ))}
                     </div>
