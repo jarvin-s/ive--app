@@ -51,17 +51,24 @@ const Gallery = () => {
 
     return (
         <div className='flex flex-col items-center justify-center'>
-            <div className='mx-2 mt-12 border-4 border-lime-400 bg-zinc-950 p-4 sm:p-10'>
-                <h1 className='text-center text-4xl font-bold text-white'>
+            <div className='relative z-10 mx-2 mt-12 border-4 border-lime-400 bg-zinc-950 p-4 sm:p-10'>
+                <h1 className='z-10 text-center text-4xl font-bold text-white'>
                     <span className='bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent'>
                         Rei
                     </span>
                 </h1>
-                <p className='mt-2 text-center text-lime-500'>
-                    Free, unlimited uploads of high-quality original photos
-                    featuring IVE&apos;s Rei.
+                <p className='relative z-10 mt-2 pl-1 pr-2 text-center text-white'>
+                    <span className='absolute -left-1 -right-1 z-[-1] h-full w-full bg-pink-800'></span>
+                    Free, unlimited uploads of high-quality original
+                    photos featuring IVE&apos;s Rei
                 </p>
                 <ImageUpload bucketName='rei' style='rei' />
+                <div className='absolute bottom-0 left-0 right-0 top-0 z-[-1]'>
+                    <img
+                        className='h-full w-full object-cover'
+                        src='/images/haikei-lime.svg'
+                    />
+                </div>
             </div>
             {isLoading ? (
                 <div className='container mx-auto p-4'>
