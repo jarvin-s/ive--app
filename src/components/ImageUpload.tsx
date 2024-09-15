@@ -31,9 +31,17 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
     }
 
     const handleImageUpload = async () => {
-        if (!image) return
+        if (!image) {
+            toast({
+                variant: 'destructive',
+                title: 'No image selected',
+                description: 'Please select an image before uploading.',
+                duration: 4000,
+            })
+            return
+        }
         const fileName = `${Date.now()}-${image.name}`
-        const { data, error } = await supabase.storage
+        const { error } = await supabase.storage
             .from('gallery/' + bucketName)
             .upload(fileName, image)
 
