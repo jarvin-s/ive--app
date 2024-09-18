@@ -15,7 +15,7 @@ const Navbar = () => {
     return (
         <>
             <nav className={`w-full`}>
-                <div className='mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4'>
+                <div className='mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-2'>
                     <a href='/' className='flex items-center space-x-3'>
                         <Image
                             src={logo}
@@ -76,7 +76,7 @@ const Navbar = () => {
                         className={`${isClicked ? 'block' : 'hidden'} w-full lg:block lg:w-auto`}
                         id='navbar-multi-level'
                     >
-                        <ul className='mt-4 flex flex-col border-[1px] border-gray-200 p-4 font-medium lg:mt-0 lg:flex-row lg:space-x-8 lg:border-none'>
+                        <ul className='mt-4 flex flex-col border-[1px] border-gray-200 p-2 font-medium lg:mt-0 lg:flex-row lg:space-x-8 lg:border-none'>
                             <li>
                                 <a
                                     href='/home'
