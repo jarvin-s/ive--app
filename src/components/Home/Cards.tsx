@@ -4,7 +4,6 @@ import {
     CardContent,
     CardDescription,
     CardFooter,
-    CardHeader,
     CardTitle,
 } from '@/components/ui/card'
 import Image from 'next/image'
@@ -14,7 +13,7 @@ const Cards = () => {
     return (
         <>
             <div className='grid items-center justify-center gap-4 bg-zinc-900 md:grid-cols-2 lg:grid-cols-3'>
-                <Card className='relative bottom-[8rem] max-w-sm overflow-hidden bg-pink-200'>
+                <Card className='relative bottom-[8rem] ml-[130px] max-w-sm overflow-hidden bg-pink-200 md:-rotate-2'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
@@ -41,19 +40,19 @@ const Cards = () => {
                             </CardDescription>
                         </div>
                     </CardContent>
-                        <p className='ml-[12px] text-sm font-bold opacity-90'>(click me)</p>
+                    <p className='ml-[12px] text-sm font-bold opacity-90'>
+                        (click me)
+                    </p>
                     <div className='absolute left-[10px] h-[40px] w-[40px]'>
                         <img src='/images/icons/arrow-curve-down-right.svg' />
                     </div>
-
                     <CardFooter className='relative bottom-[4px] left-[36px] p-4'>
                         <Button className='bg-pink-700 text-lg text-white hover:bg-pink-600'>
                             <Link href={'/photocards'}>Photocards</Link>
                         </Button>
                     </CardFooter>
                 </Card>
-
-                <Card className='relative bottom-[8rem] max-w-sm overflow-hidden bg-pink-200'>
+                <Card className='relative bottom-[8rem] ml-[130px] max-w-sm overflow-hidden bg-pink-200 md:rotate-6'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
@@ -72,20 +71,38 @@ const Cards = () => {
                         <div className='space-y-4 p-4'>
                             <CardTitle className='text-2xl'>Gallery</CardTitle>
                             <CardDescription>
-                                Looking to find a new photocard for your phone
-                                case or just curious what's out there? Here
-                                you'll find all you need!
+                                {/* Find the perfect image for your{' '}
+                                <span className='font-extrabold italic'>
+                                    new
+                                </span>{' '}
+                                phone background. */}
+                                 Dive into an endless gallery of images of your favourite idol!
                             </CardDescription>
                         </div>
                     </CardContent>
                     <CardFooter className='flex justify-end p-4'>
                         <Button className='w-full bg-pink-700 text-lg text-white hover:bg-pink-600'>
-                            <Link href={'/gallery/rei'}>Gallery</Link>
+                            <Link
+                                className='flex flex-row gap-1'
+                                href={'/gallery/rei'}
+                            >
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='26'
+                                    height='26'
+                                    viewBox='0 0 20 20'
+                                >
+                                    <path
+                                        fill='currentColor'
+                                        d='M3 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 11l3.5-4.5l2.5 3l3.5-4.5l4.5 6zM16 2a2 2 0 0 1 2 2H2a2 2 0 0 1 2-2z'
+                                    />
+                                </svg>
+                                Gallery
+                            </Link>
                         </Button>
                     </CardFooter>
                 </Card>
-
-                <Card className='relative bottom-[8rem] max-w-sm overflow-hidden bg-pink-200'>
+                <Card className='relative bottom-[8rem] ml-[130px] max-w-sm overflow-hidden bg-pink-200 md:-rotate-3'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
@@ -110,10 +127,10 @@ const Cards = () => {
                             </CardDescription>
                         </div>
                     </CardContent>
-                    <div className='absolute left-[100px] h-[40px] w-[40px]'>
+                    <div className='absolute right-[12px] h-[40px] w-[40px]'>
                         <img src='/images/icons/arrow-curve-down-left.svg' />
                     </div>
-                    <CardFooter className='relative bottom-[5px] p-4'>
+                    <CardFooter className='relative right-[40px] flex justify-end p-4'>
                         <Button className='bg-pink-700 text-lg text-white hover:bg-pink-600'>
                             <Link href={'/merch'}>Merch</Link>
                         </Button>
