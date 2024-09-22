@@ -12,8 +12,12 @@ import Link from 'next/link'
 const Cards = () => {
     return (
         <>
-            <div className='animate-small-bounce grid items-center justify-center gap-4 bg-zinc-900 md:grid-cols-2 lg:grid-cols-3'>
-                <Card className='relative bottom-[8rem] ml-[130px] max-w-sm rotate-0 overflow-hidden bg-pink-200 md:-rotate-2'>
+            {/* 
+            // TODO
+            //! Potentially remove img svgs and add raw svgs 
+            */}
+            <div className='flex flex-col items-center gap-4 bg-zinc-900 justify-evenly lg:flex-row '>
+                <Card className='animate-small-bounce-left lg:animate-small-bounce-left-rotate relative bottom-[8rem] mx-4 max-w-[387px] overflow-hidden bg-pink-200'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
@@ -35,8 +39,8 @@ const Cards = () => {
                             </CardTitle>
                             <CardDescription>
                                 Looking to find a new photocard for your phone
-                                case or just curious what's out there? Here
-                                you'll find all you need!
+                                case or just curious what&rsquo;s out there?
+                                Here you&rsquo;ll find all you need!
                             </CardDescription>
                         </div>
                     </CardContent>
@@ -69,7 +73,7 @@ const Cards = () => {
                         </Button>
                     </CardFooter>
                 </Card>
-                <Card className='relative bottom-[8rem] ml-[130px] max-w-sm rotate-0 overflow-hidden bg-pink-200 md:rotate-3'>
+                <Card className='animate-small-bounce-middle lg:animate-small-bounce-middle-rotate relative bottom-[8rem] mx-4 max-w-[387px] overflow-hidden bg-pink-200'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
@@ -149,7 +153,7 @@ const Cards = () => {
                         </Button>
                     </CardFooter>
                 </Card>
-                <Card className='relative bottom-[8rem] ml-[130px] max-w-sm rotate-0 overflow-hidden bg-pink-200 md:-rotate-2'>
+                <Card className='animate-small-bounce-right lg:animate-small-bounce-right-rotate relative bottom-[8rem] mx-4 max-w-sm overflow-hidden bg-pink-200'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
@@ -168,7 +172,7 @@ const Cards = () => {
                         <div className='space-y-4 p-4'>
                             <CardTitle className='text-2xl'>Merch</CardTitle>
                             <CardDescription>
-                                Whether you're looking for apparel or cute
+                                Whether you&rsquo;re looking for apparel or cute
                                 MINIVE figurines, you&rsquo;ll find a collection
                                 every DIVE will love.
                             </CardDescription>

@@ -13,15 +13,41 @@ const config: Config = {
     },
     extend: {
       animation: {
-        'small-bounce': 'small-bounce 2s linear infinite',
+        'small-bounce-middle': 'small-bounce-middle 2.25s linear infinite',
+        'small-bounce-left': 'small-bounce-left 2.25s linear infinite',
+        'small-bounce-right': 'small-bounce-right 2.25s linear infinite',
+        'small-bounce-middle-rotate': 'small-bounce-middle-rotate 2.25s linear infinite',
+        'small-bounce-left-rotate': 'small-bounce-left-rotate 2.25s linear infinite',
+        'small-bounce-right-rotate': 'small-bounce-right-rotate 2.25s linear infinite',
       },
       keyframes: {
-        'small-bounce': {
+        'small-bounce-middle': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-2%)' },
         },
-        colors: {}
-      }
+        'small-bounce-left': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-2%)' },
+        },
+        'small-bounce-right': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-2%)' },
+        },
+
+        'small-bounce-middle-rotate': {
+          '0%, 100%': { transform: 'translateY(0) rotate(6deg)' },
+          '50%': { transform: 'translateY(-2%) rotate(6deg)' },
+        },
+        'small-bounce-left-rotate': {
+          '0%, 100%': { transform: 'translateY(0) rotate(-2deg)' },
+          '50%': { transform: 'translateY(-2%) rotate(-2deg)' },
+        },
+        'small-bounce-right-rotate': {
+          '0%, 100%': { transform: 'translateY(0) rotate(-3deg)' },
+          '50%': { transform: 'translateY(-2%) rotate(-3deg)' },
+        },
+      },
+      colors: {}
     }
   },
   plugins: [
