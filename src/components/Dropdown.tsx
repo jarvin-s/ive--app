@@ -14,7 +14,7 @@ const Dropdown = () => {
             <ul className='dropdown-menu absolute z-20 hidden rounded-lg border-[1px] bg-pink-950 p-2 text-white'>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
+                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/rei'
                     >
                         🐥 Rei
@@ -22,15 +22,18 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
+                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/gaeul'
                     >
-                        🐿️ Gaeul
+                        <div className='flex'>
+                            <img src='/images/gaeul/dal-e-icon.png' />{' '}
+                            <span>Gaeul</span>
+                        </div>
                     </a>
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
+                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/yujin'
                     >
                         🐶 Yujin
@@ -38,7 +41,7 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
+                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/liz'
                     >
                         🐱 Liz
@@ -46,7 +49,7 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
+                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/leeseo'
                     >
                         🐯 Leeseo
@@ -54,7 +57,7 @@ const Dropdown = () => {
                 </li>
                 <li>
                     <a
-                        className=' block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
+                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/wonyoung'
                     >
                         🐰 Wonyoung

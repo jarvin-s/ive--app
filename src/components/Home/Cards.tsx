@@ -16,8 +16,8 @@ const Cards = () => {
             // TODO
             //! Potentially remove img svgs and add raw svgs 
             */}
-            <div className='flex flex-col items-center gap-4 bg-zinc-900 justify-evenly lg:flex-row '>
-                <Card className='animate-small-bounce-left lg:animate-small-bounce-left-rotate relative bottom-[8rem] mx-4 max-w-[387px] overflow-hidden bg-pink-200'>
+            <div className='flex flex-col items-center justify-evenly gap-4 bg-zinc-900 xl:flex-row '>
+                <Card className='relative bottom-[8rem] mx-4 max-w-[387px] animate-small-bounce-left overflow-hidden bg-pink-200 xl:animate-small-bounce-left-rotate'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
@@ -73,7 +73,7 @@ const Cards = () => {
                         </Button>
                     </CardFooter>
                 </Card>
-                <Card className='animate-small-bounce-middle lg:animate-small-bounce-middle-rotate relative bottom-[8rem] mx-4 max-w-[387px] overflow-hidden bg-pink-200'>
+                <Card className='relative bottom-[8rem] mx-4 max-w-[387px] animate-small-bounce-middle overflow-hidden bg-pink-200 xl:animate-small-bounce-middle-rotate'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
@@ -153,7 +153,7 @@ const Cards = () => {
                         </Button>
                     </CardFooter>
                 </Card>
-                <Card className='animate-small-bounce-right lg:animate-small-bounce-right-rotate relative bottom-[8rem] mx-4 max-w-sm overflow-hidden bg-pink-200'>
+                <Card className='relative bottom-[8rem] mx-4 max-w-sm animate-small-bounce-right overflow-hidden bg-pink-200 xl:animate-small-bounce-right-rotate'>
                     <CardContent className='p-0'>
                         <div className='relative aspect-video'>
                             <Image
