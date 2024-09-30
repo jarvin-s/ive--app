@@ -34,17 +34,17 @@ const Cards = () => {
                             />
                         </div>
                         <div className='space-y-4 p-4'>
-                            <CardTitle className='text-2xl'>
+                            <CardTitle className='text-2xl text-black'>
                                 Photocards
                             </CardTitle>
-                            <CardDescription>
+                            <CardDescription className='text-black'>
                                 Looking to find a new photocard for your phone
                                 case or just curious what&rsquo;s out there?
                                 Here you&rsquo;ll find all you need!
                             </CardDescription>
                         </div>
                     </CardContent>
-                    <p className='ml-[12px] text-sm font-bold opacity-90'>
+                    <p className='ml-[12px] text-sm font-bold text-black opacity-90'>
                         (click me)
                     </p>
                     <div className='absolute left-[10px] h-[40px] w-[40px]'>
@@ -90,13 +90,10 @@ const Cards = () => {
                             />
                         </div>
                         <div className='space-y-4 p-4'>
-                            <CardTitle className='text-2xl'>Gallery</CardTitle>
-                            <CardDescription>
-                                {/* Find the perfect image for your{' '}
-                                <span className='font-extrabold italic'>
-                                    new
-                                </span>{' '}
-                                phone background. */}
+                            <CardTitle className='text-2xl text-black'>
+                                Gallery
+                            </CardTitle>
+                            <CardDescription className='text-black'>
                                 Dive into an endless gallery of images of your
                                 favourite idol!
                             </CardDescription>
@@ -170,8 +167,10 @@ const Cards = () => {
                             />
                         </div>
                         <div className='space-y-4 p-4'>
-                            <CardTitle className='text-2xl'>Merch</CardTitle>
-                            <CardDescription>
+                            <CardTitle className='text-2xl text-black'>
+                                Merch
+                            </CardTitle>
+                            <CardDescription className='text-black'>
                                 Whether you&rsquo;re looking for apparel or cute
                                 MINIVE figurines, you&rsquo;ll find a collection
                                 every DIVE will love.

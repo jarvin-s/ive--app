@@ -6,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './@/**/*.{ts,tsx}',
   ],
   theme: {
     letterSpacing: {
@@ -13,12 +14,12 @@ const config: Config = {
     },
     extend: {
       animation: {
-        'small-bounce-middle': 'small-bounce-middle 2.25s linear infinite',
-        'small-bounce-left': 'small-bounce-left 2.25s linear infinite',
-        'small-bounce-right': 'small-bounce-right 2.25s linear infinite',
-        'small-bounce-middle-rotate': 'small-bounce-middle-rotate 2.25s linear infinite',
-        'small-bounce-left-rotate': 'small-bounce-left-rotate 2.25s linear infinite',
-        'small-bounce-right-rotate': 'small-bounce-right-rotate 2.25s linear infinite',
+        'small-bounce-middle': 'small-bounce-middle 2.25s ease-in-out infinite',
+        'small-bounce-left': 'small-bounce-left 2.25s ease-in-out infinite',
+        'small-bounce-right': 'small-bounce-right 2.25s ease-in-out infinite',
+        'small-bounce-middle-rotate': 'small-bounce-middle-rotate 2.25s ease-in-out infinite',
+        'small-bounce-left-rotate': 'small-bounce-left-rotate 2.25s ease-in-out infinite',
+        'small-bounce-right-rotate': 'small-bounce-right-rotate 2.25s ease-in-out infinite',
       },
       keyframes: {
         'small-bounce-middle': {
@@ -47,7 +48,6 @@ const config: Config = {
           '50%': { transform: 'translateY(-2%) rotate(-3deg)' },
         },
       },
-      colors: {}
     }
   },
   plugins: [

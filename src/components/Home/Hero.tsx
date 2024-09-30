@@ -2,19 +2,25 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className='relative h-[50rem] font-bold'>
-            <div className='absolute left-[40%] top-[12%] px-4 text-6xl text-white'>
-                <span className='absolute -left-1 -right-1 z-[-1] h-full w-full bg-black'></span>
-                DIVE
-            </div>
-            <div>
-                <span className='absolute left-[45%] top-[20%] text-6xl text-[#AB0957]'>
-                    INTO
-                </span>
-            </div>
-            <div className='absolute left-[50%] top-[28%] px-4 text-6xl text-white'>
-                <span className='absolute -left-1 -right-1 z-[-1] h-full w-full bg-black'></span>
-                IVE
+        <div className='flex h-[75rem] justify-center border-4 border-green-500'>
+            <div className='z-[-1] flex h-[100vh] w-[75rem] items-center justify-center rounded-lg bg-[#230202] md:h-[70vh]'>
+                <div className='flex flex-col'>
+                    <div className='text-6xl font-bold text-white'>
+                        <div className='z-[-1] ml-[-48%] inline-block bg-[#AB0957] px-2'>
+                            DIVE
+                        </div>
+                    </div>
+                    <div>
+                        <div className='text-6xl font-bold text-[#AB0957]'>
+                            INTO
+                        </div>
+                    </div>
+                    <div className='text-6xl font-bold text-white'>
+                        <div className='z-[-1] ml-[57%] inline-block bg-[#AB0957] px-2'>
+                            IVE
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
