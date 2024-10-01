@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import logo from '../../public/images/logo.png'
 import Dropdown from './Dropdown'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const Navbar = () => {
     const [isClicked, setisClicked] = useState(false)
@@ -118,6 +119,7 @@ const Navbar = () => {
                                 </a>
                             </li>
                             <Dropdown />
+                            <LanguageSwitcher />
                         </ul>
                     </div>
                 </div>

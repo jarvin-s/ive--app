@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+    background-color: #500724;
+}
+
 body {
     background-color: #500724;
     overflow-x: hidden;
@@ -91,6 +95,7 @@ body {
 }
 
 /* MINIVE cards */
+
 .card {
     width: 250px;
     height: 200px;

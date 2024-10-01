@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import {
     Card,
@@ -6,10 +8,13 @@ import {
     CardFooter,
     CardTitle,
 } from '@/components/ui/card'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const Cards = () => {
+    const t = useTranslations('Cards')
+
     return (
         <>
             {/* 
@@ -35,12 +40,10 @@ const Cards = () => {
                         </div>
                         <div className='space-y-4 p-4'>
                             <CardTitle className='text-2xl text-black'>
-                                Photocards
+                                {t('title')}
                             </CardTitle>
                             <CardDescription className='text-black'>
-                                Looking to find a new photocard for your phone
-                                case or just curious what&rsquo;s out there?
-                                Here you&rsquo;ll find all you need!
+                                {t('description')}
                             </CardDescription>
                         </div>
                     </CardContent>
