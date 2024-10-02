@@ -1,6 +1,54 @@
 {
-    "Cards": {
-        "title": "포토카드",
-        "description": "휴대폰 케이스에 사용할 새로운 포토카드를 찾고 있거나 어떤 것이 있는지 궁금하신가요?"
+    "homecards": {
+        "photocards": {
+            "title": "포토카드",
+            "description": "전화 케이스에 새로운 포토카드를 찾고 있거나, 어떤 것들이 있는지 궁금하신가요?"
+        },
+        "gallery": {
+            "title": "갤러리",
+            "description": "당신이 가장 좋아하는 아이돌의 이미지를 끝없이 탐험해보세요!"
+        },
+        "merch": {
+            "title": "상품",
+            "description": "의류나 귀여운 MINIVE 피규어를 찾고 계신다면, 모든 DIVE가 좋아할 만한 컬렉션을 찾으실 수 있습니다."
+        }
+    },
+    "albums": {
+        "title": "앨범"
+    },
+    "postcards": {
+        "title": "엽서"
+    },
+    "photocards": {
+        "title": "포토카드"
+    },
+    "gallery-rei": {
+        "title": "레이",
+        "description": "IVE의 레이의 고품질 원본 사진을 무제한 무료로 업로드하세요",
+        "file": "여기에 이미지를 드롭하거나 클릭하여 찾아보세요",
+        "button": "이미지 업로드"
+    },
+    "navbar": {
+        "nav": {
+            "home": "홈",
+            "albums": "앨범",
+            "postcards": "엽서",
+            "photocards": "포토카드",
+            "merch": "상품"
+        },
+        "dropdown": {
+            "gallery": "갤러리",
+            "rei": "레이",
+            "gaeul": "가을",
+            "yujin": "유진",
+            "liz": "리즈",
+            "leeseo": "이서",
+            "wonyoung": "원영"
+        }
+    },
+    "404": {
+        "title": "페이지를 찾을 수 없습니다",
+        "description": "죄송합니다. 찾고 있는 페이지가 존재하지 않습니다.",
+        "home": "홈"
     }
 }

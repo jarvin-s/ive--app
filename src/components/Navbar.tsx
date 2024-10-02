@@ -1,21 +1,30 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../../public/images/logo.png'
 import Dropdown from './Dropdown'
+import { useLocale, useTranslations } from 'next-intl'
 import LanguageSwitcher from './LanguageSwitcher'
 
 const Navbar = () => {
     const [isClicked, setisClicked] = useState(false)
+    const currentLocale = useLocale()
+    const [selectedLocale, setSelectedLocale] = useState(currentLocale)
+    const t = useTranslations('navbar')
+
+    useEffect(() => {
+        setSelectedLocale(currentLocale)
+    }, [currentLocale])
 
     const toggleNavbar = () => {
         setisClicked(!isClicked)
     }
 
+    // Old navbar colour rgba(58,21,47,0.78)
     return (
         <>
-            <nav className={`w-full`}>
+            <nav className={`border-bg sticky top-0 z-10 w-full bg-pink-950`}>
                 <div className='mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-2'>
                     <a href='/' className='flex items-center space-x-3'>
                         <Image
@@ -80,42 +89,62 @@ const Navbar = () => {
                         <ul className='mt-4 flex flex-col border-[1px] border-gray-200 p-2 font-medium lg:mt-0 lg:flex-row lg:space-x-8 lg:border-none'>
                             <li>
                                 <a
-                                    href='/home'
+                                    href={
+                                        selectedLocale === 'en'
+                                            ? '/en/home'
+                                            : '/kr/home'
+                                    }
                                     className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
                                 >
-                                    Home
+                                    {t('nav.home')}
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href='/albums'
+                                    href={
+                                        selectedLocale === 'en'
+                                            ? '/en/albums'
+                                            : '/kr/albums'
+                                    }
                                     className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
                                 >
-                                    Albums
+                                    {t('nav.albums')}
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href='/postcards'
+                                    href={
+                                        selectedLocale === 'en'
+                                            ? '/en/postcards'
+                                            : '/kr/postcards'
+                                    }
                                     className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
                                 >
-                                    Postcards
+                                    {t('nav.postcards')}
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href='/photocards'
+                                    href={
+                                        selectedLocale === 'en'
+                                            ? '/en/photocards'
+                                            : '/kr/photocards'
+                                    }
                                     className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
                                 >
-                                    Photocards
+                                    {t('nav.photocards')}
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href='/merch'
+                                    href={
+                                        selectedLocale === 'en'
+                                            ? '/en/merch'
+                                            : '/kr/merch'
+                                    }
                                     className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
                                 >
-                                    Merch
+                                    {t('nav.merch')}
                                 </a>
                             </li>
                             <Dropdown />

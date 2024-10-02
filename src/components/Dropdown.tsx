@@ -1,8 +1,19 @@
+import { useEffect, useState } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
+
 const Dropdown = () => {
+    const currentLocale = useLocale()
+    const [selectedLocale, setSelectedLocale] = useState(currentLocale)
+    const t = useTranslations('navbar')
+
+    useEffect(() => {
+        setSelectedLocale(currentLocale)
+    }, [currentLocale])
+
     return (
         <div className='dropdown inline-block'>
             <button className='inline-flex items-center rounded py-2 text-white hover:text-black md:hover:text-white md:hover:underline'>
-                <span className='ml-3'>Gallery</span>
+                <span className='ml-3'>{t('dropdown.gallery')}</span>
                 <svg
                     className='h-4 w-4 fill-current opacity-50'
                     xmlns='http://www.w3.org/2000/svg'
@@ -15,9 +26,13 @@ const Dropdown = () => {
                 <li>
                     <a
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href='/gallery/rei'
+                        href={
+                            selectedLocale == 'en'
+                                ? '/en/gallery/rei'
+                                : '/kr/gallery/rei'
+                        }
                     >
-                        🐥 Rei
+                        🐥 {t('dropdown.rei')}
                     </a>
                 </li>
                 <li>
@@ -25,10 +40,7 @@ const Dropdown = () => {
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/gaeul'
                     >
-                        <div className='flex'>
-                            <img src='/images/gaeul/dal-e-icon.png' />{' '}
-                            <span>Gaeul</span>
-                        </div>
+                        🐿️ {t('dropdown.gaeul')}
                     </a>
                 </li>
                 <li>
@@ -36,7 +48,7 @@ const Dropdown = () => {
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/yujin'
                     >
-                        🐶 Yujin
+                        🐶 {t('dropdown.yujin')}
                     </a>
                 </li>
                 <li>
@@ -44,7 +56,7 @@ const Dropdown = () => {
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/liz'
                     >
-                        🐱 Liz
+                        🐱 {t('dropdown.liz')}
                     </a>
                 </li>
                 <li>
@@ -52,7 +64,7 @@ const Dropdown = () => {
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/leeseo'
                     >
-                        🐯 Leeseo
+                        🐯 {t('dropdown.leeseo')}
                     </a>
                 </li>
                 <li>
@@ -60,7 +72,7 @@ const Dropdown = () => {
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
                         href='/gallery/wonyoung'
                     >
-                        🐰 Wonyoung
+                        🐰 {t('dropdown.wonyoung')}
                     </a>
                 </li>
             </ul>

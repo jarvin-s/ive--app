@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import React from 'react'
-import main from '../../../public/images/ive-main.png'
+import main from '/public/images/ive-main.png'
 import { motion } from 'framer-motion'
 
 const Home = () => {
@@ -35,7 +35,7 @@ const Home = () => {
                                 A collection of data, stats and info about IVE.
                             </span>
                         </h4>
-                        <a href='/home'>
+                        <a href='/en/home'>
                             <button
                                 type='button'
                                 className='my-2 inline-flex w-full items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
