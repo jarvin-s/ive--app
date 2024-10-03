@@ -38,7 +38,11 @@ const Dropdown = () => {
                 <li>
                     <a
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href='/gallery/gaeul'
+                        href={
+                            selectedLocale == 'en'
+                                ? '/en/gallery/gaeul'
+                                : '/kr/gallery/gaeul'
+                        }
                     >
                         🐿️ {t('dropdown.gaeul')}
                     </a>
@@ -46,7 +50,11 @@ const Dropdown = () => {
                 <li>
                     <a
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href='/gallery/yujin'
+                        href={
+                            selectedLocale == 'en'
+                                ? '/en/gallery/yujin'
+                                : '/kr/gallery/yujin'
+                        }
                     >
                         🐶 {t('dropdown.yujin')}
                     </a>
@@ -54,7 +62,11 @@ const Dropdown = () => {
                 <li>
                     <a
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href='/gallery/liz'
+                        href={
+                            selectedLocale == 'en'
+                                ? '/en/gallery/liz'
+                                : '/kr/gallery/liz'
+                        }
                     >
                         🐱 {t('dropdown.liz')}
                     </a>
@@ -62,7 +74,11 @@ const Dropdown = () => {
                 <li>
                     <a
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href='/gallery/leeseo'
+                        href={
+                            selectedLocale == 'en'
+                                ? '/en/gallery/leeseo'
+                                : '/kr/gallery/leeseo'
+                        }
                     >
                         🐯 {t('dropdown.leeseo')}
                     </a>
@@ -70,7 +86,11 @@ const Dropdown = () => {
                 <li>
                     <a
                         className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href='/gallery/wonyoung'
+                        href={
+                            selectedLocale == 'en'
+                                ? '/en/gallery/wonyoung'
+                                : '/kr/gallery/wonyoung'
+                        }
                     >
                         🐰 {t('dropdown.wonyoung')}
                     </a>
