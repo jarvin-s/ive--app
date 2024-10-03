@@ -11,7 +11,7 @@ const Gallery = () => {
     const [images, setImages] = useState<string[]>([])
     const [isLoading, setLoading] = useState(true)
     const [itemCount, setItemCount] = useState(0)
-    const t = useTranslations('gallery-rei')
+    const t = useTranslations('gallery')
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -27,10 +27,10 @@ const Gallery = () => {
                         const { data: publicData } = supabase.storage
                             .from('gallery/rei')
                             .getPublicUrl(file.name)
-                        return publicData.publicUrl || '' // Fallback to an empty string if publicUrl is not available
+                        return publicData.publicUrl || ''
                     })
                 )
-                setImages(imageUrls.filter(Boolean)) // Filter out any empty strings
+                setImages(imageUrls.filter(Boolean))
             }
             setLoading(false)
         }
@@ -56,12 +56,12 @@ const Gallery = () => {
             <div className='relative z-10 mx-2 mt-12 border-4 border-lime-400 bg-zinc-950 p-4 sm:p-10'>
                 <h1 className='z-10 text-center text-4xl font-bold text-white'>
                     <span className='bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent'>
-                        {t('title')}
+                        {t('rei.title')}
                     </span>
                 </h1>
                 <p className='relative z-10 mt-2 pl-1 pr-2 text-center text-white'>
                     <span className='absolute -left-1 -right-1 z-[-1] h-full w-full bg-pink-800'></span>
-                    {t('description')}
+                    {t('rei.description')}
                 </p>
                 <ImageUpload bucketName='rei' style='rei' />
                 <div className='absolute bottom-0 left-0 right-0 top-0 z-[-1]'>

@@ -26,11 +26,33 @@
     "photocards": {
         "title": "포토카드"
     },
-    "gallery-rei": {
-        "title": "레이",
-        "description": "IVE의 레이의 고품질 원본 사진을 무제한 무료로 업로드하세요",
+    "gallery": {
         "file": "여기에 이미지를 드롭하거나 클릭하여 찾아보세요",
-        "button": "이미지 업로드"
+        "button": "이미지 업로드",
+        "rei": {
+            "title": "레이",
+            "description": "IVE의 레이의 고품질 원본 사진을 무제한 무료로 업로드하세요"
+        },
+        "gaeul": {
+            "title": "가을",
+            "description": "IVE의 가을이 포함된 고품질 원본 사진을 무료로 무제한 업로드하세요."
+        },
+        "yujin": {
+            "title": "유진",
+            "description": "IVE의 유진이 포함된 고품질 원본 사진을 무료로 무제한 업로드하세요."
+        },
+        "liz": {
+            "title": "리즈",
+            "description": "IVE의 리즈가 포함된 고품질 원본 사진을 무료로 무제한 업로드하세요."
+        },
+        "wonyoung": {
+            "title": "원영",
+            "description": "IVE의 원영이 포함된 고품질 원본 사진을 무료로 무제한 업로드하세요."
+        },
+        "leeseo": {
+            "title": "이서",
+            "description": "IVE의 이서가 포함된 고품질 원본 사진을 무료로 무제한 업로드하세요."
+        }
     },
     "navbar": {
         "nav": {

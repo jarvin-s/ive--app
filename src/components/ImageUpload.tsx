@@ -14,7 +14,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
     const [previewImage, setPreviewImage] = useState<string | null>(null)
     const [fileName, setFileName] = useState<string | null>(null)
     const { toast } = useToast()
-    const t = useTranslations('gallery-rei')
+    const t = useTranslations('gallery')
 
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0]
@@ -85,7 +85,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
               : style === 'yujin'
                 ? 'border-pink-800 hover:border-pink-500'
                 : style === 'wonyoung'
-                  ? 'border-red-800 hover:border-red-700'
+                  ? 'border-red-900 hover:border-red-500'
                   : style === 'liz'
                     ? 'border-cyan-800 hover:border-cyan-700'
                     : style === 'leeseo'

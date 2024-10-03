@@ -26,11 +26,33 @@
     "photocards": {
         "title": "Photocards"
     },
-    "gallery-rei": {
-        "title": "Rei",
-        "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Rei",
+    "gallery": {
         "file": "Drop your image here or click to browse",
-        "button": "Upload image"
+        "button": "Upload image",
+        "rei": {
+            "title": "Rei",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Rei."
+        },
+        "gaeul": {
+            "title": "Gaeul",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Gaeul."
+        },
+        "yujin": {
+            "title": "Yujin",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Yujin."
+        },
+        "liz": {
+            "title": "Liz",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Liz."
+        },
+        "wonyoung": {
+            "title": "Wonyoung",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Wonyoung."
+        },
+        "leeseo": {
+            "title": "Leeseo",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Leeseo."
+        }
     },
     "navbar": {
         "nav": {
