@@ -1,0 +1,80 @@
+{
+    "index": {
+        "description": "A collection of data, stats and info about IVE."
+    },
+    "homecards": {
+        "photocards": {
+            "title": "Photocards",
+            "description": "Looking to find a new photocard for your phone case or just curious what’s out there?",
+            "click": "(click me)"
+        },
+        "gallery": {
+            "title": "Gallery",
+            "description": "Dive into an endless gallery of images of your favourite idol!"
+        },
+        "merch": {
+            "title": "Merch",
+            "description": "Whether you’re looking for apparel or cute MINIVE figurines, you’ll find a collection every DIVE will love."
+        }
+    },
+    "albums": {
+        "title": "Albums"
+    },
+    "postcards": {
+        "title": "Postcards"
+    },
+    "photocards": {
+        "title": "Photocards"
+    },
+    "gallery": {
+        "file": "Drop your image here or click to browse",
+        "button": "Upload image",
+        "rei": {
+            "title": "Rei",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Rei."
+        },
+        "gaeul": {
+            "title": "Gaeul",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Gaeul."
+        },
+        "yujin": {
+            "title": "Yujin",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Yujin."
+        },
+        "liz": {
+            "title": "Liz",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Liz."
+        },
+        "wonyoung": {
+            "title": "Wonyoung",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Wonyoung."
+        },
+        "leeseo": {
+            "title": "Leeseo",
+            "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Leeseo."
+        }
+    },
+    "navbar": {
+        "nav": {
+            "home": "Home",
+            "albums": "Albums",
+            "postcards": "Postcards",
+            "photocards": "Photocards",
+            "merch": "Merch"
+        },
+        "dropdown": {
+            "gallery": "Gallery",
+            "rei": "Rei",
+            "gaeul": "Gaeul",
+            "yujin": "Yujin",
+            "liz": "Liz",
+            "leeseo": "Leeseo",
+            "wonyoung": "Wonyoung"
+        }
+    },
+    "404": {
+        "title": "Page not found",
+        "description": "Sorry, the page you are looking for does not exist.",
+        "home": "Home"
+    }
+}

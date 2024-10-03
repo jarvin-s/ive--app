@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import {
     Card,
@@ -6,10 +8,13 @@ import {
     CardFooter,
     CardTitle,
 } from '@/components/ui/card'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const Cards = () => {
+    const t = useTranslations('homecards')
+
     return (
         <>
             {/* 
@@ -35,20 +40,24 @@ const Cards = () => {
                         </div>
                         <div className='space-y-4 p-4'>
                             <CardTitle className='text-2xl text-black'>
-                                Photocards
+                                {t('photocards.title')}
                             </CardTitle>
                             <CardDescription className='text-black'>
-                                Looking to find a new photocard for your phone
-                                case or just curious what&rsquo;s out there?
-                                Here you&rsquo;ll find all you need!
+                                {t('photocards.description')}
                             </CardDescription>
                         </div>
                     </CardContent>
                     <p className='ml-[12px] text-sm font-bold text-black opacity-90'>
-                        (click me)
+                        {t('photocards.click')}
                     </p>
                     <div className='absolute left-[10px] h-[40px] w-[40px]'>
-                        <img src='/images/icons/arrow-curve-down-right.svg' />
+                        <Image
+                            src='/images/icons/arrow-curve-down-right.svg'
+                            alt='Arrow right down'
+                            className='w-full'
+                            width={0}
+                            height={0}
+                        />
                     </div>
                     <CardFooter className='relative bottom-[4px] left-[36px] p-4'>
                         <Button className='bg-pink-700 text-lg text-white hover:bg-pink-600'>
@@ -68,7 +77,7 @@ const Cards = () => {
                                         d='m21.47 4.35l-1.34-.56v9.03l2.43-5.86c.41-1.02-.06-2.19-1.09-2.61m-19.5 3.7L6.93 20a2.01 2.01 0 0 0 1.81 1.26c.26 0 .53-.05.79-.16l7.37-3.05c.75-.31 1.21-1.05 1.23-1.79c.01-.26-.04-.55-.13-.81L13 3.5a1.95 1.95 0 0 0-1.81-1.25c-.26 0-.52.06-.77.15L3.06 5.45a1.994 1.994 0 0 0-1.09 2.6m16.15-3.8a2 2 0 0 0-2-2h-1.45l3.45 8.34'
                                     />
                                 </svg>
-                                Photocards
+                                {t('photocards.title')}
                             </Link>
                         </Button>
                     </CardFooter>
@@ -91,11 +100,10 @@ const Cards = () => {
                         </div>
                         <div className='space-y-4 p-4'>
                             <CardTitle className='text-2xl text-black'>
-                                Gallery
+                                {t('gallery.title')}
                             </CardTitle>
                             <CardDescription className='text-black'>
-                                Dive into an endless gallery of images of your
-                                favourite idol!
+                                {t('gallery.description')}
                             </CardDescription>
                         </div>
                     </CardContent>
@@ -145,7 +153,7 @@ const Cards = () => {
                                         d='M3 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 11l3.5-4.5l2.5 3l3.5-4.5l4.5 6zM16 2a2 2 0 0 1 2 2H2a2 2 0 0 1 2-2z'
                                     />
                                 </svg>
-                                Gallery
+                                {t('gallery.title')}
                             </Link>
                         </Button>
                     </CardFooter>
@@ -168,17 +176,21 @@ const Cards = () => {
                         </div>
                         <div className='space-y-4 p-4'>
                             <CardTitle className='text-2xl text-black'>
-                                Merch
+                                {t('merch.title')}
                             </CardTitle>
                             <CardDescription className='text-black'>
-                                Whether you&rsquo;re looking for apparel or cute
-                                MINIVE figurines, you&rsquo;ll find a collection
-                                every DIVE will love.
+                                {t('merch.description')}
                             </CardDescription>
                         </div>
                     </CardContent>
                     <div className='absolute right-[12px] h-[40px] w-[40px]'>
-                        <img src='/images/icons/arrow-curve-down-left.svg' />
+                        <Image
+                            src='/images/icons/arrow-curve-down-left.svg'
+                            alt='Arrow left down'
+                            className='w-full'
+                            width={0}
+                            height={0}
+                        />
                     </div>
                     <CardFooter className='relative right-[40px] flex justify-end p-4'>
                         <Button className='bg-pink-700 text-lg text-white hover:bg-pink-600'>
@@ -193,7 +205,7 @@ const Cards = () => {
                                     height='26'
                                     viewBox='0 0 24 24'
                                 >
-                                    <g fill='none' fill-rule='evenodd'>
+                                    <g fill='none' fillRule='evenodd'>
                                         <path d='M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z' />
                                         <path
                                             fill='currentColor'
@@ -201,70 +213,13 @@ const Cards = () => {
                                         />
                                     </g>
                                 </svg>
-                                Merch
+                                {t('merch.title')}
                             </Link>
                         </Button>
                     </CardFooter>
                 </Card>
             </div>
         </>
-        // <div className='flex flex-col items-center justify-center gap-4 bg-zinc-900 md:flex-row md:gap-40'>
-        //     <div className='relative -top-[60px] h-[320px] w-[240px] rounded-xl bg-gray-300'>
-        //         <img
-        //             className='h-[18vw] rounded-lg'
-        //             src='/images/photocard/main2.png'
-        //         />
-        //         <a>
-        //             <div className='flex h-[40px] w-full cursor-pointer items-center justify-center rounded-lg bg-purple-600 text-xl text-white duration-300 ease-in-out hover:bg-purple-500'>
-        //                 Photocards
-        //             </div>
-        //         </a>
-        //     </div>
-        //     <div className='relative -top-[60px] h-[320px] w-[240px] rounded-xl bg-gray-300'></div>
-        //     <div className='relative -top-[60px] h-[320px] w-[240px] rounded-xl bg-gray-300'></div>
-        // </div>
-
-        // <div className='grid gap-4 px-2 py-20 sm:grid-cols-2 lg:grid-cols-3 bg-zinc-900'>
-        //     <div className='relative flex animate-small-bounce flex-col items-center'>
-        //         <Link href='/photocards' passHref legacyBehavior>
-        //             <img
-        //                 src='/images/photocard/main.png'
-        //                 alt='Photocards'
-        //                 className='z-10 cursor-pointer rounded-lg border-2 duration-300 hover:bg-pink-800 md:h-[22vw] lg:h-[18vw]'
-        //             />
-        //         </Link>
-        //         <div className='relative top-4 z-10 p-2 pr-3 text-4xl font-bold uppercase text-white'>
-        //             <span className='absolute -left-1 -top-1 z-[-1] h-full w-full -rotate-2 justify-center bg-pink-800 p-8'></span>
-        //             Photocards
-        //         </div>
-        //     </div>
-        //     <div className='relative flex animate-small-bounce flex-col items-center'>
-        //         <Link href='/gallery/rei' passHref legacyBehavior>
-        //             <img
-        //                 src='/images/gallery/main.jpg'
-        //                 alt='Gallery'
-        //                 className='z-10 cursor-pointer rounded-lg border-2 duration-300 hover:bg-pink-800 md:h-[22vw] lg:h-[18vw]'
-        //             />
-        //         </Link>
-        //         <div className='relative top-4 z-10 pb-3 pl-1 pr-3 pt-1 text-4xl font-bold uppercase text-white'>
-        //             <span className='absolute -left-1 -top-1 z-[-1] h-full w-full -rotate-2 bg-pink-800'></span>
-        //             Gallery
-        //         </div>
-        //     </div>
-        //     <div className='relative flex animate-small-bounce flex-col items-center'>
-        //         <Link href='/merch' passHref legacyBehavior>
-        //             <img
-        //                 src='/images/merch/main.jpg'
-        //                 alt='Merch'
-        //                 className='z-10 cursor-pointer rounded-lg border-2 p-2 duration-300 hover:bg-pink-800 md:h-[18vw] md:w-[14vw] md:p-0'
-        //             />
-        //         </Link>
-        //         <div className='relative top-4 z-10 pb-3 pl-1 pr-3 pt-1 text-4xl font-bold uppercase text-white'>
-        //             <span className='absolute -left-1 -top-1 z-[-1] h-full w-full -rotate-2 bg-pink-800'></span>
-        //             Merch
-        //         </div>
-        //     </div>
-        // </div>
     )
 }
 

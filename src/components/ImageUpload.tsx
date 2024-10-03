@@ -2,6 +2,7 @@ import { useState, ChangeEvent } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import Image from 'next/image'
 import { useToast } from '@/hooks/use-toast'
+import { useTranslations } from 'next-intl'
 
 interface ImageUploadProps {
     bucketName: string
@@ -13,6 +14,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
     const [previewImage, setPreviewImage] = useState<string | null>(null)
     const [fileName, setFileName] = useState<string | null>(null)
     const { toast } = useToast()
+    const t = useTranslations('gallery')
 
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0]
@@ -83,7 +85,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
               : style === 'yujin'
                 ? 'border-pink-800 hover:border-pink-500'
                 : style === 'wonyoung'
-                  ? 'border-red-800 hover:border-red-700'
+                  ? 'border-red-900 hover:border-red-500'
                   : style === 'liz'
                     ? 'border-cyan-800 hover:border-cyan-700'
                     : style === 'leeseo'
@@ -103,7 +105,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
                                     htmlFor='file-input'
                                     className='block h-full w-full cursor-pointer p-4 text-sm text-white'
                                 >
-                                    Drop your image here or click to browse
+                                    {t('file')}
                                 </label>
                                 <input
                                     name='file'
@@ -123,7 +125,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
                             className={`upload mt-2 px-4 py-2 text-white transition-all duration-300 ${upload_button}`}
                             onClick={handleImageUpload}
                         >
-                            Upload image
+                            {t('button')}
                         </button>
                         {previewImage && (
                             <div className='mt-10 text-white'>
