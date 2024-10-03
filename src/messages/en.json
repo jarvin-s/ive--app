@@ -1,8 +1,12 @@
 {
+    "index": {
+        "description": "A collection of data, stats and info about IVE."
+    },
     "homecards": {
         "photocards": {
             "title": "Photocards",
-            "description": "Looking to find a new photocard for your phone case or just curious what’s out there?"
+            "description": "Looking to find a new photocard for your phone case or just curious what’s out there?",
+            "click": "(click me)"
         },
         "gallery": {
             "title": "Gallery",

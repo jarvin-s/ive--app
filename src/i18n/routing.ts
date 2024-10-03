@@ -4,7 +4,7 @@ import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 export const routing = defineRouting({
     locales: ['en', 'kr'],
 
-    defaultLocale: 'kr'
+    defaultLocale: 'en'
 });
 
 export const { Link, redirect, usePathname, useRouter } =

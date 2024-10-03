@@ -4,8 +4,11 @@ import Image from 'next/image'
 import React from 'react'
 import main from '/public/images/ive-main.png'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 const Home = () => {
+    const t = useTranslations('index')
+
     return (
         <>
             <section className='flex h-screen flex-col items-center md:flex-row'>
@@ -32,7 +35,7 @@ const Home = () => {
                         </h1>
                         <h4 className='text-l'>
                             <span className='opacity-80'>
-                                A collection of data, stats and info about IVE.
+                                {t('description')}
                             </span>
                         </h4>
                         <a href='/en/home'>

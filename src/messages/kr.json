@@ -1,8 +1,12 @@
 {
+    "index": {
+        "description": "IVE에 대한 데이터, 통계 및 정보 모음."
+    },
     "homecards": {
         "photocards": {
             "title": "포토카드",
-            "description": "전화 케이스에 새로운 포토카드를 찾고 있거나, 어떤 것들이 있는지 궁금하신가요?"
+            "description": "전화 케이스에 새로운 포토카드를 찾고 있거나, 어떤 것들이 있는지 궁금하신가요?",
+            "click": "(클릭하세요)"
         },
         "gallery": {
             "title": "갤러리",
