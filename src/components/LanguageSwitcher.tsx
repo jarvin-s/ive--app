@@ -35,7 +35,7 @@ export default function LanguageSwitcher() {
                 <DropdownMenuTrigger asChild>
                     <Button
                         variant='outline'
-                        className='text-white duration-300 hover:bg-pink-500'
+                        className='text-white duration-300 hover:bg-pink-900'
                     >
                         {selectedLocale === 'en' ? (
                             <>
@@ -82,7 +82,7 @@ export default function LanguageSwitcher() {
                                         </clipPath>
                                     </defs>
                                     <g
-                                        fill-rule='evenodd'
+                                        fillRule='evenodd'
                                         clip-path='url(#flagKr4x30)'
                                         transform='translate(89.8 .4)scale(.9375)'
                                     >
@@ -137,14 +137,14 @@ export default function LanguageSwitcher() {
                         )}
                     </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className='w-full rounded-lg bg-black text-white shadow-md ring-1 ring-black ring-opacity-5'>
+                <DropdownMenuContent className='w-full rounded-lg bg-pink-950 text-white shadow-md ring-1 ring-black ring-opacity-5'>
                     <DropdownMenuLabel className='px-4 py-2 font-semibold'>
                         Languages
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator className='my-2 border-t border-gray-200' />
                     <DropdownMenuGroup>
                         <DropdownMenuItem
-                            className='flex items-center gap-1 px-4 py-2 hover:bg-gray-100 focus:bg-red-100 focus:outline-none'
+                            className='flex items-center gap-1 px-4 py-2 hover:bg-pink-800 focus:bg-pink-800 focus:outline-none'
                             onSelect={() => changeLocale('en')}
                         >
                             <svg
@@ -174,7 +174,7 @@ export default function LanguageSwitcher() {
                             <span className='text-white'>English</span>
                         </DropdownMenuItem>
                         <DropdownMenuItem
-                            className='flex items-center gap-1 px-4 py-2 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none'
+                            className='flex items-center gap-1 px-4 py-2 hover:bg-pink-800 focus:bg-pink-800 focus:outline-none'
                             onSelect={() => changeLocale('kr')}
                         >
                             <svg
@@ -192,7 +192,7 @@ export default function LanguageSwitcher() {
                                     </clipPath>
                                 </defs>
                                 <g
-                                    fill-rule='evenodd'
+                                    fillRule='evenodd'
                                     clip-path='url(#flagKr4x30)'
                                     transform='translate(89.8 .4)scale(.9375)'
                                 >
