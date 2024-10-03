@@ -51,7 +51,13 @@ const Cards = () => {
                         {t('photocards.click')}
                     </p>
                     <div className='absolute left-[10px] h-[40px] w-[40px]'>
-                        <img src='/images/icons/arrow-curve-down-right.svg' />
+                        <Image
+                            src='/images/icons/arrow-curve-down-right.svg'
+                            alt='Arrow right down'
+                            className='w-full'
+                            width={0}
+                            height={0}
+                        />
                     </div>
                     <CardFooter className='relative bottom-[4px] left-[36px] p-4'>
                         <Button className='bg-pink-700 text-lg text-white hover:bg-pink-600'>
@@ -178,7 +184,13 @@ const Cards = () => {
                         </div>
                     </CardContent>
                     <div className='absolute right-[12px] h-[40px] w-[40px]'>
-                        <img src='/images/icons/arrow-curve-down-left.svg' />
+                        <Image
+                            src='/images/icons/arrow-curve-down-left.svg'
+                            alt='Arrow left down'
+                            className='w-full'
+                            width={0}
+                            height={0}
+                        />
                     </div>
                     <CardFooter className='relative right-[40px] flex justify-end p-4'>
                         <Button className='bg-pink-700 text-lg text-white hover:bg-pink-600'>

@@ -76,14 +76,14 @@ export default function LanguageSwitcher() {
                                     <defs>
                                         <clipPath id='flagKr4x30'>
                                             <path
-                                                fill-opacity='.7'
+                                                fillOpacity='.7'
                                                 d='M-95.8-.4h682.7v512H-95.8z'
                                             />
                                         </clipPath>
                                     </defs>
                                     <g
                                         fillRule='evenodd'
-                                        clip-path='url(#flagKr4x30)'
+                                        clipPath='url(#flagKr4x30)'
                                         transform='translate(89.8 .4)scale(.9375)'
                                     >
                                         <path
@@ -186,14 +186,14 @@ export default function LanguageSwitcher() {
                                 <defs>
                                     <clipPath id='flagKr4x30'>
                                         <path
-                                            fill-opacity='.7'
+                                            fillOpacity='.7'
                                             d='M-95.8-.4h682.7v512H-95.8z'
                                         />
                                     </clipPath>
                                 </defs>
                                 <g
                                     fillRule='evenodd'
-                                    clip-path='url(#flagKr4x30)'
+                                    clipPath='url(#flagKr4x30)'
                                     transform='translate(89.8 .4)scale(.9375)'
                                 >
                                     <path
