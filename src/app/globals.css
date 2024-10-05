@@ -3,11 +3,10 @@
 @tailwind utilities;
 
 ::selection {
-    background-color: #500724;
+    background-color: #b8034b;
 }
 
 body {
-    background-color: #500724;
     overflow-x: hidden;
 }
 

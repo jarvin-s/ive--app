@@ -17,6 +17,7 @@ const config: Config = {
         'small-bounce-middle': 'small-bounce-middle 2.25s ease-in-out infinite',
         'small-bounce-left': 'small-bounce-left 2.25s ease-in-out infinite',
         'small-bounce-right': 'small-bounce-right 2.25s ease-in-out infinite',
+        'heart-bounce': 'heart-bounce 1.5s ease-in-out infinite',
         'small-bounce-middle-rotate': 'small-bounce-middle-rotate 2.25s ease-in-out infinite',
         'small-bounce-left-rotate': 'small-bounce-left-rotate 2.25s ease-in-out infinite',
         'small-bounce-right-rotate': 'small-bounce-right-rotate 2.25s ease-in-out infinite',
@@ -33,6 +34,10 @@ const config: Config = {
         'small-bounce-right': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-2%)' },
+        },
+        'heart-bounce': {
+          '0%, 100%': { transform: 'translateY(0) rotate(32deg)' },
+          '50%': { transform: 'translateY(-6%) rotate(32deg)' },
         },
 
         'small-bounce-middle-rotate': {
