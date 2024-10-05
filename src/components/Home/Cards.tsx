@@ -8,11 +8,19 @@ import {
     CardFooter,
     CardTitle,
 } from '@/components/ui/card'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const Cards = () => {
+    const currentLocale = useLocale()
+    const [selectedLocale, setSelectedLocale] = useState(currentLocale)
+
+    useEffect(() => {
+        setSelectedLocale(currentLocale)
+    }, [currentLocale])
+
     const t = useTranslations('homecards')
 
     return (
@@ -63,7 +71,11 @@ const Cards = () => {
                         <Button className='bg-pink-700 text-lg text-white hover:bg-pink-600'>
                             <Link
                                 className='flex flex-row gap-1'
-                                href={'/photocards'}
+                                href={
+                                    selectedLocale === 'en'
+                                        ? '/en/photocards'
+                                        : '/kr/photocards'
+                                }
                             >
                                 {/* Card button icon */}
                                 <svg
@@ -139,7 +151,11 @@ const Cards = () => {
                         <Button className='w-full bg-pink-700 text-lg text-white hover:bg-pink-600'>
                             <Link
                                 className='flex flex-row gap-1'
-                                href={'/gallery/rei'}
+                                href={
+                                    selectedLocale === 'en'
+                                        ? '/en/gallery/rei'
+                                        : '/kr/gallery/rei'
+                                }
                             >
                                 {/* Card button icon */}
                                 <svg
@@ -196,7 +212,11 @@ const Cards = () => {
                         <Button className='bg-pink-700 text-lg text-white hover:bg-pink-600'>
                             <Link
                                 className='flex flex-row gap-1'
-                                href={'/merch'}
+                                href={
+                                    selectedLocale === 'en'
+                                        ? '/en/merch'
+                                        : '/kr/merch'
+                                }
                             >
                                 {/* Card button icon */}
                                 <svg

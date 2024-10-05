@@ -27,8 +27,22 @@
         "title": "Photocards"
     },
     "gallery": {
-        "file": "Drop your image here or click to browse",
-        "button": "Upload image",
+        "upload": {
+            "file": "Drop your image here or click to browse",
+            "button": "Upload image",
+            "error": {
+                "title": {
+                    "noimage": "No image selected",
+                    "failed": "Upload failed",
+                    "success": "Upload successful"
+                },
+                "description": {
+                    "noimage": "Please select an image before uploading.",
+                    "failed": "There was a problem uploading your image.",
+                    "success": "Your image has been uploaded successfully!"
+                }
+            }
+        },
         "rei": {
             "title": "Rei",
             "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Rei."
@@ -75,6 +89,7 @@
     "404": {
         "title": "Page not found",
         "description": "Sorry, the page you are looking for does not exist.",
-        "home": "Home"
+        "home": "Home",
+        "back": "Go back"
     }
 }

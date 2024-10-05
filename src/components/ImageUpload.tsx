@@ -36,12 +36,13 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
         if (!image) {
             toast({
                 variant: 'destructive',
-                title: 'No image selected',
-                description: 'Please select an image before uploading.',
+                title: t('upload.error.title.noimage'),
+                description: t('upload.error.description.noimage'),
                 duration: 4000,
             })
             return
         }
+
         const fileName = `${Date.now()}-${image.name}`
         const { error } = await supabase.storage
             .from('gallery/' + bucketName)
@@ -50,15 +51,15 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
         if (error) {
             toast({
                 variant: 'destructive',
-                title: 'Upload failed',
-                description: 'There was a problem uploading your image.',
+                title: t('upload.error.title.failed'),
+                description: t('upload.error.description.failed'),
                 duration: 4000,
             })
         } else {
             toast({
                 variant: 'success',
-                title: 'Upload successful',
-                description: 'Your image has been uploaded successfully!',
+                title: t('upload.error.title.success'),
+                description: t('upload.error.description.success'),
                 duration: 4000,
             })
         }
@@ -105,7 +106,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
                                     htmlFor='file-input'
                                     className='block h-full w-full cursor-pointer p-4 text-sm text-white'
                                 >
-                                    {t('file')}
+                                    {t('upload.file')}
                                 </label>
                                 <input
                                     name='file'
@@ -125,7 +126,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
                             className={`upload mt-2 px-4 py-2 text-white transition-all duration-300 ${upload_button}`}
                             onClick={handleImageUpload}
                         >
-                            {t('button')}
+                            {t('upload.button')}
                         </button>
                         {previewImage && (
                             <div className='mt-10 text-white'>
