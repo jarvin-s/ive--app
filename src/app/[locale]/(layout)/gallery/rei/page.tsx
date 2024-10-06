@@ -53,7 +53,7 @@ const Gallery = () => {
 
     return (
         <div className='flex flex-col items-center justify-center'>
-            <div className='relative z-10 mx-2 mt-12 border-4 border-lime-400 bg-zinc-950 p-4 sm:p-10'>
+            <div className='relative z-0 mx-2 mt-12 border-4 border-lime-400 bg-zinc-950 p-4 sm:p-10'>
                 <h1 className='z-10 text-center text-4xl font-bold text-white'>
                     <span className='bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent'>
                         {t('rei.title')}

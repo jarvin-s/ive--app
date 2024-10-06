@@ -23,7 +23,7 @@ const Home = () => {
             <section className='flex'>
                 <div className='hidden w-full lg:block xl:w-2/3'>
                     <Image
-                        className='h-full w-full'
+                        className='h-full w-full object-cover'
                         alt={'IVE main'}
                         src={main}
                         height={0}

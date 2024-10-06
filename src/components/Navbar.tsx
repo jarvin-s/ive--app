@@ -30,9 +30,10 @@ const Navbar = () => {
                         <Image
                             src={logo}
                             alt='IVE logo'
+                            width={0}
                             height={45}
                             style={{
-                                maxWidth: '100%',
+                                width: 'auto',
                                 height: 'auto',
                             }}
                         />
