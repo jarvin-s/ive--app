@@ -1,6 +1,7 @@
 {
     "index": {
-        "description": "IVE에 대한 데이터, 통계 및 정보 모음."
+        "description": "IVE에 대한 데이터, 통계 및 정보 모음.",
+        "button": "아이브 컬렉션으로 가기"
     },
     "homecards": {
         "photocards": {

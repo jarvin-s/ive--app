@@ -1,6 +1,7 @@
 {
     "index": {
-        "description": "A collection of data, stats and info about IVE."
+        "description": "A collection of data, stats and info about IVE.",
+        "button": "Go to IVE collection"
     },
     "homecards": {
         "photocards": {

@@ -52,7 +52,7 @@ const Home = () => {
                                 className='my-2 inline-flex w-full items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
                             text-white duration-300 ease-in-out hover:bg-pink-400 disabled:pointer-events-none disabled:opacity-50 md:w-2/3'
                             >
-                                Go to IVE collection
+                                {t('button')}
                                 <svg
                                     className='size-4 flex-shrink-0'
                                     xmlns='http://www.w3.org/2000/svg'
