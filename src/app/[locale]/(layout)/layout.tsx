@@ -6,6 +6,7 @@ import { Bricolage_Grotesque } from 'next/font/google'
 import '../../globals.css'
 import Navbar from '@/components/Navbar'
 import { Toaster } from '@/components/ui/toaster'
+import NextTopLoader from 'nextjs-toploader'
 
 const inter = Bricolage_Grotesque({
     weight: ['200', '300', '400', '500', '600', '700', '800'],
@@ -30,6 +31,7 @@ export default async function RootLayout({
     return (
         <html lang={locale}>
             <body className={inter.className}>
+                <NextTopLoader height={4} color='#f53e99' showSpinner={false} easing='ease-in-out' />
                 <NextIntlClientProvider messages={messages}>
                     <Navbar />
                     {children}
