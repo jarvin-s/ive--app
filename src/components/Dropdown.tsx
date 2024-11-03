@@ -12,7 +12,7 @@ const Dropdown = () => {
 
     return (
         <div className='dropdown inline-block'>
-            <button className='inline-flex items-center rounded py-2 text-white hover:text-black md:hover:text-white md:hover:underline'>
+            <button className='inline-flex items-center rounded py-2 text-white hover:underline'>
                 <span className='ml-3'>{t('dropdown.gallery')}</span>
                 <svg
                     className='h-4 w-4 fill-current opacity-50'

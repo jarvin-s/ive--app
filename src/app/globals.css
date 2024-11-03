@@ -7,7 +7,15 @@
 }
 
 body {
+    background-color: #500724;
     overflow-x: hidden;
+}
+
+/* Add blur to navbar */
+
+.nav-blur {
+    background: transparent;
+    backdrop-filter: blur(1px);
 }
 
 .big-card {

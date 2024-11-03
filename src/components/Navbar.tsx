@@ -24,7 +24,9 @@ const Navbar = () => {
     // Old navbar colour rgba(58,21,47,0.78)
     return (
         <>
-            <nav className={`border-bg sticky top-0 z-10 w-full bg-pink-950`}>
+            <nav
+                className={`border-bg sticky top-0 z-10 w-full bg-[rgb(80,7,36,0.75)] backdrop-blur-md`}
+            >
                 <div className='mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-2'>
                     <a href='/' className='flex items-center space-x-3'>
                         <Image
@@ -87,7 +89,7 @@ const Navbar = () => {
                         className={`${isClicked ? 'block' : 'hidden'} w-full lg:block lg:w-auto`}
                         id='navbar-multi-level'
                     >
-                        <ul className='mt-4 flex flex-col border-[1px] border-gray-200 p-2 font-medium lg:mt-0 lg:flex-row lg:space-x-8 lg:border-none'>
+                        <ul className='mt-4 flex flex-col p-2 font-medium lg:mt-0 lg:flex-row lg:space-x-8'>
                             <li>
                                 <a
                                     href={
@@ -95,7 +97,7 @@ const Navbar = () => {
                                             ? '/en/home'
                                             : '/kr/home'
                                     }
-                                    className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
+                                    className='block rounded px-3 py-2 text-white hover:text-white hover:underline md:border-0 md:hover:bg-transparent'
                                 >
                                     {t('nav.home')}
                                 </a>
@@ -107,7 +109,7 @@ const Navbar = () => {
                                             ? '/en/albums'
                                             : '/kr/albums'
                                     }
-                                    className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
+                                    className='block rounded px-3 py-2 text-white hover:text-white hover:underline md:border-0 md:hover:bg-transparent'
                                 >
                                     {t('nav.albums')}
                                 </a>
@@ -119,7 +121,7 @@ const Navbar = () => {
                                             ? '/en/postcards'
                                             : '/kr/postcards'
                                     }
-                                    className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
+                                    className='block rounded px-3 py-2 text-white hover:text-white hover:underline md:border-0 md:hover:bg-transparent'
                                 >
                                     {t('nav.postcards')}
                                 </a>
@@ -131,7 +133,7 @@ const Navbar = () => {
                                             ? '/en/photocards'
                                             : '/kr/photocards'
                                     }
-                                    className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
+                                    className='block rounded px-3 py-2 text-white hover:text-white hover:underline md:border-0 md:hover:bg-transparent'
                                 >
                                     {t('nav.photocards')}
                                 </a>
@@ -143,7 +145,7 @@ const Navbar = () => {
                                             ? '/en/merch'
                                             : '/kr/merch'
                                     }
-                                    className='block rounded px-3 py-2 text-white hover:text-black md:border-0 md:hover:bg-transparent md:hover:text-white md:hover:underline'
+                                    className='block rounded px-3 py-2 text-white hover:text-white hover:underline md:border-0 md:hover:bg-transparent'
                                 >
                                     {t('nav.merch')}
                                 </a>
