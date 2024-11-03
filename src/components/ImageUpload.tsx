@@ -5,11 +5,11 @@ import { useToast } from '@/hooks/use-toast'
 import { useTranslations } from 'next-intl'
 
 interface ImageUploadProps {
-    bucketName: string
+    bucket_name: string
     style?: string
 }
 
-const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
+const ImageUpload = ({ bucket_name, style }: ImageUploadProps) => {
     const [image, setImage] = useState<File | null>(null)
     const [previewImage, setPreviewImage] = useState<string | null>(null)
     const [fileName, setFileName] = useState<string | null>(null)
@@ -45,7 +45,7 @@ const ImageUpload = ({ bucketName, style }: ImageUploadProps) => {
 
         const fileName = `${Date.now()}-${image.name}`
         const { error } = await supabase.storage
-            .from('gallery/' + bucketName)
+            .from('gallery/' + bucket_name)
             .upload(fileName, image)
 
         if (error) {
