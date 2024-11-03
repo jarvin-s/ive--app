@@ -31,7 +31,12 @@ export default async function RootLayout({
     return (
         <html lang={locale}>
             <body className={inter.className}>
-                <NextTopLoader height={4} color='#f53e99' showSpinner={false} easing='ease-in-out' />
+                <NextTopLoader
+                    height={4}
+                    color='#f53e99'
+                    showSpinner={false}
+                    easing='ease-in-out'
+                />
                 <NextIntlClientProvider messages={messages}>
                     <Navbar />
                     {children}

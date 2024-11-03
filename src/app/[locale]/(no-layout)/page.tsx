@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import main from '/public/images/ive-main.jpg'
-import { motion } from 'framer-motion'
 import { useLocale, useTranslations } from 'next-intl'
 import Heart from '@/components/Index/Heart'
 import Star from '@/components/Index/Star'
@@ -30,7 +29,7 @@ const Home = () => {
                         width={0}
                     />
                 </div>
-                <div className='flex h-screen w-full bg-pink-950 px-6 pt-20 lg:w-1/2'>
+                <div className='flex h-screen w-full bg-stone-950 px-6 pt-20 lg:w-1/2'>
                     <div className='w-full text-center text-white'>
                         <h1 className='text-4xl font-bold'>
                             ✨IVE 아이브 |{' '}
@@ -94,20 +93,29 @@ const Home = () => {
                             />
                         </div>
                         <div className='group relative ml-[12rem] w-3/12 gap-2 md:ml-[13rem] md:w-4/12 xl:ml-[23rem]'>
-                            <motion.img
+                            <Image
                                 className='big-card absolute rotate-[8deg] opacity-95 duration-[400ms] ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[20deg] md:group-hover:translate-x-[7.6rem] md:group-hover:translate-y-10'
                                 src='/images/liz/liz.png'
+                                width={400}
+                                height={0}
+                                alt=''
                             />
-                            <motion.img
+                            <Image
                                 className='big-card absolute opacity-95 duration-[400ms] ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-5'
                                 src='/images/yujin/yujin.jpg'
+                                width={400}
+                                height={0}
+                                alt=''
                             />
-                            <motion.img
+                            <Image
                                 className='big-card absolute rotate-[-5deg] opacity-95 duration-[400ms] ease-in-out group-hover:z-[13] group-hover:-translate-x-[4rem] group-hover:rotate-[-12deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-10'
                                 src='/images/gaeul/gaeul.jpg'
+                                width={400}
+                                height={0}
+                                alt=''
                             />
                         </div>
-                        <Star />
+                        {/* <Star /> */}
                         <Heart />
                     </div>
                 </div>

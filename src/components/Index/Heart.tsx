@@ -4,7 +4,7 @@ import React from 'react'
 const Hearts = () => {
     return (
         <>
-            <div className='animate-heart-bounce absolute right-[52px] top-[20px] opacity-40'>
+            <div className='animate-heart-bounce absolute right-[12px] top-[20px] opacity-80 md:right-[52px]'>
                 <Image
                     src='/icons/red-heart.svg'
                     width={0}
@@ -13,12 +13,12 @@ const Hearts = () => {
                     className='h-auto w-full'
                 />
             </div>
-            <div className='absolute bottom-0 right-[52px] w-[100px] opacity-20'>
+            <div className='absolute right-[17rem] top-[16rem] w-[64px] -rotate-[45deg] opacity-20 md:right-[40rem] md:w-[100px]'>
                 <Image
                     src='/icons/finger-heart.svg'
                     width={0}
                     height={0}
-                    alt='Pink heart'
+                    alt='Finger heart'
                     className='h-auto w-full'
                 />
             </div>

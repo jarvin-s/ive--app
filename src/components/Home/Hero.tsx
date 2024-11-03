@@ -1,26 +1,32 @@
+import Image from 'next/image'
+import img from '../../../public/images/gallery/card-image.jpg'
 import React from 'react'
 
 const Hero = () => {
     return (
-        <div className='flex h-[75rem] justify-center px-4'>
-            <div className='z-[-1] flex h-[100vh] w-[75rem] items-center justify-center rounded-lg bg-[#230202] md:h-[70vh]'>
-                <div className='flex flex-col'>
-                    <div className='text-6xl font-bold text-white'>
-                        <div className='z-[-1] ml-[-48%] inline-block bg-[#AB0957] px-2'>
-                            DIVE
-                        </div>
-                    </div>
-                    <div>
-                        <div className='text-6xl font-bold text-[#AB0957]'>
-                            INTO
-                        </div>
-                    </div>
-                    <div className='text-6xl font-bold text-white'>
-                        <div className='z-[-1] ml-[57%] inline-block bg-[#AB0957] px-2'>
-                            IVE
-                        </div>
+        <div className='relative h-[100vh]'>
+            <div className='mx-auto mb-[30rem] flex max-w-7xl justify-center px-4'>
+                <div className='mt-6 flex bg-[rgb(0,0,0,0.85)] px-4 py-4'>
+                    <div className='text-9xl font-bold text-[#AB0957]'>
+                        DIVE{' '}
+                        <span className='text-9xl font-bold text-white'>
+                            INTO{' '}
+                        </span>
+                        IVE
                     </div>
                 </div>
+                {/* <p className='mt-12 text-white'>
+                        Explore their journey, achievements, and more
+                    </p> */}
+            </div>
+            <div className='absolute bottom-0 left-0 right-0 top-0 z-[-1]'>
+                <Image
+                    className='h-full w-full object-cover'
+                    src={img}
+                    alt='IVE hero image'
+                    width={0}
+                    height={0}
+                />
             </div>
         </div>
     )
