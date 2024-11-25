@@ -7,7 +7,7 @@ const Hero = () => {
         <div className='relative h-[100vh]'>
             <div className='mx-auto mb-[30rem] flex max-w-7xl justify-center px-4'>
                 <div className='mt-6 flex bg-[rgb(0,0,0,0.85)] px-4 py-4'>
-                    <div className='text-9xl font-bold text-[#AB0957]'>
+                    <div className='text-9xl font-bold text-[#AB0957] md:text-left text-center'>
                         DIVE{' '}
                         <span className='text-9xl font-bold text-white'>
                             INTO{' '}

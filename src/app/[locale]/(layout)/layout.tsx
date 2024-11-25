@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar'
 import { Toaster } from '@/components/ui/toaster'
 import NextTopLoader from 'nextjs-toploader'
 
-const inter = Bricolage_Grotesque({
+const bricolage = Bricolage_Grotesque({
     weight: ['200', '300', '400', '500', '600', '700', '800'],
     subsets: ['latin'],
 })
@@ -30,7 +30,7 @@ export default async function RootLayout({
 
     return (
         <html lang={locale}>
-            <body className={inter.className}>
+            <body className={bricolage.className}>
                 <NextTopLoader
                     height={4}
                     color='#f53e99'

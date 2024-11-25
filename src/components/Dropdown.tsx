@@ -1,102 +1,51 @@
-import { useEffect, useState } from 'react'
+import * as React from 'react'
+import { ChevronDown } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
+
+import { Button } from '@/components/ui/button'
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 const Dropdown = () => {
     const currentLocale = useLocale()
-    const [selectedLocale, setSelectedLocale] = useState(currentLocale)
     const t = useTranslations('navbar')
 
-    useEffect(() => {
-        setSelectedLocale(currentLocale)
-    }, [currentLocale])
-
     return (
-        <div className='dropdown inline-block'>
-            <button className='inline-flex items-center rounded py-2 text-white hover:underline'>
-                <span className='ml-3'>{t('dropdown.gallery')}</span>
-                <svg
-                    className='h-4 w-4 fill-current opacity-50'
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 20 20'
-                >
-                    <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />{' '}
-                </svg>
-            </button>
-            <ul className='dropdown-menu absolute z-20 hidden rounded-lg border-[1px] bg-pink-950 p-2 text-white'>
-                <li>
-                    <a
-                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href={
-                            selectedLocale == 'en'
-                                ? '/en/gallery/rei'
-                                : '/kr/gallery/rei'
-                        }
-                    >
-                        🐥 {t('dropdown.rei')}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href={
-                            selectedLocale == 'en'
-                                ? '/en/gallery/gaeul'
-                                : '/kr/gallery/gaeul'
-                        }
-                    >
-                        🐿️ {t('dropdown.gaeul')}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href={
-                            selectedLocale == 'en'
-                                ? '/en/gallery/yujin'
-                                : '/kr/gallery/yujin'
-                        }
-                    >
-                        🐶 {t('dropdown.yujin')}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href={
-                            selectedLocale == 'en'
-                                ? '/en/gallery/liz'
-                                : '/kr/gallery/liz'
-                        }
-                    >
-                        🐱 {t('dropdown.liz')}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href={
-                            selectedLocale == 'en'
-                                ? '/en/gallery/leeseo'
-                                : '/kr/gallery/leeseo'
-                        }
-                    >
-                        🐯 {t('dropdown.leeseo')}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className='block rounded-lg bg-pink-950 px-4 py-2 duration-300 ease-in-out hover:bg-pink-900'
-                        href={
-                            selectedLocale == 'en'
-                                ? '/en/gallery/wonyoung'
-                                : '/kr/gallery/wonyoung'
-                        }
-                    >
-                        🐰 {t('dropdown.wonyoung')}
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant='link' className='text-lg font-semibold'>
+                    {t('dropdown.gallery')}{' '}
+                    <ChevronDown className='ml-2 h-4 w-4' />
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className='w-56 rounded-md bg-pink-950 text-white shadow-lg'>
+                {[
+                    { name: 'rei', icon: '🐥' },
+                    { name: 'gaeul', icon: '🐿️' },
+                    { name: 'yujin', icon: '🐶' },
+                    { name: 'liz', icon: '🐱' },
+                    { name: 'leeseo', icon: '🐯' },
+                    { name: 'wonyoung', icon: '🐰' },
+                ].map(({ name, icon }) => (
+                    <DropdownMenuItem asChild key={name}>
+                        <a
+                            href={
+                                currentLocale === 'en'
+                                    ? `/en/gallery/${name}`
+                                    : `/kr/gallery/${name}`
+                            }
+                            className='flex items-center gap-2 rounded-md px-4 py-2 transition duration-300 hover:bg-pink-900 hover:text-white'
+                        >
+                            {icon} {t(`dropdown.${name}`)}
+                        </a>
+                    </DropdownMenuItem>
+                ))}
+            </DropdownMenuContent>
+        </DropdownMenu>
     )
 }
 
