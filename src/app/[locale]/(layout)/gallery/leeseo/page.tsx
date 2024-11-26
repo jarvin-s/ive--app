@@ -1,6 +1,7 @@
 'use client'
 
 import ImageUpload from '@/components/ImageUpload'
+import { Skeleton } from '@/components/ui/skeleton'
 import { supabase } from '@/lib/supabaseClient'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -8,6 +9,7 @@ import { useEffect, useState } from 'react'
 
 const Gallery = () => {
     const [images, setImages] = useState<string[]>([])
+    const [isLoading, setLoading] = useState(true)
     const t = useTranslations('gallery')
 
     useEffect(() => {
@@ -29,6 +31,7 @@ const Gallery = () => {
                 )
                 setImages(imageUrls.filter(Boolean))
             }
+            setLoading(false)
         }
 
         fetchImages()
@@ -51,28 +54,55 @@ const Gallery = () => {
                 <p className='mt-2 text-center text-[#fff404]'>
                     {t('leeseo.description')}
                 </p>
-                <ImageUpload bucketName='leeseo' style='leeseo' />
+                <ImageUpload bucket_name='leeseo' style='leeseo' />
             </div>
-            <div className='container mx-auto p-4'>
-                <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
-                    {images.map((url, index) => (
-                        <Image
-                            key={index}
-                            src={url}
-                            alt={`Leeseo image ${index + 1}`}
-                            width={300}
-                            height={450}
-                            className='gap-2 rounded-lg border-2 border-[#fff404] transition duration-500 ease-in-out hover:scale-110'
-                            sizes='100vw'
-                            style={{
-                                width: '100%',
-                                height: 'auto',
-                                objectFit: 'cover',
-                            }}
-                        />
-                    ))}
+            {isLoading ? (
+                <div className='container mx-auto p-4'>
+                    <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+                        {Array.from({ length: 5 }, (_, index) => (
+                            <div
+                                key={index}
+                                className='flex items-center justify-center space-x-4'
+                            >
+                                <Skeleton className='h-[450px] w-[300px] gap-2 bg-zinc-700'>
+                                    <div className='flex h-full w-full items-center justify-center'>
+                                        <svg
+                                            className='h-6 w-6 text-gray-200'
+                                            aria-hidden='true'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                            fill='currentColor'
+                                            viewBox='0 0 20 18'
+                                        >
+                                            <path d='M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z' />
+                                        </svg>
+                                    </div>
+                                </Skeleton>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <div className='container mx-auto p-4'>
+                    <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+                        {images.map((url, index) => (
+                            <Image
+                                key={index}
+                                src={url}
+                                alt={`Leeseo image ${index + 1}`}
+                                width={300}
+                                height={450}
+                                className='gap-2 rounded-lg border-2 border-[#fff404] transition duration-500 ease-in-out hover:scale-110'
+                                sizes='100vw'
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    objectFit: 'cover',
+                                }}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
