@@ -22,7 +22,7 @@ const Navbar = () => {
     }, [currentLocale])
 
     return (
-        <header className='flex h-20 w-full shrink-0 items-center justify-end px-4 md:px-6 lg:justify-center'>
+        <header className='flex h-20 w-full shrink-0 items-center px-4 md:px-6 lg:justify-center'>
             <Sheet>
                 <SheetTrigger asChild>
                     <Button
@@ -34,7 +34,7 @@ const Navbar = () => {
                         <span className='sr-only'>Toggle navigation menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent className='bg-[#500724] text-white' side='right'>
+                <SheetContent className='bg-[#500724] text-white' side={'left'}>
                     <Link href='#' prefetch={false}>
                         <span className='sr-only'>DIVE INTO IVE</span>
                     </Link>
