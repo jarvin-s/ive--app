@@ -5,7 +5,7 @@ const Albums = () => {
 const t = useTranslations('albums')
 
     return (
-        <div className='flex items-center justify-center text-8xl'>{t('title')}</div>
+        <div className='flex items-center justify-center text-8xl min-h-[50vh]'>{t('title')}</div>
     )
 }
 
