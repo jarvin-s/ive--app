@@ -2,13 +2,15 @@ import React from 'react'
 import { TextHoverEffect } from '../ui/text-hover-effect'
 import { Button } from '../ui/button'
 import Link from 'next/link'
-import Slider from '../Slider'
+
+// TODO:
+//! REMOVED Z-INDEX FROM HERO, NEXT STEP: REVAMP CARDS BELOW HERO & ADD QUIZ(?)
 
 const Hero = () => {
     return (
         <>
             <div className='relative mb-20 h-dvh w-screen overflow-x-hidden'>
-                <div className='absolute left-20 top-40 z-50'>
+                <div className='absolute left-20 top-40'>
                     <h1 className='text-9xl text-white'>
                         IVE{' '}
                         <span className='font-bold text-pink-600'>아이브</span>
