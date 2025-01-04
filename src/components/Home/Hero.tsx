@@ -24,9 +24,6 @@ const Hero = () => {
                     </Button>
                     {/* <TextHoverEffect text='IVE'/> */}
                 </div>
-                <div className='flex min-h-screen items-center justify-center'>
-                    <Slider />
-                </div>
                 {/* IVE SHOWCASE VIDEO (I AM) */}
                 <video
                     src='/videos/hero-1.mp4'

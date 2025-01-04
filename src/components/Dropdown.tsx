@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { ChevronDown } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -17,7 +18,7 @@ const Dropdown = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant='link' className='text-lg font-semibold'>
+                <Button variant='ghost' className='text-md uppercase rounded-full hover:bg-zinc-900 duration-150'>
                     {t('dropdown.gallery')}{' '}
                     <ChevronDown className='ml-2 h-4 w-4' />
                 </Button>
@@ -32,7 +33,7 @@ const Dropdown = () => {
                     { name: 'wonyoung', icon: '🐰' },
                 ].map(({ name, icon }) => (
                     <DropdownMenuItem asChild key={name}>
-                        <a
+                        <Link
                             href={
                                 currentLocale === 'en'
                                     ? `/en/gallery/${name}`
@@ -41,7 +42,7 @@ const Dropdown = () => {
                             className='flex items-center gap-2 rounded-md px-4 py-2 transition duration-300 hover:bg-pink-900 hover:text-white'
                         >
                             {icon} {t(`dropdown.${name}`)}
-                        </a>
+                        </Link>
                     </DropdownMenuItem>
                 ))}
             </DropdownMenuContent>

@@ -1,34 +1,75 @@
 'use client'
-import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet'
-import { Button } from '@/components/ui/button'
+
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
+import {
+    Sheet,
+    SheetTrigger,
+    SheetContent,
+    SheetTitle,
+} from '@/components/ui/sheet'
+import { Button } from '@/components/ui/button'
 import {
     NavigationMenu,
     NavigationMenuList,
     NavigationMenuLink,
 } from '@/components/ui/navigation-menu'
 import Dropdown from './Dropdown'
-import { useLocale, useTranslations } from 'next-intl'
 import LanguageSwitcher from './LanguageSwitcher'
-import { useEffect, useState } from 'react'
+
+interface Position {
+    left: number
+    width: number
+    opacity: number
+}
+
+interface TabProps {
+    children: React.ReactNode
+    setPosition: (position: Position) => void
+    href: string
+}
+
+interface CursorProps {
+    position: Position
+}
 
 const Navbar = () => {
+    const [scrolled, setScrolled] = useState(false)
+    const [position, setPosition] = useState<Position>({
+        left: 0,
+        width: 0,
+        opacity: 0,
+    })
     const currentLocale = useLocale()
     const [selectedLocale, setSelectedLocale] = useState(currentLocale)
     const t = useTranslations('navbar')
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     useEffect(() => {
         setSelectedLocale(currentLocale)
     }, [currentLocale])
 
     return (
-        <header className='flex h-20 w-full shrink-0 items-center px-4 md:px-6 lg:justify-center'>
+        <header
+            className={`fixed top-0 z-50 mt-6 flex w-full items-center px-4 uppercase duration-150 md:px-6 lg:justify-center ${
+                scrolled ? 'bg-transparent' : 'bg-transparent'
+            }`}
+        >
             <Sheet>
                 <SheetTrigger asChild>
                     <Button
                         variant='outline'
                         size='icon'
-                        className='bg-[#a32054] duration-300 hover:bg-pink-900 lg:hidden'
+                        className='bg-[#a32054] duration-150 hover:bg-pink-900 lg:hidden'
                     >
                         <MenuIcon className='h-6 w-4 text-white' />
                         <span className='sr-only'>Toggle navigation menu</span>
@@ -36,7 +77,12 @@ const Navbar = () => {
                 </SheetTrigger>
                 <SheetContent className='bg-[#500724] text-white' side={'left'}>
                     <Link href='#' prefetch={false}>
-                        <span className='sr-only'>DIVE INTO IVE</span>
+                        <span className='sr-only'>
+                            <SheetTitle className='text-7xl text-blue-500'>
+                                Menu
+                            </SheetTitle>
+                            DIVE INTO IVE
+                        </span>
                     </Link>
                     <div className='grid gap-2 py-6'>
                         <Link
@@ -45,7 +91,7 @@ const Navbar = () => {
                                     ? '/en/home'
                                     : '/kr/home'
                             }
-                            className='flex w-full items-center py-2 text-lg font-semibold hover:underline'
+                            className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
                         >
                             {t('nav.home')}
@@ -56,7 +102,7 @@ const Navbar = () => {
                                     ? '/en/albums'
                                     : '/kr/albums'
                             }
-                            className='flex w-full items-center py-2 text-lg font-semibold hover:underline'
+                            className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
                         >
                             {t('nav.albums')}
@@ -67,7 +113,7 @@ const Navbar = () => {
                                     ? '/en/postcards'
                                     : '/kr/postcards'
                             }
-                            className='flex w-full items-center py-2 text-lg font-semibold hover:underline'
+                            className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
                         >
                             {t('nav.postcards')}
@@ -78,7 +124,7 @@ const Navbar = () => {
                                     ? '/en/photocards'
                                     : '/kr/photocards'
                             }
-                            className='flex w-full items-center py-2 text-lg font-semibold hover:underline'
+                            className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
                         >
                             {t('nav.photocards')}
@@ -89,90 +135,85 @@ const Navbar = () => {
                                     ? '/en/merch'
                                     : '/kr/merch'
                             }
-                            className='flex w-full items-center py-2 text-lg font-semibold hover:underline'
+                            className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
                         >
                             {t('nav.merch')}
                         </Link>
-                        <div className='flex w-full items-center py-2 text-lg font-semibold hover:underline'>
+                        <div className='flex w-full items-center py-2 text-lg hover:underline'>
                             <Dropdown />
                         </div>
                     </div>
                 </SheetContent>
             </Sheet>
-            <Link href='#' className='mr-6 hidden lg:flex' prefetch={false}>
-                <span className='sr-only'>Acme Inc</span>
-            </Link>
-            <NavigationMenu className='hidden text-white lg:flex'>
-                <NavigationMenuList>
-                    <NavigationMenuLink asChild>
-                        <Link
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/home'
-                                    : '/kr/home'
-                            }
-                            className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 font-medium transition-colors hover:underline disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50'
-                            prefetch={false}
-                        >
-                            {t('nav.home')}
-                        </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                        <Link
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/albums'
-                                    : '/kr/albums'
-                            }
-                            className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 font-medium transition-colors hover:underline disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50'
-                            prefetch={false}
-                        >
-                            {t('nav.albums')}
-                        </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                        <Link
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/postcards'
-                                    : '/kr/postcards'
-                            }
-                            className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 font-medium transition-colors hover:underline disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50'
-                            prefetch={false}
-                        >
-                            {t('nav.postcards')}
-                        </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                        <Link
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/photocards'
-                                    : '/kr/photocards'
-                            }
-                            className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 font-medium transition-colors hover:underline disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50'
-                            prefetch={false}
-                        >
-                            {t('nav.photocards')}
-                        </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                        <Link
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/merch'
-                                    : '/kr/merch'
-                            }
-                            className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 font-medium transition-colors hover:underline disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50'
-                            prefetch={false}
-                        >
-                            {t('nav.merch')}
-                        </Link>
-                    </NavigationMenuLink>
+
+            <NavigationMenu
+                className={`hidden text-white lg:flex ${
+                    scrolled
+                        ? 'rounded-lg bg-pink-900 px-6 py-6 duration-150 ease-in-out'
+                        : 'bg-transparent'
+                }`}
+            >
+                <NavigationMenuList
+                    className='relative'
+                    onMouseLeave={() => {
+                        setPosition((pv) => ({
+                            ...pv,
+                            opacity: 0,
+                        }))
+                    }}
+                >
+                    <Tab
+                        setPosition={setPosition}
+                        href={selectedLocale === 'en' ? '/en/home' : '/kr/home'}
+                    >
+                        {t('nav.home')}
+                    </Tab>
+                    <Tab
+                        setPosition={setPosition}
+                        href={
+                            selectedLocale === 'en'
+                                ? '/en/albums'
+                                : '/kr/albums'
+                        }
+                    >
+                        {t('nav.albums')}
+                    </Tab>
+                    <Tab
+                        setPosition={setPosition}
+                        href={
+                            selectedLocale === 'en'
+                                ? '/en/postcards'
+                                : '/kr/postcards'
+                        }
+                    >
+                        {t('nav.postcards')}
+                    </Tab>
+                    <Tab
+                        setPosition={setPosition}
+                        href={
+                            selectedLocale === 'en'
+                                ? '/en/photocards'
+                                : '/kr/photocards'
+                        }
+                    >
+                        {t('nav.photocards')}
+                    </Tab>
+                    <Tab
+                        setPosition={setPosition}
+                        href={
+                            selectedLocale === 'en' ? '/en/merch' : '/kr/merch'
+                        }
+                    >
+                        {t('nav.merch')}
+                    </Tab>
+
+                    <Cursor position={position} />
+
                     <NavigationMenuLink asChild>
                         <Dropdown />
                     </NavigationMenuLink>
+
                     <NavigationMenuLink asChild>
                         <LanguageSwitcher />
                     </NavigationMenuLink>
@@ -182,7 +223,45 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+const Tab = ({ children, setPosition, href }: TabProps) => {
+    const ref = useRef<HTMLLIElement>(null)
+
+    return (
+        <NavigationMenuLink asChild>
+            <li
+                ref={ref}
+                onMouseEnter={() => {
+                    if (!ref?.current) return
+                    const { width } = ref.current.getBoundingClientRect()
+                    setPosition({
+                        left: ref.current.offsetLeft,
+                        width,
+                        opacity: 1,
+                    })
+                }}
+            >
+                <Link
+                    href={href}
+                    className='relative z-[999] rounded-full px-6'
+                    prefetch={false}
+                >
+                    {children}
+                </Link>
+            </li>
+        </NavigationMenuLink>
+    )
+}
+
+const Cursor = ({ position }: CursorProps) => {
+    return (
+        <motion.div
+            animate={{
+                ...position,
+            }}
+            className='absolute z-0 h-9 -translate-x-1 rounded-full bg-black'
+        />
+    )
+}
 
 function MenuIcon(props: any) {
     return (
@@ -204,3 +283,5 @@ function MenuIcon(props: any) {
         </svg>
     )
 }
+
+export default Navbar

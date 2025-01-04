@@ -38,7 +38,7 @@ export default async function RootLayout({
                     easing='ease-in-out'
                 />
                 <NextIntlClientProvider messages={messages}>
-                    {/* <Navbar /> */}
+                    <Navbar />
                     {children}
                     <Toaster />
                 </NextIntlClientProvider>
