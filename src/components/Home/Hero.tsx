@@ -1,34 +1,42 @@
-import Image from 'next/image'
-import img from '../../../public/images/gallery/card-image.jpg'
 import React from 'react'
+import { TextHoverEffect } from '../ui/text-hover-effect'
+import { Button } from '../ui/button'
+import Link from 'next/link'
+import Slider from '../Slider'
 
 const Hero = () => {
     return (
-        <div className='relative h-[100vh]'>
-            <div className='mx-auto mb-[30rem] flex max-w-7xl justify-center px-4'>
-                <div className='mt-6 flex bg-[rgb(0,0,0,0.85)] px-4 py-4'>
-                    <div className='text-9xl font-bold text-[#AB0957] md:text-left text-center'>
-                        DIVE{' '}
-                        <span className='text-9xl font-bold text-white'>
-                            INTO{' '}
-                        </span>
-                        IVE
-                    </div>
+        <>
+            <div className='relative mb-20 h-dvh w-screen overflow-x-hidden'>
+                <div className='absolute left-20 top-40 z-50'>
+                    <h1 className='text-9xl text-white'>
+                        IVE{' '}
+                        <span className='font-bold text-pink-600'>아이브</span>
+                    </h1>
+                    <Button>
+                        <Link href='/'>
+                            <span className='text-white'>
+                                <span className='font-bold text-pink-600'>
+                                    Watch trailer
+                                </span>
+                            </span>
+                        </Link>
+                    </Button>
+                    {/* <TextHoverEffect text='IVE'/> */}
                 </div>
-                {/* <p className='mt-12 text-white'>
-                        Explore their journey, achievements, and more
-                    </p> */}
+                <div className='flex min-h-screen items-center justify-center'>
+                    <Slider />
+                </div>
+                {/* IVE SHOWCASE VIDEO (I AM) */}
+                <video
+                    src='/videos/hero-1.mp4'
+                    muted
+                    loop
+                    autoPlay
+                    className='absolute left-0 top-0 z-[-1] size-full object-cover object-center'
+                ></video>
             </div>
-            <div className='absolute bottom-0 left-0 right-0 top-0 z-[-1]'>
-                <Image
-                    className='h-full w-full object-cover'
-                    src={img}
-                    alt='IVE hero image'
-                    width={0}
-                    height={0}
-                />
-            </div>
-        </div>
+        </>
     )
 }
 
