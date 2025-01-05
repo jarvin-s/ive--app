@@ -2,11 +2,11 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import type { Metadata } from 'next'
-import { Bricolage_Grotesque } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import '../../globals.css'
 import { Toaster } from '@/components/ui/toaster'
 
-const inter = Bricolage_Grotesque({
+const inter = Poppins({
     weight: ['200', '300', '400', '500', '600', '700', '800'],
     subsets: ['latin'],
 })

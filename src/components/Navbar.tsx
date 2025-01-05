@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import Dropdown from './Dropdown'
 import LanguageSwitcher from './LanguageSwitcher'
+import Image from 'next/image'
 
 interface Position {
     left: number
@@ -154,70 +155,91 @@ const Navbar = () => {
                         : 'bg-transparent'
                 }`}
             >
-                <NavigationMenuList
-                    className='relative'
-                    onMouseLeave={() => {
-                        setPosition((pv) => ({
-                            ...pv,
-                            opacity: 0,
-                        }))
-                    }}
-                >
-                    <Tab
-                        setPosition={setPosition}
-                        href={selectedLocale === 'en' ? '/en/home' : '/kr/home'}
+                <div className='flex items-center gap-8'>
+                    <Link
+                        href={selectedLocale === 'en' ? '/en' : '/kr'}
+                        className='flex items-center'
                     >
-                        {t('nav.home')}
-                    </Tab>
-                    <Tab
-                        setPosition={setPosition}
-                        href={
-                            selectedLocale === 'en'
-                                ? '/en/albums'
-                                : '/kr/albums'
-                        }
-                    >
-                        {t('nav.albums')}
-                    </Tab>
-                    <Tab
-                        setPosition={setPosition}
-                        href={
-                            selectedLocale === 'en'
-                                ? '/en/postcards'
-                                : '/kr/postcards'
-                        }
-                    >
-                        {t('nav.postcards')}
-                    </Tab>
-                    <Tab
-                        setPosition={setPosition}
-                        href={
-                            selectedLocale === 'en'
-                                ? '/en/photocards'
-                                : '/kr/photocards'
-                        }
-                    >
-                        {t('nav.photocards')}
-                    </Tab>
-                    <Tab
-                        setPosition={setPosition}
-                        href={
-                            selectedLocale === 'en' ? '/en/merch' : '/kr/merch'
-                        }
-                    >
-                        {t('nav.merch')}
-                    </Tab>
+                        <Image
+                            src='/images/logo.png'
+                            alt='IVE Logo'
+                            width={65}
+                            height={65}
+                            className='rounded-full'
+                        />
+                    </Link>
 
-                    <Cursor position={position} />
+                    <NavigationMenuList
+                        className='relative'
+                        onMouseLeave={() => {
+                            setPosition((pv) => ({
+                                ...pv,
+                                opacity: 0,
+                            }))
+                        }}
+                    >
+                        <Tab
+                            setPosition={setPosition}
+                            href={
+                                selectedLocale === 'en'
+                                    ? '/en/home'
+                                    : '/kr/home'
+                            }
+                        >
+                            {t('nav.home')}
+                        </Tab>
+                        <Tab
+                            setPosition={setPosition}
+                            href={
+                                selectedLocale === 'en'
+                                    ? '/en/albums'
+                                    : '/kr/albums'
+                            }
+                        >
+                            {t('nav.albums')}
+                        </Tab>
+                        <Tab
+                            setPosition={setPosition}
+                            href={
+                                selectedLocale === 'en'
+                                    ? '/en/postcards'
+                                    : '/kr/postcards'
+                            }
+                        >
+                            {t('nav.postcards')}
+                        </Tab>
+                        <Tab
+                            setPosition={setPosition}
+                            href={
+                                selectedLocale === 'en'
+                                    ? '/en/photocards'
+                                    : '/kr/photocards'
+                            }
+                        >
+                            {t('nav.photocards')}
+                        </Tab>
+                        <Tab
+                            setPosition={setPosition}
+                            href={
+                                selectedLocale === 'en'
+                                    ? '/en/merch'
+                                    : '/kr/merch'
+                            }
+                        >
+                            {t('nav.merch')}
+                        </Tab>
 
-                    <NavigationMenuLink asChild>
-                        <Dropdown />
-                    </NavigationMenuLink>
+                        <Cursor position={position} />
 
-                    <NavigationMenuLink asChild>
-                        <LanguageSwitcher />
-                    </NavigationMenuLink>
-                </NavigationMenuList>
+                        <NavigationMenuLink asChild>
+                            <Dropdown />
+                        </NavigationMenuLink>
+
+                        <NavigationMenuLink asChild>
+                            <LanguageSwitcher />
+                        </NavigationMenuLink>
+                    </NavigationMenuList>
+                </div>
             </NavigationMenu>
         </header>
     )
