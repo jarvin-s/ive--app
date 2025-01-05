@@ -41,34 +41,53 @@ const Home = () => {
                                 {t('description')}
                             </span>
                         </h4>
-                        <a
-                            href={
-                                selectedLocale == 'en' ? '/en/home' : '/kr/home'
-                            }
-                        >
-                            <button
-                                type='button'
-                                className='my-2 inline-flex w-full items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
-                            text-white duration-300 ease-in-out hover:bg-pink-400 disabled:pointer-events-none disabled:opacity-50 md:w-2/3'
+                        <div className='grid grid-rows-2 gap-2'>
+                            <a
+                                href={
+                                    selectedLocale == 'en'
+                                        ? '/en/home'
+                                        : '/kr/home'
+                                }
                             >
-                                {t('button')}
-                                <svg
-                                    className='size-4 flex-shrink-0'
-                                    xmlns='http://www.w3.org/2000/svg'
-                                    width='24'
-                                    height='24'
-                                    viewBox='0 0 24 24'
-                                    fill='none'
-                                    stroke='currentColor'
-                                    strokeWidth='2'
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
+                                <button
+                                    type='button'
+                                    className='inline-flex w-[50%] items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
+                                text-white duration-300 ease-in-out hover:bg-pink-400 disabled:pointer-events-none disabled:opacity-50'
                                 >
-                                    <path d='M5 12h14'></path>
-                                    <path d='m12 5 7 7-7 7'></path>
-                                </svg>
-                            </button>
-                        </a>
+                                    {t('button')}
+                                    <svg
+                                        className='size-4'
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='24'
+                                        height='24'
+                                        viewBox='0 0 24 24'
+                                        fill='none'
+                                        stroke='currentColor'
+                                        strokeWidth='2'
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                    >
+                                        <path d='M5 12h14'></path>
+                                        <path d='m12 5 7 7-7 7'></path>
+                                    </svg>
+                                </button>
+                            </a>
+                            <a
+                                href={
+                                    selectedLocale == 'en'
+                                        ? '/en/quiz'
+                                        : '/kr/quiz'
+                                }
+                            >
+                                <button
+                                    type='button'
+                                    className='inline-flex w-[50%] items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
+                                text-white duration-300 ease-in-out hover:bg-pink-400 disabled:pointer-events-none disabled:opacity-50'
+                                >
+                                    {t('quiz_button')}
+                                </button>
+                            </a>
+                        </div>
                         <div className='group relative ml-[5rem] w-3/12 gap-2 pt-4 md:ml-[2rem] md:w-4/12 xl:ml-[6rem]'>
                             <Image
                                 className='big-card absolute z-10  rotate-[5deg] opacity-95 duration-300 ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[15deg] md:group-hover:translate-x-[10rem] md:group-hover:translate-y-12'
