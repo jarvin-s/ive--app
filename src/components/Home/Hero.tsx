@@ -14,30 +14,29 @@ const Hero = () => {
     return (
         <>
             <div className='relative mb-20 h-dvh w-screen overflow-x-hidden'>
-                <div className='absolute left-20 top-40'>
-                    <h1 className='text-9xl text-white'>
+                <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+                    <h1 className='text-5xl text-white md:text-9xl'>
                         IVE{' '}
                         <span className='font-bold text-pink-600'>아이브</span>
                     </h1>
-                    <Button>
-                        {selectedLocale === 'en' ? (
-                            <Link href='/en/quiz'>
-                                <span className='text-white'>
-                                    <span className='font-bold text-pink-600'>
-                                        {t('quiz_button')}
-                                    </span>
-                                </span>
-                            </Link>
-                        ) : (
-                            <Link href='/kr/quiz'>
-                                <span className='text-white'>
-                                    <span className='font-bold text-pink-600'>
-                                        {t('quiz_button')}
-                                    </span>
-                                </span>
-                            </Link>
-                        )}
-                    </Button>
+                    <div className='mt-4 flex flex-col items-center gap-4 md:flex-row'>
+                        <Button
+                            size={'sm'}
+                            className='w-full bg-pink-600 text-lg text-white hover:bg-pink-800 md:px-6 md:py-5 md:text-xl'
+                        >
+                            {selectedLocale === 'en' ? (
+                                <Link href='/en/quiz'>{t('quiz_button')}</Link>
+                            ) : (
+                                <Link href='/kr/quiz'>{t('quiz_button')}</Link>
+                            )}
+                        </Button>
+                        <Button
+                            size={'sm'}
+                            className='w-full border-2 border-black text-lg text-white hover:bg-black md:px-6 md:py-[18px] md:text-xl'
+                        >
+                            <Link href='/en/merch'>{t('merch_button')}</Link>
+                        </Button>
+                    </div>
                     {/* <TextHoverEffect text='IVE'/> */}
                 </div>
                 {/* IVE SHOWCASE VIDEO (I AM) */}

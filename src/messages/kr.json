@@ -2,7 +2,8 @@
     "index": {
         "description": "IVE에 대한 데이터, 통계 및 정보 모음.",
         "button": "아이브 컬렉션으로 가기",
-        "quiz_button": "퀴즈로 가기"
+        "quiz_button": "퀴즈 플레이 💭",
+        "merch_button": "상품 🛍️"
     },
     "homecards": {
         "photocards": {
