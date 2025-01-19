@@ -3,7 +3,6 @@
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { ChevronDown } from 'lucide-react'
 import { motion } from 'framer-motion'
 import {
     Sheet,
@@ -17,15 +16,8 @@ import {
     NavigationMenuList,
     NavigationMenuLink,
 } from '@/components/ui/navigation-menu'
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import Dropdown from './Dropdown'
 import LanguageSwitcher from './LanguageSwitcher'
-import Image from 'next/image'
 
 interface Position {
     left: number
@@ -43,7 +35,7 @@ interface CursorProps {
     position: Position
 }
 
-const Navbar = () => {
+const Slider = () => {
     const [scrolled, setScrolled] = useState(false)
     const [position, setPosition] = useState<Position>({
         left: 0,
@@ -162,131 +154,70 @@ const Navbar = () => {
                         : 'bg-transparent'
                 }`}
             >
-                <div className='flex items-center gap-8'>
-                    <Link
-                        href={selectedLocale === 'en' ? '/en' : '/kr'}
-                        className='flex items-center'
+                <NavigationMenuList
+                    className='relative'
+                    onMouseLeave={() => {
+                        setPosition((pv) => ({
+                            ...pv,
+                            opacity: 0,
+                        }))
+                    }}
+                >
+                    <Tab
+                        setPosition={setPosition}
+                        href={selectedLocale === 'en' ? '/en/home' : '/kr/home'}
                     >
-                        <Image
-                            src='/images/logo.png'
-                            alt='IVE Logo'
-                            width={65}
-                            height={65}
-                            className='rounded-full'
-                        />
-                    </Link>
-
-                    <NavigationMenuList
-                        className='relative'
-                        onMouseLeave={() => {
-                            setPosition((pv) => ({
-                                ...pv,
-                                opacity: 0,
-                            }))
-                        }}
+                        {t('nav.home')}
+                    </Tab>
+                    <Tab
+                        setPosition={setPosition}
+                        href={
+                            selectedLocale === 'en'
+                                ? '/en/albums'
+                                : '/kr/albums'
+                        }
                     >
-                        <Tab
-                            setPosition={setPosition}
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/home'
-                                    : '/kr/home'
-                            }
-                        >
-                            {t('nav.home')}
-                        </Tab>
-                        <Tab
-                            setPosition={setPosition}
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/albums'
-                                    : '/kr/albums'
-                            }
-                        >
-                            {t('nav.albums')}
-                        </Tab>
-                        <Tab
-                            setPosition={setPosition}
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/postcards'
-                                    : '/kr/postcards'
-                            }
-                        >
-                            {t('nav.postcards')}
-                        </Tab>
-                        <Tab
-                            setPosition={setPosition}
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/photocards'
-                                    : '/kr/photocards'
-                            }
-                        >
-                            {t('nav.photocards')}
-                        </Tab>
-                        <Tab
-                            setPosition={setPosition}
-                            href={
-                                selectedLocale === 'en'
-                                    ? '/en/merch'
-                                    : '/kr/merch'
-                            }
-                        >
-                            {t('nav.merch')}
-                        </Tab>
+                        {t('nav.albums')}
+                    </Tab>
+                    <Tab
+                        setPosition={setPosition}
+                        href={
+                            selectedLocale === 'en'
+                                ? '/en/postcards'
+                                : '/kr/postcards'
+                        }
+                    >
+                        {t('nav.postcards')}
+                    </Tab>
+                    <Tab
+                        setPosition={setPosition}
+                        href={
+                            selectedLocale === 'en'
+                                ? '/en/photocards'
+                                : '/kr/photocards'
+                        }
+                    >
+                        {t('nav.photocards')}
+                    </Tab>
+                    <Tab
+                        setPosition={setPosition}
+                        href={
+                            selectedLocale === 'en' ? '/en/merch' : '/kr/merch'
+                        }
+                    >
+                        {t('nav.merch')}
+                    </Tab>
 
-                        <Tab
-                            setPosition={setPosition}
-                            href={
-                                selectedLocale === 'en'
-                                    ? `/en/gallery/${name}`
-                                    : `/kr/gallery/${name}`
-                            }
-                        >
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button
-                                        variant='ghost'
-                                        className='text-md rounded-full uppercase'
-                                    >
-                                        {t('dropdown.gallery')}{' '}
-                                        <ChevronDown className='ml-2 h-4 w-4' />
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent className='w-56 rounded-md bg-zinc-950 text-white shadow-lg'>
-                                    {[
-                                        { name: 'rei', icon: '🐥' },
-                                        { name: 'gaeul', icon: '🐿️' },
-                                        { name: 'yujin', icon: '🐶' },
-                                        { name: 'liz', icon: '🐱' },
-                                        { name: 'leeseo', icon: '🐯' },
-                                        { name: 'wonyoung', icon: '🐰' },
-                                    ].map(({ name, icon }) => (
-                                        <DropdownMenuItem asChild key={name}>
-                                            <Link
-                                                href={
-                                                    currentLocale === 'en'
-                                                        ? `/en/gallery/${name}`
-                                                        : `/kr/gallery/${name}`
-                                                }
-                                                className='flex items-center gap-2 rounded-md px-4 py-2 transition duration-300 hover:bg-zinc-800 hover:text-white'
-                                            >
-                                                {icon} {t(`dropdown.${name}`)}
-                                            </Link>
-                                        </DropdownMenuItem>
-                                    ))}
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </Tab>
+                    <Cursor position={position} />
 
-                        <Cursor position={position} />
+                    <NavigationMenuLink asChild>
+                        <Dropdown />
+                    </NavigationMenuLink>
 
-                        <NavigationMenuLink asChild>
-                            <LanguageSwitcher />
-                        </NavigationMenuLink>
-                    </NavigationMenuList>
-                </div>
+                    <NavigationMenuLink asChild>
+                        <LanguageSwitcher />
+                    </NavigationMenuLink>
+                </NavigationMenuList>
             </NavigationMenu>
         </header>
     )
@@ -353,4 +284,4 @@ function MenuIcon(props: any) {
     )
 }
 
-export default Navbar
+export default Slider
