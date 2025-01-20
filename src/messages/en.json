@@ -1,7 +1,9 @@
 {
     "index": {
         "description": "A collection of data, stats and info about IVE.",
-        "button": "Go to IVE collection"
+        "button": "Go to IVE collection",
+        "quiz_button": "Play quiz 💭",
+        "merch_button": "Merch 🛍️"
     },
     "homecards": {
         "photocards": {
@@ -68,6 +70,25 @@
             "title": "Leeseo",
             "description": "Free, unlimited uploads of high-quality original photos featuring IVE's Leeseo."
         }
+    },
+    "quiz": {
+        "button": "Start quiz",
+        "description": "Test your knowledge about IVE and see how well you know the group!",
+        "categories": "Multiple Categories",
+        "score": "Track Your Score",
+        "learn": "Learn & Have Fun",
+        "categories_description": "Test everything about IVE with quizzes from various categories",
+        "score_description": "See how you rank among other DIVEs with our scoring system",
+        "learn_description": "Discover new facts about IVE while enjoying the quiz!",
+        "title": "IVE Quiz",
+        "question": "Question {current}/{total}",
+        "next": "Next",
+        "submit": "Submit",
+        "restart": "Restart",
+        "your_score": "Your score: {score}/{total}",
+        "correct": "Correct!",
+        "incorrect": "Incorrect. The answer was: {answer}",
+        "loading": "Loading quiz..."
     },
     "navbar": {
         "nav": {

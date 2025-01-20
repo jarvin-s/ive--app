@@ -5,7 +5,7 @@ const Postcards = () => {
     const t = useTranslations('postcards')
 
     return (
-        <div className='flex items-center justify-center text-8xl'>
+        <div className='flex min-h-[50vh] items-center justify-center text-8xl'>
             {t('title')}
         </div>
     )

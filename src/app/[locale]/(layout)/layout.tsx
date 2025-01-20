@@ -2,14 +2,14 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import type { Metadata } from 'next'
-import { Bricolage_Grotesque } from 'next/font/google'
+import { Anton } from 'next/font/google'
 import '../../globals.css'
 import Navbar from '@/components/Navbar'
 import { Toaster } from '@/components/ui/toaster'
 import NextTopLoader from 'nextjs-toploader'
 
-const inter = Bricolage_Grotesque({
-    weight: ['200', '300', '400', '500', '600', '700', '800'],
+const anton = Anton({
+    weight: ['400'],
     subsets: ['latin'],
 })
 
@@ -30,7 +30,7 @@ export default async function RootLayout({
 
     return (
         <html lang={locale}>
-            <body className={inter.className}>
+            <body className={anton.className}>
                 <NextTopLoader
                     height={4}
                     color='#f53e99'

@@ -1,7 +1,9 @@
 {
     "index": {
         "description": "IVE에 대한 데이터, 통계 및 정보 모음.",
-        "button": "아이브 컬렉션으로 가기"
+        "button": "아이브 컬렉션으로 가기",
+        "quiz_button": "퀴즈 플레이 💭",
+        "merch_button": "상품 🛍️"
     },
     "homecards": {
         "photocards": {
@@ -68,6 +70,25 @@
             "title": "이서",
             "description": "IVE의 이서가 포함된 고품질 원본 사진을 무료로 무제한 업로드하세요."
         }
+    },
+    "quiz": {
+        "button": "퀴즈 시작",
+        "description": "아이브 퀴즈는 세 가지 카테고리로 구성되어 있습니다.",
+        "categories": "카테고리",
+        "categories_description": "아이브 퀴즈는 세 가지 카테고리로 구성되어 있습니다.",
+        "score": "점수",
+        "score_description": "아이브 퀴즈는 점수를 기록하여 당신의 성취를 확인할 수 있습니다.",
+        "learn": "배우기",
+        "learn_description": "아이브 퀴즈는 아이브에 대한 지식을 향상시키는 데 도움이 됩니다.",
+        "title": "아이브 퀴즈",
+        "question": "문제 {current}/{total}",
+        "next": "다음",
+        "submit": "제출",
+        "restart": "다시 시작",
+        "your_score": "당신의 점수: {score}/{total}",
+        "correct": "정답입니다!",
+        "incorrect": "틀렸습니다. 정답은: {answer}",
+        "loading": "퀴즈 로딩 중..."
     },
     "navbar": {
         "nav": {
