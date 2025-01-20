@@ -6,6 +6,8 @@ import main from '/public/images/ive-main.jpg'
 import { useLocale, useTranslations } from 'next-intl'
 import Heart from '@/components/Index/Heart'
 import Star from '@/components/Index/Star'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const Home = () => {
     const currentLocale = useLocale()
@@ -36,23 +38,23 @@ const Home = () => {
                             <span className='text-pink-600'>DIVE</span> INTO{' '}
                             <span className='text-pink-600'>IVE</span>✨
                         </h1>
-                        <h4 className='text-l'>
+                        <h4 className='text-lg'>
                             <span className='opacity-80'>
                                 {t('description')}
                             </span>
                         </h4>
-                        <div className='grid grid-rows-2 gap-2'>
-                            <a
+                        <div className='mt-2 grid grid-rows-2 gap-2'>
+                            <Link
                                 href={
                                     selectedLocale == 'en'
                                         ? '/en/home'
                                         : '/kr/home'
                                 }
                             >
-                                <button
+                                <Button
                                     type='button'
                                     className='inline-flex w-[50%] items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
-                                text-white duration-300 ease-in-out hover:bg-pink-400 disabled:pointer-events-none disabled:opacity-50'
+                                text-white duration-300 ease-in-out hover:bg-pink-400'
                                 >
                                     {t('button')}
                                     <svg
@@ -70,69 +72,71 @@ const Home = () => {
                                         <path d='M5 12h14'></path>
                                         <path d='m12 5 7 7-7 7'></path>
                                     </svg>
-                                </button>
-                            </a>
-                            <a
+                                </Button>
+                            </Link>
+                            <Link
                                 href={
                                     selectedLocale == 'en'
                                         ? '/en/quiz'
                                         : '/kr/quiz'
                                 }
                             >
-                                <button
+                                <Button
                                     type='button'
                                     className='inline-flex w-[50%] items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
-                                text-white duration-300 ease-in-out hover:bg-pink-400 disabled:pointer-events-none disabled:opacity-50'
+                                text-white duration-300 ease-in-out hover:bg-pink-400'
                                 >
                                     {t('quiz_button')}
-                                </button>
-                            </a>
+                                </Button>
+                            </Link>
                         </div>
-                        <div className='group relative ml-[5rem] w-3/12 gap-2 pt-4 md:ml-[2rem] md:w-4/12 xl:ml-[6rem]'>
-                            <Image
-                                className='big-card absolute z-10  rotate-[5deg] opacity-95 duration-300 ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[15deg] md:group-hover:translate-x-[10rem] md:group-hover:translate-y-12'
-                                src='/images/rei/rei.png'
-                                width={400}
-                                height={0}
-                                alt=''
-                            />
-                            <Image
-                                className='big-card absolute z-[11] opacity-95 duration-300 ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-7'
-                                src='/images/leeseo/leeseo.png'
-                                width={400}
-                                height={0}
-                                alt=''
-                            />
-                            <Image
-                                className='big-card absolute z-[12] rotate-[-5deg] opacity-95 duration-300 ease-in-out group-hover:-translate-x-[4rem] group-hover:translate-y-2 group-hover:rotate-[-18deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-[3.5rem]'
-                                src='/images/wonyoung/wonyoung.jpg'
-                                width={400}
-                                height={0}
-                                alt=''
-                            />
-                        </div>
-                        <div className='group relative ml-[12rem] w-3/12 gap-2 md:ml-[13rem] md:w-4/12 xl:ml-[23rem]'>
-                            <Image
-                                className='big-card absolute rotate-[8deg] opacity-95 duration-300 ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[20deg] md:group-hover:translate-x-[7.6rem] md:group-hover:translate-y-10'
-                                src='/images/liz/liz.png'
-                                width={400}
-                                height={0}
-                                alt=''
-                            />
-                            <Image
-                                className='big-card absolute opacity-95 duration-300 ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-5'
-                                src='/images/yujin/yujin.jpg'
-                                width={400}
-                                height={0}
-                                alt=''
-                            />
-                            <Image
-                                className='big-card absolute rotate-[-5deg] opacity-95 duration-300 ease-in-out group-hover:z-[13] group-hover:-translate-x-[4rem] group-hover:rotate-[-12deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-10'
-                                src='/images/gaeul/gaeul.jpg'
-                                width={400}
-                                height={0}
-                                alt=''
-                            />
+                        <div className='mt-10 flex justify-center px-4'>
+                            <div className='group relative w-[15rem] gap-2 pt-4 md:w-[20rem]'>
+                                <Image
+                                    className='big-card absolute z-10  rotate-[5deg] opacity-95 duration-300 ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[15deg] md:group-hover:translate-x-[10rem] md:group-hover:translate-y-12'
+                                    src='/images/rei/rei.png'
+                                    width={400}
+                                    height={0}
+                                    alt=''
+                                />
+                                <Image
+                                    className='big-card absolute z-[11] opacity-95 duration-300 ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-7'
+                                    src='/images/leeseo/leeseo.png'
+                                    width={400}
+                                    height={0}
+                                    alt=''
+                                />
+                                <Image
+                                    className='big-card absolute z-[12] rotate-[-5deg] opacity-95 duration-300 ease-in-out group-hover:-translate-x-[4rem] group-hover:translate-y-2 group-hover:rotate-[-18deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-[3.5rem]'
+                                    src='/images/wonyoung/wonyoung.jpg'
+                                    width={400}
+                                    height={0}
+                                    alt=''
+                                />
+                            </div>
+                            <div className='group relative w-[15rem] gap-2 md:w-[20rem]'>
+                                <Image
+                                    className='big-card absolute rotate-[8deg] opacity-95 duration-300 ease-in-out group-hover:translate-x-[4rem] group-hover:rotate-[20deg] md:group-hover:translate-x-[7.6rem] md:group-hover:translate-y-10'
+                                    src='/images/liz/liz.png'
+                                    width={400}
+                                    height={0}
+                                    alt=''
+                                />
+                                <Image
+                                    className='big-card absolute opacity-95 duration-300 ease-in-out group-hover:-translate-y-2 md:group-hover:translate-y-5'
+                                    src='/images/yujin/yujin.jpg'
+                                    width={400}
+                                    height={0}
+                                    alt=''
+                                />
+                                <Image
+                                    className='big-card absolute rotate-[-5deg] opacity-95 duration-300 ease-in-out group-hover:z-[13] group-hover:-translate-x-[4rem] group-hover:rotate-[-12deg] md:group-hover:-translate-x-[10rem] md:group-hover:translate-y-10'
+                                    src='/images/gaeul/gaeul.jpg'
+                                    width={400}
+                                    height={0}
+                                    alt=''
+                                />
+                            </div>
                         </div>
                         {/* <Star /> */}
                         <Heart />
