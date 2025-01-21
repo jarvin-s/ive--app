@@ -8,7 +8,7 @@
     "homecards": {
         "photocards": {
             "title": "Photocards",
-            "description": "Looking to find a new photocard for your phone case or just curious what’s out there?",
+            "description": "Looking to find a new photocard for your phone case or just curious what's out there?",
             "click": "(click me)"
         },
         "gallery": {
@@ -17,7 +17,7 @@
         },
         "merch": {
             "title": "Merch",
-            "description": "Whether you’re looking for apparel or cute MINIVE figurines, you’ll find a collection every DIVE will love."
+            "description": "Whether you're looking for apparel or cute MINIVE figurines, you'll find a collection every DIVE will love."
         }
     },
     "albums": {
@@ -113,5 +113,12 @@
         "description": "Sorry, the page you are looking for does not exist.",
         "home": "Home",
         "back": "Go back"
+    },
+    "login": {
+        "title": "Login",
+        "email_label": "Email address",
+        "password_label": "Password",
+        "login_button": "Log in",
+        "signup_button": "Sign up"
     }
 }

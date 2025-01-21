@@ -3,6 +3,7 @@ import { TextHoverEffect } from '../ui/text-hover-effect'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
+import SignOut from '../Auth/SignOut'
 
 // TODO:
 //! REMOVED Z-INDEX FROM HERO, NEXT STEP: REVAMP CARDS BELOW HERO & ADD QUIZ(?)
@@ -36,6 +37,7 @@ const Hero = () => {
                         >
                             <Link href='/en/merch'>{t('merch_button')}</Link>
                         </Button>
+                        <SignOut />
                     </div>
                     {/* <TextHoverEffect text='IVE'/> */}
                 </div>

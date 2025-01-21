@@ -113,5 +113,12 @@
         "description": "죄송합니다. 찾고 있는 페이지가 존재하지 않습니다.",
         "home": "홈",
         "back": "돌아가기"
+    },
+    "login": {
+        "title": "로그인",
+        "email_label": "이메일 주소",
+        "password_label": "비밀번호",
+        "login_button": "로그인",
+        "signup_button": "회원가입"
     }
 }
