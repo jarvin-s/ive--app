@@ -236,14 +236,7 @@ const Navbar = () => {
                             {t('nav.merch')}
                         </Tab>
 
-                        <Tab
-                            setPosition={setPosition}
-                            href={
-                                selectedLocale === 'en'
-                                    ? `/en/gallery/${name}`
-                                    : `/kr/gallery/${name}`
-                            }
-                        >
+                        <Tab setPosition={setPosition} href='#'>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button
