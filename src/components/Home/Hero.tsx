@@ -9,7 +9,7 @@ import SignOut from '../Auth/SignOut'
 //! REMOVED Z-INDEX FROM HERO, NEXT STEP: REVAMP CARDS BELOW HERO & ADD QUIZ(?)
 
 const Hero = () => {
-    const selectedLocale = useLocale()
+    const currentLocale = useLocale()
     const t = useTranslations('index')
 
     return (
@@ -23,17 +23,15 @@ const Hero = () => {
                     <div className='mt-4 flex flex-col items-center gap-4 md:flex-row'>
                         <Button
                             size={'sm'}
-                            className='w-full bg-pink-600 text-lg text-white hover:bg-pink-800 md:px-6 md:py-5 md:text-xl'
+                            className='w-full border-b-4 border-pink-900 bg-pink-700 text-lg text-white transition-all duration-150 hover:translate-y-[2px] hover:border-none hover:bg-pink-800 md:px-6 md:py-5 md:text-xl'
                         >
-                            {selectedLocale === 'en' ? (
-                                <Link href='/en/quiz'>{t('quiz_button')}</Link>
-                            ) : (
-                                <Link href='/kr/quiz'>{t('quiz_button')}</Link>
-                            )}
+                            <Link href={`/${currentLocale}/dashboard`}>
+                                Go to Quiz Dashboard
+                            </Link>
                         </Button>
                         <Button
                             size={'sm'}
-                            className='w-full border-2 border-black text-lg text-white hover:bg-black md:px-6 md:py-[18px] md:text-xl'
+                            className='w-full border-b-4 border-[#2a2a2a] bg-black text-lg text-white transition-all duration-150 hover:translate-y-[2px] hover:border-none md:px-6 md:py-5 md:text-xl'
                         >
                             <Link href='/en/merch'>{t('merch_button')}</Link>
                         </Button>

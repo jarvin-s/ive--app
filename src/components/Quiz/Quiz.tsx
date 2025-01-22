@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { QuizQuestion } from '@/lib/questions'
+import { Button } from '../ui/button'
 
 interface QuizProps {
-    questions: QuizQuestion[]
+    questions: { question: string; options: string[]; correctAnswer: string }[]
     quizId: string
 }
 
@@ -23,17 +23,24 @@ export default function Quiz({ questions, quizId }: QuizProps) {
         }
     }
 
-    const handleNext = () => {
+    const handleNext = async () => {
         if (currentQuestion < questions.length - 1) {
             setCurrentQuestion(currentQuestion + 1)
             setSelectedAnswer('')
         } else {
             setShowScore(true)
+            await fetch('/api/quiz', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ score, quizId }),
+            })
         }
     }
 
     return (
-        <div className='flex min-h-screen flex-col items-center bg-stone-950 px-6 pt-20'>
+        <div className='mx-2 flex flex-col items-center bg-stone-950 px-6 py-20'>
             <div className='w-full text-center text-white'>
                 {showScore ? (
                     <div className='text-center'>
@@ -71,7 +78,7 @@ export default function Quiz({ questions, quizId }: QuizProps) {
                         <div className='mb-6 grid grid-cols-1 gap-4'>
                             {questions[currentQuestion].options.map(
                                 (option) => (
-                                    <button
+                                    <Button
                                         key={option}
                                         onClick={() =>
                                             handleAnswerClick(option)
@@ -83,18 +90,18 @@ export default function Quiz({ questions, quizId }: QuizProps) {
                                         }`}
                                     >
                                         {option}
-                                    </button>
+                                    </Button>
                                 )
                             )}
                         </div>
-                        <button
+                        <Button
                             onClick={handleNext}
                             disabled={!selectedAnswer}
                             className='inline-flex w-48 items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
                             text-white duration-150 ease-in-out hover:bg-pink-700 disabled:opacity-50'
                         >
                             {t('next')}
-                        </button>
+                        </Button>
                     </>
                 )}
             </div>
