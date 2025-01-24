@@ -2,7 +2,7 @@
     "index": {
         "description": "IVE에 대한 데이터, 통계 및 정보 모음.",
         "button": "아이브 컬렉션으로 가기",
-        "quiz_button": "퀴즈 플레이 💭",
+        "quiz_button": "퀴즈 대시보드",
         "merch_button": "상품 🛍️"
     },
     "homecards": {
@@ -87,8 +87,11 @@
         "restart": "다시 시작",
         "your_score": "당신의 점수: {score}/{total}",
         "correct": "정답입니다!",
-        "incorrect": "틀렸습니다. 정답은: {answer}",
-        "loading": "퀴즈 로딩 중..."
+        "loading": "퀴즈 로딩 중...",
+        "correct-title": "정답입니다!",
+        "correct-description": "잘하셨습니다! 올바른 답변을 선택하셨습니다.",
+        "incorrect-title": "오답입니다",
+        "incorrect-description": "아쉽네요! 정답이 아닙니다. 다음 질문에 도전해보세요!"
     },
     "navbar": {
         "nav": {

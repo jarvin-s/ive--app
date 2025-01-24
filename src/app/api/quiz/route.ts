@@ -1,11 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
-import { useLocale } from 'next-intl';
 
-// export function getLocale() {
-//     const currentLocale = useLocale()
-
-// }
 export async function GET(request: Request) {
     const supabase = await createClient();
     const { searchParams } = new URL(request.url);
@@ -23,17 +18,42 @@ export async function GET(request: Request) {
     return NextResponse.json(questions);
 }
 
-export async function POST(request: Request) {
+export async function PUT(request: Request) {
     const supabase = await createClient();
-    const { score, quizId } = await request.json();
+    const { score, quizId, currentQuestion, completed } = await request.json();
 
-    const { error } = await supabase
-        .from('quiz_scores')
-        .insert([{ score, quiz_id: quizId }]);
+    const { data: existingSession, error: fetchError } = await supabase
+        .from('quiz_sessions')
+        .select('*')
+        .eq('session_id', quizId)
+        .single();
 
-    if (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+    if (fetchError) {
+        return NextResponse.json({ error: 'Session not found' }, { status: 404 });
     }
 
-    return NextResponse.json({ message: 'Score submitted successfully' });
+    const { error: sessionError } = await supabase
+        .from('quiz_sessions')
+        .update({
+            score: score ?? existingSession.score,
+            current_question: currentQuestion ?? existingSession.current_question,
+            completed: completed ?? existingSession.completed
+        })
+        .eq('session_id', quizId);
+
+    if (sessionError) {
+        return NextResponse.json({ error: sessionError.message }, { status: 500 });
+    }
+
+    if (currentQuestion === null) {
+        const { error: scoreError } = await supabase
+            .from('quiz_scores')
+            .insert([{ score, quiz_id: quizId }]);
+
+        if (scoreError) {
+            return NextResponse.json({ error: scoreError.message }, { status: 500 });
+        }
+    }
+
+    return NextResponse.json({ message: 'Progress saved successfully' });
 }

@@ -23,15 +23,26 @@ const Hero = () => {
                     <div className='mt-4 flex flex-col items-center gap-4 md:flex-row'>
                         <Button
                             size={'sm'}
-                            className='w-full border-b-4 border-pink-900 bg-pink-700 text-lg text-white transition-all duration-150 hover:translate-y-[2px] hover:border-none hover:bg-pink-800 md:px-6 md:py-5 md:text-xl'
+                            className='text-md w-full border-b-4 border-pink-900 bg-pink-700 gap-1 text-white transition-all duration-150 hover:translate-y-[2px] hover:border-none hover:bg-pink-800 md:px-6 md:py-5 md:text-xl'
                         >
                             <Link href={`/${currentLocale}/dashboard`}>
-                                Go to Quiz Dashboard
+                                {t('quiz_button')}
                             </Link>
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                width='24'
+                                height='24'
+                                viewBox='0 0 24 24'
+                            >
+                                <path
+                                    fill='currentColor'
+                                    d='M10 21v-8.25H3V21zm2 0h9v-8.25h-9zM3 10.75h18V3H3z'
+                                />
+                            </svg>
                         </Button>
                         <Button
                             size={'sm'}
-                            className='w-full border-b-4 border-[#2a2a2a] bg-black text-lg text-white transition-all duration-150 hover:translate-y-[2px] hover:border-none md:px-6 md:py-5 md:text-xl'
+                            className='text-md w-full border-b-4 border-[#2a2a2a] bg-black text-white transition-all duration-150 hover:translate-y-[2px] hover:border-none md:px-6 md:py-5 md:text-xl'
                         >
                             <Link href='/en/merch'>{t('merch_button')}</Link>
                         </Button>
