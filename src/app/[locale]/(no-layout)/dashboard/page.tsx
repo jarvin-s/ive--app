@@ -32,7 +32,7 @@ const QuizDashboard = () => {
         const fetchPastQuizzes = async () => {
             try {
                 const response = await fetch(
-                    `/api/quiz?locale=${currentLocale}`
+                    `/api/history?locale=${currentLocale}`
                 )
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
@@ -46,11 +46,6 @@ const QuizDashboard = () => {
         fetchPastQuizzes()
     }, [currentLocale])
 
-    const handleStartQuiz = () => {
-        const quizId = uuidv4()
-        router.push(`/${currentLocale}/game/${quizId}`)
-    }
-
     return (
         <>
             <div className='flex min-h-screen justify-center bg-zinc-900 px-20'>
@@ -62,10 +57,12 @@ const QuizDashboard = () => {
                     </h1>
                     <div className='grid grid-cols-1 gap-2 md:grid-cols-2'>
                         <Button
-                            onClick={handleStartQuiz}
+                            asChild
                             className='border-b-4 border-pink-900 bg-pink-700 py-6 text-2xl text-white transition-all duration-150 ease-in-out hover:translate-y-[4px] hover:border-none hover:bg-pink-800'
                         >
-                            {t('play_button')}
+                            <Link href={`/${currentLocale}/dashboard/config`}>
+                                {t('play_button')}
+                            </Link>
                         </Button>
                         <Button
                             asChild
@@ -77,11 +74,13 @@ const QuizDashboard = () => {
                         </Button>
                     </div>
                     <div className='mt-4'>
-                        <h1
-                            className={`${gabarito.className} text-2xl uppercase text-white`}
-                        >
-                            Quiz <span className='text-pink-600'>history</span>
-                        </h1>
+                        <div className='flex justify-center gap-2'>
+                            <h1
+                                className={`${gabarito.className} text-2xl uppercase text-white`}
+                            >
+                                Quiz <span className='text-pink-600'>history</span>
+                            </h1>
+                        </div>
                         <table className='mt-2 min-w-full bg-zinc-800'>
                             <thead>
                                 <tr className='bg-pink-600 text-white'>
@@ -130,5 +129,4 @@ const QuizDashboard = () => {
         </>
     )
 }
-
 export default QuizDashboard

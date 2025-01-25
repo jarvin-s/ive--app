@@ -46,7 +46,8 @@ export default function GamePage({ params }: GamePageProps) {
                 setQuestions(existingSession.questions)
             } else {
                 const response = await fetch(`/api/quiz?locale=${locale}`)
-                const newQuestions = await response.json()
+                const data = await response.json()
+                const newQuestions = data.questions
 
                 if (response.ok) {
                     const { data: newSession } = await supabase

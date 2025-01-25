@@ -97,6 +97,25 @@
             "play_button": "퀴즈 시작",
             "home_button": "홈으로 돌아가기",
             "play_again_button": "다시 퀴즈 시작"
+        },
+        "configure": {
+            "title": "퀴즈 설정",
+            "category_label": "카테고리",
+            "question_count_label": "문제 수",
+            "question_count_options": {
+                "5": "5 문제",
+                "10": "10 문제",
+                "15": "15 문제",
+                "20": "20 문제"
+            },
+            "start_button": "퀴즈 시작",
+            "categories": {
+                "all": "모든 카테고리",
+                "members": "멤버",
+                "songs": "노래",
+                "albums": "앨범",
+                "facts": "사실"
+            }
         }
     },
     "navbar": {

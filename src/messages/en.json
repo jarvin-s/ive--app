@@ -97,6 +97,25 @@
             "play_button": "Play quiz",
             "home_button": "Back to home",
             "play_again_button": "Play again"
+        },
+        "configure": {
+            "title": "Configure quiz",
+            "category_label": "Category",
+            "question_count_label": "Number of questions",
+            "question_count_options": {
+                "5": "5 questions",
+                "10": "10 questions",
+                "15": "15 questions",
+                "20": "20 questions"
+            },
+            "start_button": "Start quiz",
+            "categories": {
+                "all": "All categories",
+                "members": "Members",
+                "songs": "Songs",
+                "albums": "Albums",
+                "facts": "Facts"
+            }
         }
     },
     "navbar": {

@@ -24,7 +24,7 @@ export default function Quiz({
     const [score, setScore] = useState(initialScore)
     const [selectedAnswer, setSelectedAnswer] = useState('')
     const nextQuestion = currentQuestion + 1
-    const isCompleted = nextQuestion >= questions.length
+    const isCompleted = nextQuestion > questions.length
 
     const handleAnswerClick = (answer: string) => {
         setSelectedAnswer(answer)
@@ -54,12 +54,12 @@ export default function Quiz({
             body: JSON.stringify({
                 quizId,
                 currentQuestion: nextQuestion,
-                score,
-                completed: isCompleted,
+                score: score,
+                completed: nextQuestion >= questions.length,
             }),
         })
 
-        if (currentQuestion < questions.length - 1) {
+        if (currentQuestion < questions.length) {
             setCurrentQuestion(nextQuestion)
             setSelectedAnswer('')
         }
