@@ -77,8 +77,8 @@ const Home = () => {
                             <Link
                                 href={
                                     selectedLocale == 'en'
-                                        ? '/en/quiz'
-                                        : '/kr/quiz'
+                                        ? '/en/dashboard'
+                                        : '/kr/dashboard'
                                 }
                             >
                                 <Button

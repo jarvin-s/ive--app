@@ -5,7 +5,6 @@ import Quiz from '@/components/Quiz/Quiz'
 import { useLocale, useTranslations } from 'next-intl'
 import { createClient } from '@/utils/supabase/client'
 import { Anton } from 'next/font/google'
-import { v4 as uuidv4 } from 'uuid'
 import { useRouter } from 'next/navigation'
 
 const anton = Anton({
