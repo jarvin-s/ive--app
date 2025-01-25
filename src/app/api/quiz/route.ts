@@ -15,7 +15,16 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json(questions);
+    const { data: pastQuizzes, error: pastQuizzesError } = await supabase
+        .from('quiz_sessions')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (pastQuizzesError) {
+        return NextResponse.json({ error: pastQuizzesError.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ pastQuizzes });
 }
 
 export async function PUT(request: Request) {

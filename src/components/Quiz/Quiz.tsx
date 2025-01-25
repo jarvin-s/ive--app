@@ -22,8 +22,9 @@ export default function Quiz({
     const t = useTranslations('quiz')
     const [currentQuestion, setCurrentQuestion] = useState(initialQuestion)
     const [score, setScore] = useState(initialScore)
-    const [showScore, setShowScore] = useState(false)
     const [selectedAnswer, setSelectedAnswer] = useState('')
+    const nextQuestion = currentQuestion + 1
+    const isCompleted = nextQuestion >= questions.length
 
     const handleAnswerClick = (answer: string) => {
         setSelectedAnswer(answer)
@@ -38,15 +39,12 @@ export default function Quiz({
         }
 
         toast({
-            title: isCorrect ? t('correct-title') : t('incorrect-title'),
+            title: isCorrect ? t('correct_title') : t('incorrect_title'),
             description: isCorrect
-                ? t('correct-description')
-                : t('incorrect-description'),
+                ? t('correct_description')
+                : t('incorrect_description'),
             variant: isCorrect ? 'success' : 'destructive',
         })
-
-        const nextQuestion = currentQuestion + 1
-        const isCompleted = nextQuestion >= questions.length - 1
 
         await fetch('/api/quiz', {
             method: 'PUT',
@@ -57,33 +55,44 @@ export default function Quiz({
                 quizId,
                 currentQuestion: nextQuestion,
                 score,
-                completed: isCompleted
+                completed: isCompleted,
             }),
         })
 
         if (currentQuestion < questions.length - 1) {
             setCurrentQuestion(nextQuestion)
             setSelectedAnswer('')
-        } else {
-            alert('Quiz finished!')
-            setShowScore(true)
         }
     }
 
     return (
         <div className='mx-2 flex flex-col items-center rounded-2xl bg-stone-950 p-20'>
             <div className='w-full text-center text-white'>
-                {showScore ? (
+                {isCompleted ? (
                     <div className='text-center'>
-                        <h2 className='mb-4 text-2xl'>
-                            {t('your_score', {
-                                score,
-                                total: questions.length,
-                            })}
-                        </h2>
+                        <h2 className='mb-4 text-2xl'>{t('quiz_completed')}</h2>
+                        <div>
+                            <h2 className='mb-4 text-2xl'>
+                                {t('your_score', {
+                                    score,
+                                    total: questions.length,
+                                })}
+                            </h2>
+                        </div>
                         <Button
-                            onClick={() => {
-                                setShowScore(false)
+                            onClick={async () => {
+                                await fetch('/api/quiz', {
+                                    method: 'PUT',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({
+                                        quizId,
+                                        currentQuestion: 0,
+                                        score: 0,
+                                        completed: false,
+                                    }),
+                                })
                                 setCurrentQuestion(0)
                                 setScore(0)
                             }}

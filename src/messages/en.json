@@ -3,7 +3,7 @@
         "description": "A collection of data, stats and info about IVE.",
         "button": "Go to IVE collection",
         "quiz_button": "Quiz dashboard",
-        "merch_button": "Merch 🛍️"
+        "merch_button": "🛍️ Merch"
     },
     "homecards": {
         "photocards": {
@@ -88,10 +88,16 @@
         "your_score": "Your score: {score}/{total}",
         "correct": "Correct!",
         "loading": "Loading quiz...",
-        "correct-title": "Correct answer!",
-        "correct-description": "Well done! You've chosen the right answer.",
-        "incorrect-title": "Wrong answer",
-        "incorrect-description": "Oops! That wasn't the correct answer."
+        "correct_title": "Correct answer!",
+        "correct_description": "Well done! You've chosen the right answer.",
+        "incorrect_title": "Wrong answer",
+        "incorrect_description": "Oops! That wasn't the correct answer.",
+        "quiz_completed": "Quiz completed!",
+        "dashboard": {
+            "play_button": "Play quiz",
+            "home_button": "Back to home",
+            "play_again_button": "Play again"
+        }
     },
     "navbar": {
         "nav": {
