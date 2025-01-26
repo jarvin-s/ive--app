@@ -13,11 +13,11 @@ const gabarito = Gabarito({
     subsets: ['latin'],
 })
 
-// Define a type for the quiz
 interface PastQuizzes {
     session_id: string
     language: string
     correct_answer: string
+    completed: boolean
     created_at: string
     score: number
 }
@@ -51,7 +51,7 @@ const QuizDashboard = () => {
             <div className='flex min-h-screen justify-center bg-zinc-900 px-20'>
                 <div className='mt-20 flex flex-col gap-2'>
                     <h1
-                        className={`${gabarito.className} text-center text-5xl uppercase text-pink-600 md:text-left md:text-7xl`}
+                        className={`${gabarito.className} text-center text-5xl uppercase text-pink-600 md:text-7xl`}
                     >
                         <span className='text-white'>Quiz</span> dashboard
                     </h1>
@@ -76,53 +76,58 @@ const QuizDashboard = () => {
                     <div className='mt-4'>
                         <div className='flex justify-center gap-2'>
                             <h1
-                                className={`${gabarito.className} text-2xl uppercase text-white`}
+                                className={`${gabarito.className} text-4xl uppercase text-white`}
                             >
-                                Quiz <span className='text-pink-600'>history</span>
+                                Quiz{' '}
+                                <span className='text-pink-600'>history</span>
                             </h1>
                         </div>
-                        <table className='mt-2 min-w-full bg-zinc-800'>
-                            <thead>
-                                <tr className='bg-pink-600 text-white'>
-                                    <th className='px-4 py-2 text-left'>
-                                        Quiz ID
-                                    </th>
-                                    <th className='px-4 py-2 text-left'>
-                                        Score
-                                    </th>
-                                    <th className='px-4 py-2 text-left'>
-                                        Played on
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {pastQuizzes.map((quiz: PastQuizzes) => (
-                                    <tr
-                                        key={quiz.session_id}
-                                        className='border-b border-zinc-700'
-                                    >
-                                        <td
-                                            className='cursor-pointer px-4 py-2 text-white hover:text-blue-500 hover:underline'
-                                            onClick={() =>
-                                                router.push(
-                                                    `/${currentLocale}/game/${quiz.session_id}`
-                                                )
-                                            }
-                                        >
-                                            {quiz.session_id}
-                                        </td>
-                                        <td className='px-4 py-2 text-white'>
-                                            {quiz.score}
-                                        </td>
-                                        <td className='px-4 py-2 text-white'>
+                        <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2'>
+                            {pastQuizzes.map((quiz: PastQuizzes) => (
+                                <div
+                                    key={quiz.session_id}
+                                    className='rounded-lg bg-zinc-800 p-4 shadow-lg transition-all hover:scale-105'
+                                >
+                                    <div className='mb-2 flex items-center justify-between'>
+                                        <span className='text-sm text-zinc-400'>
                                             {new Date(
                                                 quiz.created_at
                                             ).toLocaleDateString('en-GB')}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                        </span>
+                                        <span className='rounded-full bg-pink-600 px-3 py-1 text-sm text-white'>
+                                            Score: {quiz.score}
+                                        </span>
+                                    </div>
+                                    <div className='flex'>
+                                        <div className='text-sm font-bold text-white'>
+                                            ID:{' '}
+                                            <span
+                                                className='cursor-pointer hover:text-pink-400'
+                                                onClick={() =>
+                                                    router.push(
+                                                        `/${currentLocale}/game/${quiz.session_id}`
+                                                    )
+                                                }
+                                            >
+                                                {quiz.session_id}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        className={`mt-2 text-sm font-bold ${quiz.completed ? 'text-green-400' : 'text-yellow-500'}`}
+                                    >
+                                        {quiz.completed
+                                            ? t('quiz_status.completed')
+                                            : t('quiz_status.in_progress')}
+                                    </div>
+                                </div>
+                            ))}
+                            {pastQuizzes.length === 0 && (
+                                <div className='col-span-full text-center text-4xl font-bold text-zinc-400'>
+                                    No quiz history available
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -4,9 +4,15 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Button } from '../ui/button'
 import { useToast } from '@/hooks/use-toast'
+import { QuizHistory } from '../QuizHistory/QuizHistory'
 
 interface QuizProps {
-    questions: { question: string; options: string[]; correct_answer: string }[]
+    questions: {
+        question: string
+        options: string[]
+        correct_answer: string
+        incorrect_answers: string[]
+    }[]
     quizId: string
     initialQuestion: number
     initialScore: number
@@ -23,6 +29,12 @@ export default function Quiz({
     const [currentQuestion, setCurrentQuestion] = useState(initialQuestion)
     const [score, setScore] = useState(initialScore)
     const [selectedAnswer, setSelectedAnswer] = useState('')
+    const [answerHistory, setAnswerHistory] = useState<Array<{
+        quizId: string
+        userAnswer: string
+        correctAnswer: string
+        correct: boolean
+    }>>([])
     const nextQuestion = currentQuestion + 1
     const isCompleted = nextQuestion > questions.length
 
@@ -37,6 +49,13 @@ export default function Quiz({
         if (isCorrect) {
             setScore((prevScore) => prevScore + 1)
         }
+
+        setAnswerHistory(prev => [...prev, {
+            quizId,
+            userAnswer: selectedAnswer,
+            correctAnswer: questions[currentQuestion].correct_answer,
+            correct: isCorrect
+        }])
 
         toast({
             title: isCorrect ? t('correct_title') : t('incorrect_title'),
@@ -56,6 +75,12 @@ export default function Quiz({
                 currentQuestion: nextQuestion,
                 score: score,
                 completed: nextQuestion >= questions.length,
+                answerHistory: [...answerHistory, {
+                    quizId,
+                    userAnswer: selectedAnswer,
+                    correctAnswer: questions[currentQuestion].correct_answer,
+                    correct: isCorrect
+                }]
             }),
         })
 
@@ -63,6 +88,26 @@ export default function Quiz({
             setCurrentQuestion(nextQuestion)
             setSelectedAnswer('')
         }
+    }
+
+    const handleRestart = async () => {
+        setAnswerHistory([])
+        
+        await fetch('/api/quiz', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                quizId,
+                currentQuestion: 0,
+                score: 0,
+                completed: false,
+                answerHistory: []
+            }),
+        })
+        setCurrentQuestion(0)
+        setScore(0)
     }
 
     return (
@@ -80,27 +125,13 @@ export default function Quiz({
                             </h2>
                         </div>
                         <Button
-                            onClick={async () => {
-                                await fetch('/api/quiz', {
-                                    method: 'PUT',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify({
-                                        quizId,
-                                        currentQuestion: 0,
-                                        score: 0,
-                                        completed: false,
-                                    }),
-                                })
-                                setCurrentQuestion(0)
-                                setScore(0)
-                            }}
+                            onClick={handleRestart}
                             className='inline-flex items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
                             text-white duration-150 ease-in-out hover:bg-pink-700'
                         >
                             {t('restart')}
                         </Button>
+                        <QuizHistory quizId={quizId} />
                     </div>
                 ) : (
                     <>

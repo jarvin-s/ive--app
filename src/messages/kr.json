@@ -96,7 +96,11 @@
         "dashboard": {
             "play_button": "퀴즈 시작",
             "home_button": "홈으로 돌아가기",
-            "play_again_button": "다시 퀴즈 시작"
+            "play_again_button": "다시 퀴즈 시작",
+            "quiz_status": {
+                "completed": "완료 ✅",
+                "in_progress": "진행 중 ⏳"
+            }
         },
         "configure": {
             "title": "퀴즈 설정",

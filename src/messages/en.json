@@ -96,7 +96,11 @@
         "dashboard": {
             "play_button": "Play quiz",
             "home_button": "Back to home",
-            "play_again_button": "Play again"
+            "play_again_button": "Play again",
+            "quiz_status": {
+                "completed": "Completed ✅",
+                "in_progress": "In progress ⏳"
+            }
         },
         "configure": {
             "title": "Configure quiz",
