@@ -23,7 +23,6 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import Dropdown from './Dropdown'
 import LanguageSwitcher from './LanguageSwitcher'
 import Image from 'next/image'
 
@@ -154,9 +153,47 @@ const Navbar = () => {
                         >
                             {t('nav.merch')}
                         </Link>
-                        <div className='flex w-full items-center py-2 text-lg hover:underline'>
-                            <Dropdown />
+                        <div className='flex py-2 text-lg hover:underline'>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant='ghost' className='text-md'>
+                                        {t('dropdown.gallery')}{' '}
+                                        <ChevronDown className='ml-2 h-4 w-4' />
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className='w-56 rounded-md bg-zinc-950 text-white shadow-lg'>
+                                    {[
+                                        { name: 'rei', icon: '🐥' },
+                                        { name: 'gaeul', icon: '🐿️' },
+                                        { name: 'yujin', icon: '🐶' },
+                                        { name: 'liz', icon: '🐱' },
+                                        { name: 'leeseo', icon: '🐯' },
+                                        { name: 'wonyoung', icon: '🐰' },
+                                    ].map(({ name, icon }) => (
+                                        <DropdownMenuItem asChild key={name}>
+                                            <Link
+                                                href={
+                                                    currentLocale === 'en'
+                                                        ? `/en/gallery/${name}`
+                                                        : `/kr/gallery/${name}`
+                                                }
+                                                className='flex items-center gap-2 rounded-md px-4 py-2 transition duration-300 hover:bg-zinc-800 hover:text-white'
+                                            >
+                                                {icon} {t(`dropdown.${name}`)}
+                                            </Link>
+                                        </DropdownMenuItem>
+                                    ))}
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
+                        <Link
+                            href={`/${selectedLocale}/sign-in`}
+                            className='flex w-full items-center py-2 text-lg hover:underline'
+                            prefetch={false}
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {t('nav.sign_in')}
+                        </Link>
                     </div>
                 </SheetContent>
             </Sheet>
@@ -284,6 +321,13 @@ const Navbar = () => {
                         <NavigationMenuLink asChild>
                             <LanguageSwitcher />
                         </NavigationMenuLink>
+
+                        <Tab
+                            setPosition={setPosition}
+                            href={`/${selectedLocale}/sign-in`}
+                        >
+                            {t('nav.sign_in')}
+                        </Tab>
                     </NavigationMenuList>
                 </div>
             </NavigationMenu>
