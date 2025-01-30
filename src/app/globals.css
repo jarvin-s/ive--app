@@ -6,16 +6,39 @@
     background-color: #b8034b;
 }
 
-body {
-    background-color: #500724;
-    overflow-x: hidden;
+/* Firefox (scrollbar) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #500724 #dfe9eb;
 }
 
-/* Add blur to navbar */
+/* Chrome, Edge and Safari (scrollbar) */
+*::-webkit-scrollbar {
+    width: 10px;
+}
 
-.nav-blur {
-    background: transparent;
-    backdrop-filter: blur(1px);
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #500724;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #500724;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #575757;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background-color: #6e6e6e;
+}
+
+body {
+    /* background-color: #500724; */
+    background-color: #0c0a09;
+    overflow-x: hidden;
 }
 
 .big-card {
@@ -23,7 +46,6 @@ body {
 }
 
 /* Upload button (gallery) */
-
 .upload:hover {
     box-shadow: none;
     color: white;
@@ -102,7 +124,6 @@ body {
 }
 
 /* MINIVE cards */
-
 .card {
     width: 250px;
     height: 200px;
@@ -173,8 +194,4 @@ body {
 .card:hover .character-wonyoung {
     opacity: 1;
     transform: translate3d(0%, -40%, 100px);
-}
-
-.border-bg {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }

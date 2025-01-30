@@ -96,6 +96,7 @@
         "dashboard": {
             "play_button": "Play quiz",
             "home_button": "Back to home",
+            "dashboard_button": "Back to dashboard",
             "play_again_button": "Play again",
             "quiz_status": {
                 "completed": "Completed ✅",

@@ -96,6 +96,7 @@
         "dashboard": {
             "play_button": "퀴즈 시작",
             "home_button": "홈으로 돌아가기",
+            "dashboard_button": "대시보드로 돌아가기",
             "play_again_button": "다시 퀴즈 시작",
             "quiz_status": {
                 "completed": "완료 ✅",
