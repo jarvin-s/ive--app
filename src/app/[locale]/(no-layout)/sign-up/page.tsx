@@ -1,55 +1,68 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { signIn } from './actions'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/../public/images/logo.png'
 import { useEffect, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
-import { supabase } from '@/lib/supabaseClient'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { supabase } from '@/lib/supabaseClient'
 
-export default function LoginPage() {
+export default function SignUpPage() {
     const t = useTranslations()
     const currentLocale = useLocale()
     const router = useRouter()
-    const [selectedLocale, setSelectedLocale] = useState(currentLocale)
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState<string | null>(null)
+    const [error, setError] = useState('')
+    const [selectedLocale, setSelectedLocale] = useState(currentLocale)
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
     useEffect(() => {
         setSelectedLocale(currentLocale)
     }, [currentLocale])
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
-        const result = await signIn(formData)
+    // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault()
+    //     const formData = new FormData(event.currentTarget)
+    //     await signUp(formData)
+    // }
 
-        if (result?.error) {
-            setErrorMessage(result.error)
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setError('')
+
+        const { data, error: signUpError } =
+            await supabase.auth.admin.createUser({
+                email,
+                password,
+                email_confirm: true,
+                user_metadata: {
+                    first_name: firstName,
+                    last_name: lastName,
+                },
+            })
+
+        if (signUpError) {
+            setError(signUpError.message)
+            return
+        }
+
+        if (data.user) {
+            if (data.user.email_confirmed_at) {
+                router.push('/')
+            } else {
+                setErrorMessage(t('login.check_email_confirmation'))
+            }
+        } else {
+            setError('Signup failed. Please try again.')
         }
     }
-
-    // const handleSubmit = async (e: React.FormEvent) => {
-    //     e.preventDefault()
-    //     const { error } = await supabase.auth.signInWithPassword({
-    //         email,
-    //         password,
-    //     })
-
-    //     if (error) {
-    //         setError(error.message)
-    //     } else {
-    //         router.push(`/${selectedLocale}/home`)
-    //         window.location.reload()
-    //     }
-    // }
 
     const handleGoogleSignIn = async () => {
         const { error } = await supabase.auth.signInWithOAuth({
@@ -57,7 +70,7 @@ export default function LoginPage() {
         })
 
         if (error) {
-            setError(error.message)
+            setErrorMessage(error.message)
         }
     }
 
@@ -77,12 +90,42 @@ export default function LoginPage() {
                 </div>
                 <div className='mt-20 w-full max-w-md space-y-8 rounded-lg bg-white p-8 shadow-xl'>
                     <h2 className='text-center text-3xl font-bold'>
-                        {t('login.title')}
+                        {t('login.signup_title')}
                     </h2>
                     <form
                         className='flex flex-col space-y-4'
                         onSubmit={handleSubmit}
                     >
+                        <div className='flex gap-4'>
+                            <div className='flex-1 space-y-2'>
+                                <Label htmlFor='first_name'>
+                                    {t('login.first_name')}
+                                </Label>
+                                <Input
+                                    id='first_name'
+                                    name='first_name'
+                                    type='text'
+                                    placeholder={t('login.first_name')}
+                                    onChange={(e) =>
+                                        setFirstName(e.target.value)
+                                    }
+                                />
+                            </div>
+                            <div className='flex-1 space-y-2'>
+                                <Label htmlFor='last_name'>
+                                    {t('login.last_name')}
+                                </Label>
+                                <Input
+                                    id='last_name'
+                                    name='last_name'
+                                    type='text'
+                                    placeholder={t('login.last_name')}
+                                    onChange={(e) =>
+                                        setLastName(e.target.value)
+                                    }
+                                />
+                            </div>
+                        </div>
                         <div className='space-y-2'>
                             <Label htmlFor='email'>
                                 {t('login.email_label')}
@@ -91,9 +134,9 @@ export default function LoginPage() {
                                 id='email'
                                 name='email'
                                 type='email'
-                                onChange={(e) => setEmail(e.target.value)}
                                 placeholder={t('login.email_label')}
                                 required
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className='space-y-2'>
@@ -104,9 +147,9 @@ export default function LoginPage() {
                                 id='password'
                                 name='password'
                                 type='password'
-                                onChange={(e) => setPassword(e.target.value)}
                                 placeholder={t('login.password_label')}
                                 required
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
 
@@ -124,16 +167,16 @@ export default function LoginPage() {
                                             d='M12 17q.425 0 .713-.288T13 16t-.288-.712T12 15t-.712.288T11 16t.288.713T12 17m-1-4h2V7h-2zm1 9q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22'
                                         />
                                     </svg>
-                                    {t('login.error_message')}
+                                    {errorMessage}
                                 </div>
                             </div>
                         )}
 
                         <Button
+                            type='submit'
                             className='w-full bg-pink-600 text-white duration-300 hover:bg-pink-900'
-                            formAction={signIn}
                         >
-                            {t('login.login_button')}
+                            {t('login.signup_button')}
                         </Button>
 
                         <div className='flex items-center'>
@@ -155,12 +198,12 @@ export default function LoginPage() {
 
                         <div className='pt-4 text-center'>
                             <p>
-                                {t('login.no_account')}
+                                {t('login.have_account')}
                                 <Link
-                                    href={`/${selectedLocale}/sign-up`}
+                                    href={`/${selectedLocale}/sign-in`}
                                     className='pl-2 text-[#0090e3] hover:underline'
                                 >
-                                    {t('login.signup_button')}
+                                    {t('login.sign_in')}
                                 </Link>
                             </p>
                         </div>

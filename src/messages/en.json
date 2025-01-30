@@ -129,7 +129,9 @@
             "albums": "Albums",
             "postcards": "Postcards",
             "photocards": "Photocards",
-            "merch": "Merch"
+            "merch": "Merch",
+            "quiz": "Quiz",
+            "sign_in": "Sign in"
         },
         "dropdown": {
             "gallery": "Gallery",
@@ -148,10 +150,21 @@
         "back": "Go back"
     },
     "login": {
-        "title": "Login",
+        "title": "Sign in",
         "email_label": "Email address",
         "password_label": "Password",
-        "login_button": "Log in",
-        "signup_button": "Sign up"
+        "login_button": "Sign in",
+        "signup_button": "Sign up",
+        "google_button": "Continue with Google",
+        "or": "or",
+        "no_account": "Don't have an account?",
+        "have_account": "Already have an account?",
+        "signup": "Sign up",
+        "sign_in": "Sign in",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "signup_title": "Sign up",
+        "check_email_confirmation": "Please check your email for a confirmation link.",
+        "error_message": "Invalid email or password"
     }
 }
