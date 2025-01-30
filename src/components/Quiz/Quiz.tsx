@@ -52,9 +52,6 @@ export default function Quiz({
         const newScore = isCorrect ? score + 1 : score
         setScore(newScore)
 
-        console.log('Score: ', score)
-        console.log('New Score: ', newScore)
-
         setAnswerHistory((prev) => [
             ...prev,
             {
