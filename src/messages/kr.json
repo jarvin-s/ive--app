@@ -2,8 +2,8 @@
     "index": {
         "description": "IVE에 대한 데이터, 통계 및 정보 모음.",
         "button": "아이브 컬렉션으로 가기",
-        "quiz_button": "퀴즈 플레이 💭",
-        "merch_button": "상품 🛍️"
+        "quiz_button": "퀴즈 대시보드",
+        "merch_button": "🛍️ 상품"
     },
     "homecards": {
         "photocards": {
@@ -87,8 +87,41 @@
         "restart": "다시 시작",
         "your_score": "당신의 점수: {score}/{total}",
         "correct": "정답입니다!",
-        "incorrect": "틀렸습니다. 정답은: {answer}",
-        "loading": "퀴즈 로딩 중..."
+        "loading": "퀴즈 로딩 중...",
+        "correct_title": "정답입니다!",
+        "correct_description": "잘하셨습니다! 올바른 답변을 선택하셨습니다.",
+        "incorrect_title": "오답입니다",
+        "incorrect_description": "아쉽네요! 정답이 아닙니다. 다음 질문에 도전해보세요!",
+        "quiz_completed": "퀴즈 완료!",
+        "dashboard": {
+            "play_button": "퀴즈 시작",
+            "home_button": "홈으로 돌아가기",
+            "dashboard_button": "대시보드로 돌아가기",
+            "play_again_button": "다시 퀴즈 시작",
+            "quiz_status": {
+                "completed": "완료 ✅",
+                "in_progress": "진행 중 ⏳"
+            }
+        },
+        "configure": {
+            "title": "퀴즈 설정",
+            "category_label": "카테고리",
+            "question_count_label": "문제 수",
+            "question_count_options": {
+                "5": "5 문제",
+                "10": "10 문제",
+                "15": "15 문제",
+                "20": "20 문제"
+            },
+            "start_button": "퀴즈 시작",
+            "categories": {
+                "all": "모든 카테고리",
+                "members": "멤버",
+                "songs": "노래",
+                "albums": "앨범",
+                "facts": "사실"
+            }
+        }
     },
     "navbar": {
         "nav": {
@@ -96,7 +129,9 @@
             "albums": "앨범",
             "postcards": "엽서",
             "photocards": "포토카드",
-            "merch": "상품"
+            "merch": "상품",
+            "quiz": "퀴즈",
+            "sign_in": "로그인"
         },
         "dropdown": {
             "gallery": "갤러리",
@@ -113,5 +148,23 @@
         "description": "죄송합니다. 찾고 있는 페이지가 존재하지 않습니다.",
         "home": "홈",
         "back": "돌아가기"
+    },
+    "login": {
+        "title": "로그인",
+        "email_label": "이메일 주소",
+        "password_label": "비밀번호",
+        "login_button": "로그인",
+        "signup_button": "회원가입",
+        "google_button": "구글로 계속하기",
+        "or": "또는",
+        "no_account": "계정이 없으신가요?",
+        "have_account": "이미 계정이 있으신가요?",
+        "signup": "회원가입",
+        "sign_in": "로그인",
+        "first_name": "이름",
+        "last_name": "성",
+        "signup_title": "회원가입",
+        "check_email_confirmation": "이메일 확인 링크를 확인해 주세요.",
+        "error_message": "잘못된 이메일 또는 비밀번호"
     }
 }

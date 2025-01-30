@@ -2,13 +2,13 @@
     "index": {
         "description": "A collection of data, stats and info about IVE.",
         "button": "Go to IVE collection",
-        "quiz_button": "Play quiz 💭",
-        "merch_button": "Merch 🛍️"
+        "quiz_button": "Quiz dashboard",
+        "merch_button": "🛍️ Merch"
     },
     "homecards": {
         "photocards": {
             "title": "Photocards",
-            "description": "Looking to find a new photocard for your phone case or just curious what’s out there?",
+            "description": "Looking to find a new photocard for your phone case or just curious what's out there?",
             "click": "(click me)"
         },
         "gallery": {
@@ -17,7 +17,7 @@
         },
         "merch": {
             "title": "Merch",
-            "description": "Whether you’re looking for apparel or cute MINIVE figurines, you’ll find a collection every DIVE will love."
+            "description": "Whether you're looking for apparel or cute MINIVE figurines, you'll find a collection every DIVE will love."
         }
     },
     "albums": {
@@ -87,8 +87,41 @@
         "restart": "Restart",
         "your_score": "Your score: {score}/{total}",
         "correct": "Correct!",
-        "incorrect": "Incorrect. The answer was: {answer}",
-        "loading": "Loading quiz..."
+        "loading": "Loading quiz...",
+        "correct_title": "Correct answer!",
+        "correct_description": "Well done! You've chosen the right answer.",
+        "incorrect_title": "Wrong answer",
+        "incorrect_description": "Oops! That wasn't the correct answer.",
+        "quiz_completed": "Quiz completed!",
+        "dashboard": {
+            "play_button": "Play quiz",
+            "home_button": "Back to home",
+            "dashboard_button": "Back to dashboard",
+            "play_again_button": "Play again",
+            "quiz_status": {
+                "completed": "Completed ✅",
+                "in_progress": "In progress ⏳"
+            }
+        },
+        "configure": {
+            "title": "Configure quiz",
+            "category_label": "Category",
+            "question_count_label": "Number of questions",
+            "question_count_options": {
+                "5": "5 questions",
+                "10": "10 questions",
+                "15": "15 questions",
+                "20": "20 questions"
+            },
+            "start_button": "Start quiz",
+            "categories": {
+                "all": "All categories",
+                "members": "Members",
+                "songs": "Songs",
+                "albums": "Albums",
+                "facts": "Facts"
+            }
+        }
     },
     "navbar": {
         "nav": {
@@ -96,7 +129,9 @@
             "albums": "Albums",
             "postcards": "Postcards",
             "photocards": "Photocards",
-            "merch": "Merch"
+            "merch": "Merch",
+            "quiz": "Quiz",
+            "sign_in": "Sign in"
         },
         "dropdown": {
             "gallery": "Gallery",
@@ -113,5 +148,23 @@
         "description": "Sorry, the page you are looking for does not exist.",
         "home": "Home",
         "back": "Go back"
+    },
+    "login": {
+        "title": "Sign in",
+        "email_label": "Email address",
+        "password_label": "Password",
+        "login_button": "Sign in",
+        "signup_button": "Sign up",
+        "google_button": "Continue with Google",
+        "or": "or",
+        "no_account": "Don't have an account?",
+        "have_account": "Already have an account?",
+        "signup": "Sign up",
+        "sign_in": "Sign in",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "signup_title": "Sign up",
+        "check_email_confirmation": "Please check your email for a confirmation link.",
+        "error_message": "Invalid email or password"
     }
 }

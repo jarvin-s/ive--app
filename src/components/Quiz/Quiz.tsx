@@ -1,62 +1,209 @@
 'use client'
 
-import { useState } from 'react'
-import { useTranslations } from 'next-intl'
-import { QuizQuestion } from '@/lib/questions'
-
+import React, { useEffect, useState, useCallback } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
+import { Button } from '../ui/button'
+import { useToast } from '@/hooks/use-toast'
+import { QuizHistory } from '../QuizHistory/QuizHistory'
+import Link from 'next/link'
 interface QuizProps {
-    questions: QuizQuestion[]
+    questions: {
+        question: string
+        options: string[]
+        correct_answer: string
+        incorrect_answers: string[]
+    }[]
     quizId: string
+    initialQuestion: number
+    initialScore: number
 }
 
-export default function Quiz({ questions, quizId }: QuizProps) {
+export default function Quiz({
+    questions,
+    quizId,
+    initialQuestion,
+    initialScore,
+}: QuizProps) {
+    const { toast } = useToast()
     const t = useTranslations('quiz')
-    const [currentQuestion, setCurrentQuestion] = useState(0)
-    const [score, setScore] = useState(0)
-    const [showScore, setShowScore] = useState(false)
+    const currentLocale = useLocale()
+    const [currentQuestion, setCurrentQuestion] = useState(initialQuestion)
+    const [score, setScore] = useState(initialScore)
     const [selectedAnswer, setSelectedAnswer] = useState('')
+    const [answerHistory, setAnswerHistory] = useState<
+        Array<{
+            quizId: string
+            userAnswer: string
+            correctAnswer: string
+            correct: boolean
+        }>
+    >([])
+    const nextQuestion = currentQuestion + 1
+    const isCompleted = nextQuestion > questions.length
 
     const handleAnswerClick = (answer: string) => {
         setSelectedAnswer(answer)
-        if (answer === questions[currentQuestion].correctAnswer) {
-            setScore(score + 1)
-        }
     }
 
-    const handleNext = () => {
-        if (currentQuestion < questions.length - 1) {
-            setCurrentQuestion(currentQuestion + 1)
+    const handleNext = useCallback(async () => {
+        const isCorrect =
+            selectedAnswer === questions[currentQuestion].correct_answer
+
+        const newScore = isCorrect ? score + 1 : score
+        setScore(newScore)
+
+        setAnswerHistory((prev) => [
+            ...prev,
+            {
+                quizId,
+                userAnswer: selectedAnswer,
+                correctAnswer: questions[currentQuestion].correct_answer,
+                correct: isCorrect,
+            },
+        ])
+
+        toast({
+            title: isCorrect ? t('correct_title') : t('incorrect_title'),
+            description: isCorrect
+                ? t('correct_description')
+                : t('incorrect_description'),
+            variant: isCorrect ? 'success' : 'destructive',
+        })
+
+        await fetch('/api/quiz', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                quizId,
+                currentQuestion: nextQuestion,
+                score: newScore,
+                completed: nextQuestion >= questions.length,
+                answerHistory: [
+                    ...answerHistory,
+                    {
+                        quizId,
+                        userAnswer: selectedAnswer,
+                        correctAnswer:
+                            questions[currentQuestion].correct_answer,
+                        correct: isCorrect,
+                    },
+                ],
+            }),
+        })
+
+        if (currentQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion)
             setSelectedAnswer('')
-        } else {
-            setShowScore(true)
         }
+    }, [
+        currentQuestion,
+        questions,
+        selectedAnswer,
+        score,
+        quizId,
+        toast,
+        t,
+        answerHistory,
+        nextQuestion,
+    ])
+
+    const handleRestart = async () => {
+        setAnswerHistory([])
+
+        await fetch('/api/quiz', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                quizId,
+                currentQuestion: 0,
+                score: 0,
+                completed: false,
+                answerHistory: [],
+            }),
+        })
+        setCurrentQuestion(0)
+        setScore(0)
     }
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            const key = event.key
+            if (key === 'Enter' && selectedAnswer) {
+                handleNext()
+            }
+            if (key === '1') {
+                handleAnswerClick(questions[currentQuestion].options[0])
+            }
+            if (key === '2') {
+                handleAnswerClick(questions[currentQuestion].options[1])
+            }
+            if (key === '3') {
+                handleAnswerClick(questions[currentQuestion].options[2])
+            }
+            if (key === '4') {
+                handleAnswerClick(questions[currentQuestion].options[3])
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyDown)
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [handleNext, questions, currentQuestion, selectedAnswer])
 
     return (
-        <div className='flex min-h-screen flex-col items-center bg-stone-950 px-6 pt-20'>
+        <div className='mt-20 flex flex-col items-center justify-center bg-stone-950 p-10 md:p-40'>
             <div className='w-full text-center text-white'>
-                {showScore ? (
+                {isCompleted ? (
                     <div className='text-center'>
-                        <h2 className='mb-4 text-2xl'>
-                            {t('your_score', {
-                                score,
-                                total: questions.length,
-                            })}
-                        </h2>
-                        <button
-                            onClick={() => {
-                                setShowScore(false)
-                                setCurrentQuestion(0)
-                                setScore(0)
-                            }}
+                        <h2 className='mb-4 text-2xl'>{t('quiz_completed')}</h2>
+                        <div>
+                            <h2 className='mb-4 text-2xl'>
+                                {t('your_score', {
+                                    score,
+                                    total: questions.length,
+                                })}
+                            </h2>
+                        </div>
+                        <Button
+                            onClick={handleRestart}
                             className='inline-flex items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
                             text-white duration-150 ease-in-out hover:bg-pink-700'
                         >
                             {t('restart')}
-                        </button>
+                        </Button>
+                        <QuizHistory quizId={quizId} />
                     </div>
                 ) : (
                     <>
+                        <div className='fixed left-2 top-2'>
+                            <Button
+                                asChild
+                                variant={'default'}
+                                size={'sm'}
+                                className='bg-pink-800 text-white hover:bg-pink-700'
+                            >
+                                <Link href={`/${currentLocale}/dashboard`}>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='24'
+                                        height='24'
+                                        viewBox='0 0 24 24'
+                                    >
+                                        <path
+                                            fill='currentColor'
+                                            d='M12.707 17.293L8.414 13H18v-2H8.414l4.293-4.293l-1.414-1.414L4.586 12l6.707 6.707z'
+                                        />
+                                    </svg>
+                                    {t('dashboard.dashboard_button')}
+                                </Link>
+                            </Button>
+                        </div>
                         <h2 className='mb-4 text-xl'>
                             {t('question', {
                                 current: currentQuestion + 1,
@@ -64,37 +211,40 @@ export default function Quiz({ questions, quizId }: QuizProps) {
                             })}
                         </h2>
                         <div className='mb-6'>
-                            <p className='text-3xl font-bold'>
+                            <p className='text-2xl font-bold md:text-3xl'>
                                 {questions[currentQuestion].question}
                             </p>
                         </div>
-                        <div className='mb-6 grid grid-cols-1 gap-4'>
+                        <div className='mb-6 grid w-full grid-cols-1 gap-4 md:grid-cols-2'>
                             {questions[currentQuestion].options.map(
-                                (option) => (
-                                    <button
+                                (option, index) => (
+                                    <Button
                                         key={option}
                                         onClick={() =>
                                             handleAnswerClick(option)
                                         }
-                                        className={`rounded-lg p-4 text-left ${
+                                        className={`flex w-full items-center rounded-lg p-8 text-left text-xl ${
                                             selectedAnswer === option
                                                 ? 'bg-pink-800 text-white'
                                                 : 'bg-stone-800 hover:bg-stone-700'
                                         }`}
                                     >
-                                        {option}
-                                    </button>
+                                        <div className='mr-4 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md border border-white/20 md:mr-5 md:h-10 md:w-10'>
+                                            {index + 1}
+                                        </div>
+                                        <span className='flex-1'>{option}</span>
+                                    </Button>
                                 )
                             )}
                         </div>
-                        <button
+                        <Button
                             onClick={handleNext}
                             disabled={!selectedAnswer}
-                            className='inline-flex w-48 items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
+                            className='inline-flex w-full items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
                             text-white duration-150 ease-in-out hover:bg-pink-700 disabled:opacity-50'
                         >
                             {t('next')}
-                        </button>
+                        </Button>
                     </>
                 )}
             </div>

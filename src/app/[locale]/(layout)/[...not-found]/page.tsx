@@ -14,7 +14,7 @@ export default function NotFound() {
     }
 
     return (
-        <div className='flex min-h-screen flex-col items-center justify-center p-4 text-center md:text-left'>
+        <div className='flex min-h-screen flex-col items-center justify-center p-4 text-center md:text-left mt-10'>
             <div className='rounded-lg border-b-4 border-pink-500 bg-stone-900 p-10'>
                 <h1 className='mb-4 text-5xl font-bold text-pink-600'>
                     {t('title')}
