@@ -5,7 +5,6 @@ import { Gabarito } from 'next/font/google'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
-import { v4 as uuidv4 } from 'uuid'
 import Link from 'next/link'
 
 const gabarito = Gabarito({
@@ -48,7 +47,7 @@ const QuizDashboard = () => {
 
     return (
         <>
-            <div className='flex min-h-screen justify-center bg-zinc-900 px-20'>
+            <div className='flex min-h-screen justify-center bg-zinc-900 px-10'>
                 <div className='mt-20 flex flex-col gap-2'>
                     <h1
                         className={`${gabarito.className} text-center text-5xl uppercase text-pink-600 md:text-7xl`}

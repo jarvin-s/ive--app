@@ -77,7 +77,7 @@ export default function GamePage({ params }: GamePageProps) {
     if (loading) {
         return (
             <div
-                className={`${anton.className} flex min-h-screen items-center justify-center gap-2 text-center text-7xl uppercase text-white md:text-left`}
+                className={`${anton.className} flex min-h-screen flex-col items-center justify-center gap-4 text-center text-7xl uppercase text-white`}
             >
                 <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -109,15 +109,11 @@ export default function GamePage({ params }: GamePageProps) {
     }
 
     return (
-        <div className='min-h-screen bg-white'>
-            <div className='container mx-auto px-4 py-8'>
-                <Quiz
-                    questions={questions}
-                    quizId={params.id}
-                    initialQuestion={session?.current_question || 0}
-                    initialScore={session?.score || 0}
-                />
-            </div>
-        </div>
+        <Quiz
+            questions={questions}
+            quizId={params.id}
+            initialQuestion={session?.current_question || 0}
+            initialScore={session?.score || 0}
+        />
     )
 }

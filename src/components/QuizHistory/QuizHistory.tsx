@@ -1,5 +1,4 @@
 import { createClient } from '@/utils/supabase/client'
-import { useLocale } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 interface AnswerHistory {
@@ -15,7 +14,6 @@ interface QuizHistoryProps {
 
 export function QuizHistory({ quizId }: QuizHistoryProps) {
     const [answerHistory, setAnswerHistory] = useState<AnswerHistory[]>([])
-    const currentLocale = useLocale()
 
     useEffect(() => {
         const fetchHistory = async () => {
@@ -41,7 +39,7 @@ export function QuizHistory({ quizId }: QuizHistoryProps) {
     }, [quizId])
 
     return (
-        <div className='mt-4 space-y-4'>
+        <div className='mt-4 max-h-[400px] space-y-4 overflow-y-auto'>
             <h2 className='text-xl font-bold'>Quiz History</h2>
             {answerHistory.map((answer, index) => (
                 <div

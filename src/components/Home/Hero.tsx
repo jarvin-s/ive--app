@@ -21,7 +21,7 @@ const Hero = () => {
         <>
             <div className='relative mb-20 h-dvh w-screen overflow-x-hidden'>
                 <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-                    <h1 className='text-5xl text-white md:text-9xl'>
+                    <h1 className='text-center text-5xl text-white md:text-9xl'>
                         IVE{' '}
                         <span className='font-bold text-pink-600'>아이브</span>
                     </h1>

@@ -52,6 +52,7 @@ const Navbar = () => {
     })
     const currentLocale = useLocale()
     const [selectedLocale, setSelectedLocale] = useState(currentLocale)
+    const [isOpen, setIsOpen] = useState(false)
     const t = useTranslations('navbar')
 
     useEffect(() => {
@@ -72,7 +73,7 @@ const Navbar = () => {
                 scrolled ? 'bg-transparent' : 'bg-transparent'
             }`}
         >
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                     <Button
                         variant='outline'
@@ -101,6 +102,7 @@ const Navbar = () => {
                             }
                             className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
+                            onClick={() => setIsOpen(false)}
                         >
                             {t('nav.home')}
                         </Link>
@@ -112,6 +114,7 @@ const Navbar = () => {
                             }
                             className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
+                            onClick={() => setIsOpen(false)}
                         >
                             {t('nav.albums')}
                         </Link>
@@ -123,6 +126,7 @@ const Navbar = () => {
                             }
                             className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
+                            onClick={() => setIsOpen(false)}
                         >
                             {t('nav.postcards')}
                         </Link>
@@ -134,6 +138,7 @@ const Navbar = () => {
                             }
                             className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
+                            onClick={() => setIsOpen(false)}
                         >
                             {t('nav.photocards')}
                         </Link>
@@ -145,6 +150,7 @@ const Navbar = () => {
                             }
                             className='flex w-full items-center py-2 text-lg hover:underline'
                             prefetch={false}
+                            onClick={() => setIsOpen(false)}
                         >
                             {t('nav.merch')}
                         </Link>
