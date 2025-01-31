@@ -25,7 +25,6 @@ import {
 } from '@/components/ui/dropdown-menu'
 import LanguageSwitcher from './LanguageSwitcher'
 import Image from 'next/image'
-import SignIn from './Auth/SignIn'
 
 interface Position {
     left: number
