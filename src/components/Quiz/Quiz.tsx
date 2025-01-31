@@ -160,25 +160,52 @@ export default function Quiz({
         <div className='mt-20 flex flex-col items-center justify-center bg-stone-950 p-10 md:p-40'>
             <div className='w-full text-center text-white'>
                 {isCompleted ? (
-                    <div className='text-center'>
-                        <h2 className='mb-4 text-2xl'>{t('quiz_completed')}</h2>
-                        <div>
-                            <h2 className='mb-4 text-2xl'>
-                                {t('your_score', {
-                                    score,
-                                    total: questions.length,
-                                })}
-                            </h2>
+                    <>
+                        <div className='fixed left-2 top-2'>
+                            <Button
+                                asChild
+                                variant={'default'}
+                                size={'sm'}
+                                className='bg-pink-800 text-white hover:bg-pink-700'
+                            >
+                                <Link href={`/${currentLocale}/dashboard`}>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='24'
+                                        height='24'
+                                        viewBox='0 0 24 24'
+                                    >
+                                        <path
+                                            fill='currentColor'
+                                            d='M12.707 17.293L8.414 13H18v-2H8.414l4.293-4.293l-1.414-1.414L4.586 12l6.707 6.707z'
+                                        />
+                                    </svg>
+                                    {t('dashboard.dashboard_button')}
+                                </Link>
+                            </Button>
                         </div>
-                        <Button
-                            onClick={handleRestart}
-                            className='inline-flex items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
+                        <div className='text-center'>
+                            <h2 className='mb-4 text-2xl'>
+                                {t('quiz_completed')}
+                            </h2>
+                            <div>
+                                <h2 className='mb-4 text-2xl'>
+                                    {t('your_score', {
+                                        score,
+                                        total: questions.length,
+                                    })}
+                                </h2>
+                            </div>
+                            <Button
+                                onClick={handleRestart}
+                                className='inline-flex items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
                             text-white duration-150 ease-in-out hover:bg-pink-700'
-                        >
-                            {t('restart')}
-                        </Button>
-                        <QuizHistory quizId={quizId} />
-                    </div>
+                            >
+                                {t('restart')}
+                            </Button>
+                            <QuizHistory quizId={quizId} />
+                        </div>
+                    </>
                 ) : (
                     <>
                         <div className='fixed left-2 top-2'>

@@ -98,10 +98,21 @@
             "home_button": "홈으로 돌아가기",
             "dashboard_button": "대시보드로 돌아가기",
             "play_again_button": "다시 퀴즈 시작",
+            "quiz_history": "퀴즈 기록",
+            "your_answer": "당신의 답변",
+            "correct_answer": "정답",
+            "score": "점수",
+            "no_quiz_history": "퀴즈 기록이 없습니다",
+            "quiz_id": "퀴즈 ID",
             "quiz_status": {
                 "completed": "완료 ✅",
                 "in_progress": "진행 중 ⏳"
             }
+        },
+        "quiz_history": {
+            "title": "퀴즈 기록",
+            "your_answer": "당신의 답변",
+            "correct_answer": "정답"
         },
         "configure": {
             "title": "퀴즈 설정",
