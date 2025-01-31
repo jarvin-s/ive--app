@@ -1,4 +1,5 @@
 import { createClient } from '@/utils/supabase/client'
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 interface AnswerHistory {
@@ -14,7 +15,7 @@ interface QuizHistoryProps {
 
 export function QuizHistory({ quizId }: QuizHistoryProps) {
     const [answerHistory, setAnswerHistory] = useState<AnswerHistory[]>([])
-
+    const t = useTranslations('quiz.quiz_history')
     useEffect(() => {
         const fetchHistory = async () => {
             const supabase = createClient()
@@ -40,7 +41,7 @@ export function QuizHistory({ quizId }: QuizHistoryProps) {
 
     return (
         <div className='mt-4 max-h-[400px] space-y-4 overflow-y-auto'>
-            <h2 className='text-xl font-bold'>Quiz History</h2>
+            <h2 className='text-xl font-bold'>{t('title')}</h2>
             {answerHistory.map((answer, index) => (
                 <div
                     key={index}
@@ -49,10 +50,12 @@ export function QuizHistory({ quizId }: QuizHistoryProps) {
                     }`}
                 >
                     <p className='font-medium'>{answer.questionId}</p>
-                    <p>Your answer: {answer.userAnswer}</p>
+                    <p>
+                        {t('your_answer')}: {answer.userAnswer}
+                    </p>
                     {!answer.correct && (
                         <p className='font-bold text-red-900'>
-                            Correct answer: {answer.correctAnswer}
+                            {t('correct_answer')}: {answer.correctAnswer}
                         </p>
                     )}
                 </div>

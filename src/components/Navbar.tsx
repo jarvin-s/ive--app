@@ -153,6 +153,18 @@ const Navbar = () => {
                         >
                             {t('nav.merch')}
                         </Link>
+                        <Link
+                            href={
+                                selectedLocale === 'en'
+                                    ? '/en/dashboard'
+                                    : '/kr/dashboard'
+                            }
+                            className='flex w-full items-center py-2 text-lg hover:underline'
+                            prefetch={false}
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {t('nav.quiz')}
+                        </Link>
                         <div className='flex py-2 text-lg hover:underline'>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
@@ -278,6 +290,16 @@ const Navbar = () => {
                         >
                             {t('nav.merch')}
                         </Tab>
+                        <Tab
+                            setPosition={setPosition}
+                            href={
+                                selectedLocale === 'en'
+                                    ? '/en/dashboard'
+                                    : '/kr/dashboard'
+                            }
+                        >
+                            {t('nav.quiz')}
+                        </Tab>
 
                         <Tab setPosition={setPosition} href='#'>
                             <DropdownMenu>
@@ -322,12 +344,9 @@ const Navbar = () => {
                             <LanguageSwitcher />
                         </NavigationMenuLink>
 
-                        <Tab
-                            setPosition={setPosition}
-                            href={`/${selectedLocale}/sign-in`}
-                        >
-                            {t('nav.sign_in')}
-                        </Tab>
+                        {/* <Tab setPosition={setPosition} href='#'>
+                            <SignIn />
+                        </Tab> */}
                     </NavigationMenuList>
                 </div>
             </NavigationMenu>

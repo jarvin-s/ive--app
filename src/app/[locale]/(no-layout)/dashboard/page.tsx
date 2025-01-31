@@ -77,8 +77,7 @@ const QuizDashboard = () => {
                             <h1
                                 className={`${gabarito.className} text-4xl uppercase text-white`}
                             >
-                                Quiz{' '}
-                                <span className='text-pink-600'>history</span>
+                                {t('quiz_history')}
                             </h1>
                         </div>
                         <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2'>
@@ -94,14 +93,14 @@ const QuizDashboard = () => {
                                             ).toLocaleDateString('en-GB')}
                                         </span>
                                         <span className='rounded-full bg-pink-600 px-3 py-1 text-sm text-white'>
-                                            Score: {quiz.score}
+                                            {t('score')}: {quiz.score}
                                         </span>
                                     </div>
                                     <div className='flex'>
                                         <div className='text-sm font-bold text-white'>
-                                            ID:{' '}
+                                            {t('quiz_id')}:{' '}
                                             <span
-                                                className='cursor-pointer hover:text-pink-400'
+                                                className='cursor-pointer text-blue-400 hover:underline hover:text-blue-500'
                                                 onClick={() =>
                                                     router.push(
                                                         `/${currentLocale}/game/${quiz.session_id}`
@@ -123,7 +122,7 @@ const QuizDashboard = () => {
                             ))}
                             {pastQuizzes.length === 0 && (
                                 <div className='col-span-full text-center text-4xl font-bold text-zinc-400'>
-                                    No quiz history available
+                                    {t('no_quiz_history')}
                                 </div>
                             )}
                         </div>

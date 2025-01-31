@@ -15,23 +15,20 @@ const anton = Anton({
 
 interface QuizConfig {
     category: string
-    questionCount: number
+    questionCount: string
 }
 
 export default function QuizConfigPage() {
     const t = useTranslations('quiz')
     const locale = useLocale()
     const router = useRouter()
-    const [config, setConfig] = useState<QuizConfig>({
-        category: 'all',
-        questionCount: 10,
-    })
+    const [questionCount, setQuestionCount] = useState(0)
+    const [category, setCategory] = useState('all')
 
     const handleStartQuiz = () => {
         const quizId = uuidv4()
-        router.push(
-            `/${locale}/game/${quizId}?category=${config.category}&count=${config.questionCount}`
-        )
+        localStorage.setItem('questionCount', questionCount.toString())
+        router.push(`/${locale}/game/${quizId}`)
     }
 
     return (
@@ -47,19 +44,14 @@ export default function QuizConfigPage() {
             <div className='mx-2 flex w-full max-w-md flex-col items-center rounded-2xl bg-stone-950 p-10'>
                 <div className='w-full space-y-6 text-white'>
                     <div className='space-y-2'>
-                        <label className='text-red-500 text-lg font-medium'>
+                        <label className='text-lg font-medium text-red-500'>
                             <s className=''>{t('configure.category_label')}</s>
                         </label>
                         <select
                             disabled
                             className='w-full rounded-lg bg-stone-800 p-3 text-white'
-                            value={config.category}
-                            onChange={(e) =>
-                                setConfig((prev) => ({
-                                    ...prev,
-                                    category: e.target.value,
-                                }))
-                            }
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
                         >
                             <option value='all'>
                                 {t('configure.categories.all')}
@@ -85,12 +77,9 @@ export default function QuizConfigPage() {
                         </label>
                         <select
                             className='w-full rounded-lg bg-stone-800 p-3 text-white'
-                            value={config.questionCount}
+                            value={questionCount}
                             onChange={(e) =>
-                                setConfig((prev) => ({
-                                    ...prev,
-                                    questionCount: Number(e.target.value),
-                                }))
+                                setQuestionCount(parseInt(e.target.value))
                             }
                         >
                             <option value='5'>
@@ -101,9 +90,6 @@ export default function QuizConfigPage() {
                             </option>
                             <option value='15'>
                                 {t('configure.question_count_options.15')}
-                            </option>
-                            <option value='20'>
-                                {t('configure.question_count_options.20')}
                             </option>
                         </select>
                     </div>

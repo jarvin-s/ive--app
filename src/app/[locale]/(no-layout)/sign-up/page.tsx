@@ -88,7 +88,7 @@ export default function SignUpPage() {
                         />
                     </Link>
                 </div>
-                <div className='mt-20 w-full max-w-md space-y-8 rounded-lg bg-white p-8 shadow-xl'>
+                <div className='mt-40 w-full max-w-md space-y-8 rounded-lg bg-white p-8 shadow-xl'>
                     <h2 className='text-center text-3xl font-bold'>
                         {t('login.signup_title')}
                     </h2>
