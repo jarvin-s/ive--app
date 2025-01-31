@@ -55,3 +55,24 @@ export async function PUT(request: Request) {
 
     return NextResponse.json({ updatedSession });
 }
+
+export async function POST(request: Request) {
+    const { quizId, questionCount, locale } = await request.json();
+    const supabase = await createClient();
+
+
+    console.log('Question Count:', questionCount);
+
+    const { data: questions, error } = await supabase
+        .from('quiz_questions')
+        .select('*')
+        .eq('language', locale)
+        .limit(questionCount);
+
+    if (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    const shuffledQuestions = shuffleArray([...questions]);
+    return NextResponse.json({ questions: shuffledQuestions });
+}

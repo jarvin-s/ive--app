@@ -27,7 +27,8 @@ export default function QuizConfigPage() {
 
     const handleStartQuiz = () => {
         const quizId = uuidv4()
-        router.push(`/${locale}/game/${quizId}?questionCount=${questionCount}`)
+        localStorage.setItem('questionCount', questionCount.toString())
+        router.push(`/${locale}/game/${quizId}`)
     }
 
     return (
