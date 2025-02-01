@@ -13,23 +13,22 @@ export async function GET(request: Request) {
     const supabase = await createClient();
     const { searchParams } = new URL(request.url);
     const locale = searchParams.get('locale') || 'en';
-    const questionCount = parseInt(searchParams.get('questionCount') ?? '5');
-
-    console.log('Language:', locale);
-    console.log('Question Count:', questionCount, typeof questionCount);
 
     const { data: questions, error } = await supabase
-        .from('quiz_questions')
+        .from('random_questions')
         .select('*')
         .eq('language', locale)
-        .limit(questionCount);
+        .limit(5);
 
     if (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    const shuffledQuestions = shuffleArray([...questions]);
-    return NextResponse.json({ questions: shuffledQuestions });
+    if (!questions || questions.length === 0) {
+        return NextResponse.json({ error: 'No questions found for the specified locale.' }, { status: 404 });
+    }
+
+    return NextResponse.json({ questions: questions });
 }
 
 export async function PUT(request: Request) {
@@ -56,23 +55,23 @@ export async function PUT(request: Request) {
     return NextResponse.json({ updatedSession });
 }
 
-export async function POST(request: Request) {
-    const { quizId, questionCount, locale } = await request.json();
-    const supabase = await createClient();
+// export async function POST(request: Request) {
+//     const { quizId, questionCount, locale } = await request.json();
+//     const supabase = await createClient();
 
 
-    console.log('Question Count:', questionCount);
+//     console.log('Question Count:', questionCount);
 
-    const { data: questions, error } = await supabase
-        .from('quiz_questions')
-        .select('*')
-        .eq('language', locale)
-        .limit(questionCount);
+//     const { data: questions, error } = await supabase
+//         .from('quiz_questions')
+//         .select('*')
+//         .eq('language', locale)
+//         .limit(questionCount);
 
-    if (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
-    }
+//     if (error) {
+//         return NextResponse.json({ error: error.message }, { status: 500 });
+//     }
 
-    const shuffledQuestions = shuffleArray([...questions]);
-    return NextResponse.json({ questions: shuffledQuestions });
-}
+//     const shuffledQuestions = shuffleArray([...questions]);
+//     return NextResponse.json({ questions: shuffledQuestions });
+// }
