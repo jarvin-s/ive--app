@@ -68,6 +68,7 @@ export default function Quiz({
                 ? t('correct_description')
                 : t('incorrect_description'),
             variant: isCorrect ? 'success' : 'destructive',
+            duration: 1500,
         })
 
         await fetch('/api/quiz', {
@@ -131,6 +132,8 @@ export default function Quiz({
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
+            if (isCompleted) return
+
             const key = event.key
             if (key === 'Enter' && selectedAnswer) {
                 handleNext()
@@ -154,7 +157,7 @@ export default function Quiz({
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [handleNext, questions, currentQuestion, selectedAnswer])
+    }, [handleNext, questions, currentQuestion, selectedAnswer, isCompleted])
 
     return (
         <div className='mt-20 flex flex-col items-center justify-center bg-stone-950 p-10 md:p-40'>
