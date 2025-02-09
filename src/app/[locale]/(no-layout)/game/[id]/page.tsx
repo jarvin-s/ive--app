@@ -22,6 +22,12 @@ interface QuizSession {
     current_question: number
     score: number
     questions: any[]
+    answer_history: Array<{
+        quizId: string
+        userAnswer: string
+        correctAnswer: string
+        correct: boolean
+    }>
 }
 
 export default function GamePage({ params }: GamePageProps) {
@@ -114,6 +120,7 @@ export default function GamePage({ params }: GamePageProps) {
             quizId={params.id}
             initialQuestion={session?.current_question || 0}
             initialScore={session?.score || 0}
+            initialAnswerHistory={session?.answer_history || []}
         />
     )
 }

@@ -6,6 +6,7 @@ import { Button } from '../ui/button'
 import { useToast } from '@/hooks/use-toast'
 import { QuizHistory } from '../QuizHistory/QuizHistory'
 import Link from 'next/link'
+
 interface QuizProps {
     questions: {
         question: string
@@ -16,6 +17,12 @@ interface QuizProps {
     quizId: string
     initialQuestion: number
     initialScore: number
+    initialAnswerHistory: Array<{
+        quizId: string
+        userAnswer: string
+        correctAnswer: string
+        correct: boolean
+    }>
 }
 
 export default function Quiz({
@@ -23,6 +30,7 @@ export default function Quiz({
     quizId,
     initialQuestion,
     initialScore,
+    initialAnswerHistory = [],
 }: QuizProps) {
     const { toast } = useToast()
     const t = useTranslations('quiz')
@@ -37,7 +45,7 @@ export default function Quiz({
             correctAnswer: string
             correct: boolean
         }>
-    >([])
+    >(initialAnswerHistory)
     const nextQuestion = currentQuestion + 1
     const isCompleted = nextQuestion > questions.length
 
