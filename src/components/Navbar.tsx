@@ -94,7 +94,7 @@ const Navbar = () => {
                                 size='icon'
                                 className='lg:hidden'
                             >
-                                <MenuIcon className='h-6 w-4' />
+                                <MenuIcon className='h-10 w-8' />
                                 <span className='sr-only'>
                                     Toggle navigation menu
                                 </span>
