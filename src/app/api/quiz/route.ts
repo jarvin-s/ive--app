@@ -18,7 +18,7 @@ export async function GET(request: Request) {
         .from('random_questions')
         .select('*')
         .eq('language', locale)
-        .limit(5);
+        .limit(10);
 
     if (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });

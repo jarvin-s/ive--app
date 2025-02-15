@@ -6,6 +6,7 @@ import { Button } from '../ui/button'
 import { useToast } from '@/hooks/use-toast'
 import { QuizHistory } from '../QuizHistory/QuizHistory'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface QuizProps {
     questions: {
@@ -13,6 +14,7 @@ interface QuizProps {
         options: string[]
         correct_answer: string
         incorrect_answers: string[]
+        image?: string
     }[]
     quizId: string
     initialQuestion: number
@@ -249,6 +251,21 @@ export default function Quiz({
                             })}
                         </h2>
                         <div className='mb-6'>
+                            {questions[currentQuestion].image && (
+                                <div className='flex justify-center'>
+                                    <Image
+                                        src={
+                                            questions[currentQuestion].image ||
+                                            '/default-image.png'
+                                        }
+                                        alt='Question Image'
+                                        layout='responsive'
+                                        width={300}
+                                        height={200}
+                                        className='mb-4 rounded-lg'
+                                    />
+                                </div>
+                            )}
                             <p className='text-2xl font-bold md:text-3xl'>
                                 {questions[currentQuestion].question}
                             </p>

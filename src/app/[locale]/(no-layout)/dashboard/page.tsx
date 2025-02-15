@@ -100,7 +100,7 @@ const QuizDashboard = () => {
                                         <div className='text-sm font-bold text-white'>
                                             {t('quiz_id')}:{' '}
                                             <span
-                                                className='cursor-pointer text-blue-400 hover:underline hover:text-blue-500'
+                                                className='cursor-pointer text-blue-400 hover:text-blue-500 hover:underline'
                                                 onClick={() =>
                                                     router.push(
                                                         `/${currentLocale}/game/${quiz.session_id}`
