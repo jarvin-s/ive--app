@@ -259,8 +259,7 @@ export default function Quiz({
                                             '/default-image.png'
                                         }
                                         alt='Question Image'
-                                        layout='responsive'
-                                        width={300}
+                                        width={400}
                                         height={200}
                                         className='mb-4 rounded-lg'
                                     />
