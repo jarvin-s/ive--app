@@ -28,7 +28,8 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: 'No questions found for the specified locale.' }, { status: 404 });
     }
 
-    return NextResponse.json({ questions: questions });
+    const shuffledQuestions = shuffleArray(questions);
+    return NextResponse.json({ questions: shuffledQuestions });
 }
 
 export async function PUT(request: Request) {

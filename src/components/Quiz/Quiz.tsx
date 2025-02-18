@@ -294,8 +294,8 @@ export default function Quiz({
                         <Button
                             onClick={handleNext}
                             disabled={!selectedAnswer}
-                            className='inline-flex w-full items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
-                            text-white duration-150 ease-in-out hover:bg-pink-700 disabled:opacity-50'
+                            className='inline-flex w-full items-center justify-center rounded-lg bg-pink-800 px-4 py-5 text-xl
+                            text-white hover:bg-pink-700 disabled:opacity-50'
                         >
                             {t('next')}
                         </Button>
