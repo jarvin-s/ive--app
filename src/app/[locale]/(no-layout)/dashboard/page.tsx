@@ -1,13 +1,13 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Gabarito } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
-const gabarito = Gabarito({
+const inter = Inter({
     weight: ['900'],
     subsets: ['latin'],
 })
@@ -50,7 +50,7 @@ const QuizDashboard = () => {
             <div className='flex min-h-screen justify-center bg-zinc-900 px-10'>
                 <div className='mt-20 flex flex-col gap-2'>
                     <h1
-                        className={`${gabarito.className} text-center text-5xl uppercase text-pink-600 md:text-7xl`}
+                        className={`${inter.className} text-center text-5xl uppercase text-pink-600 md:text-7xl`}
                     >
                         <span className='text-white'>Quiz</span> dashboard
                     </h1>
@@ -75,7 +75,7 @@ const QuizDashboard = () => {
                     <div className='mt-4'>
                         <div className='flex justify-center gap-2'>
                             <h1
-                                className={`${gabarito.className} text-4xl uppercase text-white`}
+                                className={`${inter.className} text-4xl uppercase text-white`}
                             >
                                 {t('quiz_history')}
                             </h1>
@@ -100,7 +100,7 @@ const QuizDashboard = () => {
                                         <div className='text-sm font-bold text-white'>
                                             {t('quiz_id')}:{' '}
                                             <span
-                                                className='cursor-pointer text-blue-400 hover:underline hover:text-blue-500'
+                                                className='cursor-pointer text-blue-400 hover:text-blue-500 hover:underline'
                                                 onClick={() =>
                                                     router.push(
                                                         `/${currentLocale}/game/${quiz.session_id}`

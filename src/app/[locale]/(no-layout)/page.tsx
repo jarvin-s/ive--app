@@ -43,18 +43,19 @@ const Home = () => {
                                 {t('description')}
                             </span>
                         </h4>
-                        <div className='mt-2 grid grid-rows-2 gap-2'>
-                            <Link
-                                href={
-                                    selectedLocale == 'en'
-                                        ? '/en/home'
-                                        : '/kr/home'
-                                }
+                        <div className='mx-auto mt-2 flex max-w-sm   flex-col gap-2'>
+                            <Button
+                                asChild
+                                type='button'
+                                className='items-center justify-center rounded-lg bg-pink-800 px-2 py-2 text-sm
+                                text-white hover:bg-pink-700'
                             >
-                                <Button
-                                    type='button'
-                                    className='inline-flex w-[50%] items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
-                                text-white duration-300 ease-in-out hover:bg-pink-400'
+                                <Link
+                                    href={
+                                        selectedLocale == 'en'
+                                            ? '/en/home'
+                                            : '/kr/home'
+                                    }
                                 >
                                     {t('button')}
                                     <svg
@@ -72,23 +73,24 @@ const Home = () => {
                                         <path d='M5 12h14'></path>
                                         <path d='m12 5 7 7-7 7'></path>
                                     </svg>
-                                </Button>
-                            </Link>
-                            <Link
-                                href={
-                                    selectedLocale == 'en'
-                                        ? '/en/dashboard'
-                                        : '/kr/dashboard'
-                                }
+                                </Link>
+                            </Button>
+                            <Button
+                                asChild
+                                type='button'
+                                className=' items-center justify-center rounded-lg bg-pink-800 px-2 py-2 text-sm
+                                text-white hover:bg-pink-700'
                             >
-                                <Button
-                                    type='button'
-                                    className='inline-flex w-[50%] items-center justify-center rounded-lg border-2 bg-pink-600 px-2 py-2 text-sm
-                                text-white duration-300 ease-in-out hover:bg-pink-400'
+                                <Link
+                                    href={
+                                        selectedLocale == 'en'
+                                            ? '/en/dashboard'
+                                            : '/kr/dashboard'
+                                    }
                                 >
                                     {t('quiz_button')}
-                                </Button>
-                            </Link>
+                                </Link>
+                            </Button>
                         </div>
                         <div className='mt-10 flex justify-center px-4'>
                             <div className='group relative w-[15rem] gap-2 pt-4 md:w-[20rem]'>

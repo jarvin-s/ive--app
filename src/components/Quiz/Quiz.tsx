@@ -6,16 +6,25 @@ import { Button } from '../ui/button'
 import { useToast } from '@/hooks/use-toast'
 import { QuizHistory } from '../QuizHistory/QuizHistory'
 import Link from 'next/link'
+import Image from 'next/image'
+
 interface QuizProps {
     questions: {
         question: string
         options: string[]
         correct_answer: string
         incorrect_answers: string[]
+        image?: string
     }[]
     quizId: string
     initialQuestion: number
     initialScore: number
+    initialAnswerHistory: Array<{
+        quizId: string
+        userAnswer: string
+        correctAnswer: string
+        correct: boolean
+    }>
 }
 
 export default function Quiz({
@@ -23,6 +32,7 @@ export default function Quiz({
     quizId,
     initialQuestion,
     initialScore,
+    initialAnswerHistory = [],
 }: QuizProps) {
     const { toast } = useToast()
     const t = useTranslations('quiz')
@@ -30,6 +40,7 @@ export default function Quiz({
     const [currentQuestion, setCurrentQuestion] = useState(initialQuestion)
     const [score, setScore] = useState(initialScore)
     const [selectedAnswer, setSelectedAnswer] = useState('')
+    const [isSubmitting, setIsSubmitting] = useState(false)
     const [answerHistory, setAnswerHistory] = useState<
         Array<{
             quizId: string
@@ -37,7 +48,7 @@ export default function Quiz({
             correctAnswer: string
             correct: boolean
         }>
-    >([])
+    >(initialAnswerHistory)
     const nextQuestion = currentQuestion + 1
     const isCompleted = nextQuestion > questions.length
 
@@ -46,6 +57,9 @@ export default function Quiz({
     }
 
     const handleNext = useCallback(async () => {
+        if (isSubmitting) return
+        setIsSubmitting(true)
+
         const isCorrect =
             selectedAnswer === questions[currentQuestion].correct_answer
 
@@ -98,6 +112,7 @@ export default function Quiz({
             setCurrentQuestion(nextQuestion)
             setSelectedAnswer('')
         }
+        setIsSubmitting(false)
     }, [
         currentQuestion,
         questions,
@@ -108,6 +123,7 @@ export default function Quiz({
         t,
         answerHistory,
         nextQuestion,
+        isSubmitting,
     ])
 
     const handleRestart = async () => {
@@ -135,7 +151,7 @@ export default function Quiz({
             if (isCompleted) return
 
             const key = event.key
-            if (key === 'Enter' && selectedAnswer) {
+            if (key === 'Enter' && selectedAnswer && !isSubmitting) {
                 handleNext()
             }
             if (key === '1') {
@@ -157,7 +173,7 @@ export default function Quiz({
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [handleNext, questions, currentQuestion, selectedAnswer, isCompleted])
+    }, [handleNext, questions, currentQuestion, selectedAnswer, isCompleted, isSubmitting])
 
     return (
         <div className='mt-20 flex flex-col items-center justify-center bg-stone-950 p-10 md:p-40'>
@@ -201,8 +217,8 @@ export default function Quiz({
                             </div>
                             <Button
                                 onClick={handleRestart}
-                                className='inline-flex items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
-                            text-white duration-150 ease-in-out hover:bg-pink-700'
+                                className='inline-flex items-center justify-center rounded-lg bg-pink-800 px-4 py-5 text-xl
+                            text-white hover:bg-pink-700'
                             >
                                 {t('restart')}
                             </Button>
@@ -241,6 +257,20 @@ export default function Quiz({
                             })}
                         </h2>
                         <div className='mb-6'>
+                            {questions[currentQuestion].image && (
+                                <div className='flex justify-center'>
+                                    <Image
+                                        src={
+                                            questions[currentQuestion].image ||
+                                            '/default-image.png'
+                                        }
+                                        alt='Question Image'
+                                        width={400}
+                                        height={200}
+                                        className='mb-4 rounded-lg'
+                                    />
+                                </div>
+                            )}
                             <p className='text-2xl font-bold md:text-3xl'>
                                 {questions[currentQuestion].question}
                             </p>
@@ -269,9 +299,9 @@ export default function Quiz({
                         </div>
                         <Button
                             onClick={handleNext}
-                            disabled={!selectedAnswer}
-                            className='inline-flex w-full items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
-                            text-white duration-150 ease-in-out hover:bg-pink-700 disabled:opacity-50'
+                            disabled={!selectedAnswer || isSubmitting}
+                            className='inline-flex w-full items-center justify-center rounded-lg bg-pink-800 px-4 py-5 text-xl
+                            text-white hover:bg-pink-700 disabled:opacity-50'
                         >
                             {t('next')}
                         </Button>

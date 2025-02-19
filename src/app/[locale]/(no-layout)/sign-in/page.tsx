@@ -26,30 +26,30 @@ export default function LoginPage() {
         setSelectedLocale(currentLocale)
     }, [currentLocale])
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
-        const result = await signIn(formData)
+    // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault()
+    //     const formData = new FormData(event.currentTarget)
+    //     const result = await signIn(formData)
 
-        if (result?.error) {
-            setErrorMessage(result.error)
-        }
-    }
-
-    // const handleSubmit = async (e: React.FormEvent) => {
-    //     e.preventDefault()
-    //     const { error } = await supabase.auth.signInWithPassword({
-    //         email,
-    //         password,
-    //     })
-
-    //     if (error) {
-    //         setError(error.message)
-    //     } else {
-    //         router.push(`/${selectedLocale}/home`)
-    //         window.location.reload()
+    //     if (result?.error) {
+    //         setErrorMessage(result.error)
     //     }
     // }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        const { error } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        })
+
+        if (error) {
+            setError(error.message)
+        } else {
+            router.push(`/${selectedLocale}/home`)
+            window.location.reload()
+        }
+    }
 
     const handleGoogleSignIn = async () => {
         const { error } = await supabase.auth.signInWithOAuth({
@@ -130,8 +130,8 @@ export default function LoginPage() {
                         )}
 
                         <Button
+                            type='submit'
                             className='w-full bg-pink-600 text-white duration-300 hover:bg-pink-900'
-                            formAction={signIn}
                         >
                             {t('login.login_button')}
                         </Button>

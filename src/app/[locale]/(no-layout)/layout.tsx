@@ -2,11 +2,11 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Inter_Tight } from 'next/font/google'
 import '../../globals.css'
 import { Toaster } from '@/components/ui/toaster'
 
-const inter = Poppins({
+const inter_tight = Inter_Tight({
     weight: ['200', '300', '400', '500', '600', '700', '800'],
     subsets: ['latin'],
 })
@@ -27,7 +27,7 @@ export default async function RootLayout({
 
     return (
         <html lang={locale}>
-            <body className={`${inter.className}`}>
+            <body className={`${inter_tight.className}`}>
                 <NextIntlClientProvider messages={messages}>
                     {children}
                     <Toaster />

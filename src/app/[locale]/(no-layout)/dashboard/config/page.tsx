@@ -35,7 +35,7 @@ export default function QuizConfigPage() {
         <div className='mt-20 flex flex-col items-center'>
             <Link href={'/'}>
                 <h1
-                    className={`${anton.className} mb-20 text-center text-7xl font-bold uppercase text-white md:text-left`}
+                    className={`${anton.className} text-center text-7xl font-bold uppercase text-white md:text-left`}
                 >
                     {t('title')}
                 </h1>
