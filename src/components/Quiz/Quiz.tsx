@@ -40,6 +40,7 @@ export default function Quiz({
     const [currentQuestion, setCurrentQuestion] = useState(initialQuestion)
     const [score, setScore] = useState(initialScore)
     const [selectedAnswer, setSelectedAnswer] = useState('')
+    const [isSubmitting, setIsSubmitting] = useState(false)
     const [answerHistory, setAnswerHistory] = useState<
         Array<{
             quizId: string
@@ -56,6 +57,9 @@ export default function Quiz({
     }
 
     const handleNext = useCallback(async () => {
+        if (isSubmitting) return
+        setIsSubmitting(true)
+
         const isCorrect =
             selectedAnswer === questions[currentQuestion].correct_answer
 
@@ -108,6 +112,7 @@ export default function Quiz({
             setCurrentQuestion(nextQuestion)
             setSelectedAnswer('')
         }
+        setIsSubmitting(false)
     }, [
         currentQuestion,
         questions,
@@ -118,6 +123,7 @@ export default function Quiz({
         t,
         answerHistory,
         nextQuestion,
+        isSubmitting,
     ])
 
     const handleRestart = async () => {
@@ -145,7 +151,7 @@ export default function Quiz({
             if (isCompleted) return
 
             const key = event.key
-            if (key === 'Enter' && selectedAnswer) {
+            if (key === 'Enter' && selectedAnswer && !isSubmitting) {
                 handleNext()
             }
             if (key === '1') {
@@ -167,7 +173,7 @@ export default function Quiz({
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [handleNext, questions, currentQuestion, selectedAnswer, isCompleted])
+    }, [handleNext, questions, currentQuestion, selectedAnswer, isCompleted, isSubmitting])
 
     return (
         <div className='mt-20 flex flex-col items-center justify-center bg-stone-950 p-10 md:p-40'>
@@ -211,8 +217,8 @@ export default function Quiz({
                             </div>
                             <Button
                                 onClick={handleRestart}
-                                className='inline-flex items-center justify-center rounded-lg border-2 bg-pink-800 px-4 py-5 text-xl
-                            text-white duration-150 ease-in-out hover:bg-pink-700'
+                                className='inline-flex items-center justify-center rounded-lg bg-pink-800 px-4 py-5 text-xl
+                            text-white hover:bg-pink-700'
                             >
                                 {t('restart')}
                             </Button>
@@ -293,7 +299,7 @@ export default function Quiz({
                         </div>
                         <Button
                             onClick={handleNext}
-                            disabled={!selectedAnswer}
+                            disabled={!selectedAnswer || isSubmitting}
                             className='inline-flex w-full items-center justify-center rounded-lg bg-pink-800 px-4 py-5 text-xl
                             text-white hover:bg-pink-700 disabled:opacity-50'
                         >

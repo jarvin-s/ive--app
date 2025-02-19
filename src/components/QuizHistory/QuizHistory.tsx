@@ -46,7 +46,9 @@ export function QuizHistory({ quizId }: QuizHistoryProps) {
                 <div
                     key={index}
                     className={`rounded-lg p-4 ${
-                        answer.correct ? 'bg-green-400' : 'bg-red-300'
+                        answer.correct
+                            ? 'bg-[#C3F3D7] text-[#51a775]'
+                            : 'bg-[#f3c3c3] text-[#a75151]'
                     }`}
                 >
                     <p className='font-medium'>{answer.questionId}</p>
