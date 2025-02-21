@@ -18,7 +18,6 @@ export async function GET(request: Request) {
         .from('quiz_questions')
         .select('*')
         .eq('language', locale)
-        .order('random()', { ascending: true })
         .limit(10);
 
     if (error) {
@@ -29,7 +28,7 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: 'No questions found for the specified locale.' }, { status: 404 });
     }
 
-    const shuffledQuestions = shuffleArray(questions);
+    const shuffledQuestions = shuffleArray([...questions]);
     return NextResponse.json({ questions: shuffledQuestions });
 }
 
