@@ -15,10 +15,9 @@ export async function GET(request: Request) {
     const locale = searchParams.get('locale') || 'en';
 
     const { data: questions, error } = await supabase
-        .from('quiz_questions')
+        .from('random_questions')
         .select('*')
         .eq('language', locale)
-        .limit(10);
 
     if (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });
