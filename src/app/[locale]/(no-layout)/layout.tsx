@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Inter_Tight } from 'next/font/google'
 import '../../globals.css'
 import { Toaster } from '@/components/ui/toaster'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter_tight = Inter_Tight({
     weight: ['200', '300', '400', '500', '600', '700', '800'],
@@ -30,6 +31,7 @@ export default async function RootLayout({
             <body className={`${inter_tight.className}`}>
                 <NextIntlClientProvider messages={messages}>
                     {children}
+                    <Analytics />
                     <Toaster />
                 </NextIntlClientProvider>
             </body>
