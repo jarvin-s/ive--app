@@ -6,6 +6,7 @@ import '../../globals.css'
 import Navbar from '@/components/Navbar'
 import { Toaster } from '@/components/ui/toaster'
 import NextTopLoader from 'nextjs-toploader'
+import { Analytics } from '@vercel/analytics/react'
 
 const anton = Anton({
     weight: ['400'],
@@ -41,6 +42,7 @@ export default async function RootLayout({
                     <Navbar />
                     {children}
                     <Toaster />
+                    <Analytics />
                 </NextIntlClientProvider>
             </body>
         </html>

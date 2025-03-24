@@ -173,7 +173,14 @@ export default function Quiz({
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [handleNext, questions, currentQuestion, selectedAnswer, isCompleted, isSubmitting])
+    }, [
+        handleNext,
+        questions,
+        currentQuestion,
+        selectedAnswer,
+        isCompleted,
+        isSubmitting,
+    ])
 
     return (
         <div className='mt-20 flex flex-col items-center justify-center bg-stone-950 p-10 md:p-40'>
@@ -215,13 +222,26 @@ export default function Quiz({
                                     })}
                                 </h2>
                             </div>
-                            <Button
-                                onClick={handleRestart}
-                                className='inline-flex items-center justify-center rounded-lg bg-pink-800 px-4 py-5 text-xl
-                            text-white hover:bg-pink-700'
-                            >
-                                {t('restart')}
-                            </Button>
+                            <div className='flex justify-center gap-4'>
+                                <Button
+                                    onClick={handleRestart}
+                                    className='inline-flex items-center justify-center rounded-lg bg-pink-800 px-4 py-5 text-xl
+                                    text-white hover:bg-pink-700'
+                                >
+                                    {t('dashboard.play_again_button')}
+                                </Button>
+                                <Button
+                                    asChild
+                                    className='inline-flex items-center justify-center rounded-lg bg-pink-800 px-4 py-5 text-xl
+                                    text-white hover:bg-pink-700'
+                                >
+                                    <Link
+                                        href={`/${currentLocale}/dashboard/config`}
+                                    >
+                                        {t('dashboard.new_quiz_button')}
+                                    </Link>
+                                </Button>
+                            </div>
                             <QuizHistory quizId={quizId} />
                         </div>
                     </>

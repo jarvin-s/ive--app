@@ -84,7 +84,7 @@
         "question": "Question {current}/{total}",
         "next": "Next",
         "submit": "Submit",
-        "restart": "Restart",
+        "play_again": "Play again",
         "your_score": "Your score: {score}/{total}",
         "correct": "Correct!",
         "loading": "Loading quiz...",
@@ -95,6 +95,7 @@
         "quiz_completed": "Quiz completed!",
         "dashboard": {
             "play_button": "Play quiz",
+            "new_quiz_button": "New quiz",
             "home_button": "Back to home",
             "dashboard_button": "Back to dashboard",
             "play_again_button": "Play again",
