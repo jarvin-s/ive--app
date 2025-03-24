@@ -108,7 +108,9 @@
             "quiz_status": {
                 "completed": "완료 ✅",
                 "in_progress": "진행 중 ⏳"
-            }
+            },
+            "title": "퀴즈",
+            "title2": "대시보드"
         },
         "quiz_history": {
             "title": "퀴즈 기록",

@@ -52,7 +52,7 @@ const QuizDashboard = () => {
                     <h1
                         className={`${inter.className} text-center text-5xl uppercase text-pink-600 md:text-7xl`}
                     >
-                        <span className='text-white'>Quiz</span> dashboard
+                        <span className='text-white'>{t('title')}</span> {t('title2')}
                     </h1>
                     <div className='grid grid-cols-1 gap-2 md:grid-cols-2'>
                         <Button

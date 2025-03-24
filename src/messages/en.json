@@ -108,7 +108,9 @@
             "quiz_status": {
                 "completed": "Completed ✅",
                 "in_progress": "In progress ⏳"
-            }
+            },
+            "title": "Quiz",
+            "title2": "dashboard"
         },
         "quiz_history": {
             "title": "Quiz history",
